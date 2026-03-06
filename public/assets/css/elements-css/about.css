@@ -1,0 +1,261 @@
+.about__section {
+  padding: 0;
+  background-image: url(/assets/images/background/about_bg_image_mobile.webp);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #f3f5f7;
+}
+
+.about__main-column {
+  margin: 10rem 0 7rem 0;
+}
+
+.image_block .image-box {
+  display: block;
+  margin-top: 25rem;
+  border-radius: 10px;
+  padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.221) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.199) 0px 4px 6px -2px;
+}
+.proyects__card {
+  &:hover .aboutcard__bar {
+    width: 100px;
+  }
+}
+
+.aboutcard__text {
+  padding: 0;
+  text-align: left;
+  max-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  grid-area: text;
+
+  &:hover .aboutcard__bar {
+    width: 100px;
+  }
+}
+.aboutcard__preview-txt {
+  overflow: hidden;
+  color: black;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  text-align: justify;
+  margin-bottom: 1rem;
+}
+
+.aboutcard__text-inner {
+  padding: 4rem 3rem 0rem 3rem;
+}
+
+.aboutcard__bar {
+  width: 50px;
+  height: 7px;
+  margin: 10px 0;
+  border-radius: 2px;
+  background-color: #015c93;
+  transition: width 0.2s ease;
+}
+
+.aboutcard__buttons {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.aboutcard__buttons-btn-video {
+  height: 5.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #015c93;
+  border-radius: 5px 5px 0 0;
+
+  p {
+    font-size: 1rem;
+    color: #f3f5f7;
+  }
+}
+.aboutcard__buttons-btn-video button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutcard__buttons-btn-contact {
+  height: 5.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f5f7;
+  border: solid black 1px;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+}
+.aboutcard__buttons-btn-contact button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.image_block .image-box .video-btn {
+  position: absolute;
+  left: 160px;
+  bottom: 190px;
+}
+
+.image_block .image-box .video-btn a {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  line-height: 160px;
+  text-align: center;
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  border-radius: 50%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.image_block .image-box .video-btn a:before,
+.image_block .image-box .video-btn a:after {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-animation-delay: 0.9s;
+  animation-delay: 0.9s;
+  content: "";
+  position: absolute;
+  -webkit-box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+  -webkit-animation: ripple 3s infinite;
+  animation: ripple 3s infinite;
+  -webkit-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+.image_block .image-box .video-btn a:after {
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+.modalvideo__section {
+  width: 100vw;
+  height: 80vh;
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.766);
+
+  .modalvideo__section-bg {
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  .modalvideo__section-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .exit__button-card {
+      position: relative;
+      top: -30%;
+      left: -8%;
+    }
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .about__section {
+    margin-top: 7rem;
+    background-image: url(/assets/images/background/about_bg_image.webp);
+  }
+  
+  .about__main-column {
+    width: 80%;
+    margin-top: 18rem;
+    margin-left: 7rem;
+  }
+
+  .image_block .image-box {
+    margin-left: 2rem;
+    margin-top: 7rem;
+  }
+  .aboutcard__text-inner {
+    margin-left: 0.8rem;
+  }
+  .aboutcard__preview-txt {
+    font-size: 100%;
+    padding: 2rem 0;
+  }
+  .aboutcard__buttons {
+    height: 10rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+    grid-template-areas: 50% 50%;
+  }
+  .aboutcard__buttons-btn-video {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #015c93;
+
+    p {
+      font-size: 100%;
+      color: currentColor;
+    }
+  }
+  .aboutcard__buttons-btn-contact {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f5f7;
+    border: none;
+    border-radius: none;
+
+    button {
+      padding: 1rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-items: center;
+      p {
+        font-size: 100%;
+        color: currentColor;
+      }
+    }
+  }
+  .modalvideo__section {
+    height: 100vh;
+    .modalvideo__section-inner .exit__button-card {
+      left: 5%;
+    }
+  }
+}
+
+@media screen and (min-width: 1260px) {
+  .about__main-column {
+    width: 50%;
+    margin-top: 6rem;
+    margin-left: 10rem;
+  }
+}

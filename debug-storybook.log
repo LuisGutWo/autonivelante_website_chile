@@ -1,0 +1,39 @@
+[22:16:31.602] [INFO] storybook v10.2.15
+[22:16:32.447] [DEBUG] Getting package.json info for C:/autonivelante_website_chile-main/package.json...
+[22:16:32.450] [WARN] You are currently using Storybook [1m10.2.15[22m but you have packages which are incompatible with it:
+
+- @storybook/addon-essentials@8.6.14 which depends on 8.6.14
+ Repo: https://github.com/storybookjs/storybook/tree/next/code/addons/essentials
+- @storybook/addon-interactions@8.6.14 which depends on 8.6.14
+ Repo: https://github.com/storybookjs/storybook/tree/next/code/addons/interactions
+- @storybook/blocks@8.6.14 which depends on ^8.6.14
+ Repo: https://github.com/storybookjs/storybook/tree/next/code/lib/blocks
+
+Please consider updating your packages or contacting the maintainers for compatibility details.
+
+For more details on compatibility guidance, see:
+https://github.com/storybookjs/storybook/issues/32836
+[22:16:34.105] [DEBUG] Serving static files from [36mpublic[39m at [36m/[39m
+[22:16:34.113] [INFO] Starting...
+[22:16:34.182] [WARN] No story files found for the specified pattern: [34msrc\**\*.mdx[39m
+[22:16:34.585] [DEBUG] Starting preview..
+[22:16:34.652] [INFO] Using implicit CSS loaders
+[22:16:35.393] [INFO] Using SWC as compiler
+[22:16:35.420] [INFO] Using default Webpack5 setup
+[22:16:36.726] [DEBUG] Using tsconfig paths for react-docgen
+[22:16:43.062] [ERROR] Failed to build the preview
+[22:16:43.067] [WARN] Force closed preview build
+[22:16:43.071] [ERROR] [38;2;241;97;97mSB_BUILDER-WEBPACK5_0003 (WebpackCompilationError): There were problems when compiling your code with Webpack.
+Run Storybook with --debug-webpack for more information.[39m
+    at starter (file:///C:/autonivelante_website_chile-main/node_modules/@storybook/builder-webpack5/dist/index.js:799:11)
+    at starter.next (<anonymous>)
+    at Module.start (file:///C:/autonivelante_website_chile-main/node_modules/@storybook/builder-webpack5/dist/index.js:857:34)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async storybookDevServer (file:///C:/autonivelante_website_chile-main/node_modules/storybook/dist/core-server/index.js:7241:83)
+    at async buildOrThrow (file:///C:/autonivelante_website_chile-main/node_modules/storybook/dist/core-server/index.js:4504:12)
+    at async buildDevStandalone (file:///C:/autonivelante_website_chile-main/node_modules/storybook/dist/core-server/index.js:7611:66)
+    at async withTelemetry (file:///C:/autonivelante_website_chile-main/node_modules/storybook/dist/_node-chunks/chunk-JGB33OAY.js:218:12)
+    at async dev (file:///C:/autonivelante_website_chile-main/node_modules/storybook/dist/bin/core.js:2734:3)
+    at async _Command.<anonymous> (file:///C:/autonivelante_website_chile-main/node_modules/storybook/dist/bin/core.js:2804:92)
+[22:16:43.083] [WARN] Broken build, fix the error above.
+You may need to refresh the browser.

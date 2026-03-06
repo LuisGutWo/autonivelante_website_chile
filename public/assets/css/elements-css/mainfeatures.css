@@ -1,0 +1,356 @@
+.mainfeat-section {
+  margin: 5rem 0 6rem 0;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  place-items: initial;
+}
+.mainfeat__bar-2 {
+  width: 50px;
+  height: 7px;
+  margin: 10px 0;
+  border-radius: 2.5px;
+  background-color: #d7d9d9;
+  transition: width 0.2s ease;
+}
+
+.mainfeat-section .content-box {
+  padding: 50px 0px 140px 0;
+  height: 100%;
+}
+
+.content_block_two .content-box {
+  display: block;
+}
+
+.content_block_two .content-box .sec-title p {
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 24px;
+  font-size: 10px;
+}
+
+.content_block_two .content-box .inner-box .single-item {
+  position: relative;
+  display: block;
+  padding: 0px 0px 0px 80px;
+  margin-bottom: 28px;
+}
+
+.content_block_two .content-box .inner-box .single-item:last-child {
+  margin-bottom: 0px;
+}
+
+.content_block_two .content-box .inner-box .single-item .icon-box {
+  position: absolute;
+  display: inline-block;
+  left: 0px;
+  top: 4px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-size: 26px;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.content_block_two .content-box .inner-box .single-item h3 {
+  display: block;
+  font-size: 22px;
+  line-height: 30px;
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* main features main card */
+
+.featcard__text {
+  padding: 3rem 1rem 5rem 2.5rem;
+  text-align: left;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  grid-area: text;
+
+  &:hover .mainfeat__bar {
+    width: 100px;
+  }
+}
+
+.featcard__title {
+  font-size: 1.5rem;
+}
+.featcard__content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.featcard__content li {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 100%;
+
+  .bi {
+    margin-top: 5px;
+  }
+}
+.featcard__content p {
+  text-align: left;
+  font-size: 0.7rem;
+  text-overflow: ellipsis;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.mainfeat-section .outer-box h2 {
+  display: block;
+  font-size: 30px;
+  line-height: 40px;
+  font-weight: 700;
+  color: #222;
+}
+.mainfeat__bar {
+  width: 50px;
+  height: 7px;
+  margin: 0.6rem 0 2.5rem 0;
+  border-radius: 2.5px;
+  background-color: #015c93;
+  transition: width 0.2s ease;
+}
+
+.mainfeat-section .outer-box .theme-btn-one {
+  background: #241e2f;
+  box-shadow: #fff;
+  box-shadow: none;
+}
+
+.mainfeat-section .outer-box .theme-btn-one:before {
+  background: #fff;
+}
+
+.mainfeat-section .outer-box .theme-btn-one:hover {
+  color: #241e2f !important;
+}
+
+.mainfeat-section .bg-layer {
+  position: relative;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: calc(100% - 220px);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 4rem;
+  margin: 0;
+
+  &:hover .mainfeat__bar-2 {
+    width: 100px;
+  }
+}
+
+.mainfeat-section .outer-box {
+  position: relative;
+  right: 0px;
+  bottom: 0px;
+  width: 100%;
+  padding: 70px 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: #d7d9d9;
+
+  &:hover .mainfeat__bar {
+    width: 100px;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .mainfeat-section {
+    margin: 8rem 0 6rem 0;
+    height: 100vh;
+
+    .bg-layer {
+      position: absolute;
+      width: 50%;
+      top: 0px;
+      right: 0px;
+
+      padding: 3rem;
+      h2 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+  .mainfeat-section .content-box {
+    padding: 0;
+  }
+  .featcard__text {
+    justify-content: flex-start;
+    padding: 1.2rem;
+    width: 50%;
+    padding-top: 0;
+  }
+  .content-column {
+    margin-bottom: 8rem;
+  }
+  .featcard__title {
+    font-size: 2rem;
+  }
+
+  .featcard__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .featcard__content li {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 100%;
+
+    .bi {
+      margin-top: 5px;
+    }
+  }
+  .featcard__content p {
+    font-size: small;
+    text-align: left;
+    text-overflow: clip;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .mainfeat-section .outer-box {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 50%;
+    padding: 70px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: #d7d9d9;
+
+    &:hover .mainfeat__bar {
+      width: 100px;
+    }
+  }
+  .media.featcard__text:before {
+    content: "";
+    position: absolute;
+    display: block;
+    background: #18151f;
+    top: -20%;
+    height: 130%;
+    width: 55px;
+  }
+
+  &:nth-child(2n + 1) {
+    flex-direction: row;
+  }
+
+  &:nth-child(2n + 0) {
+    flex-direction: row-reverse;
+  }
+
+  &:nth-child(2n + 1) .postcard__text::before {
+    right: -12px !important;
+    transform: rotate(4deg);
+  }
+
+  &:nth-child(2n + 0) .postcard__text::before {
+    right: -12px !important;
+    transform: rotate(-4deg);
+  }
+}
+@media screen and (min-width: 1260px) {
+  .mainfeat-section {
+    margin: 8rem 0 6rem 0;
+    height: 85vh;
+
+    .bg-layer {
+      padding: 3.5rem;
+      h2 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+  .featcard__text {
+    justify-content: flex-start;
+    padding: 4rem 2rem 4rem 0;
+    width: 50%;
+  }
+
+  .featcard__text:before {
+    content: "";
+    position: absolute;
+    display: block;
+
+    top: -20%;
+    height: 130%;
+    width: 55px;
+  }
+
+  .featcard__content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .featcard__content li {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 100%;
+
+    .bi {
+      margin-top: 5px;
+    }
+  }
+  .featcard__content p {
+    text-align: left;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}

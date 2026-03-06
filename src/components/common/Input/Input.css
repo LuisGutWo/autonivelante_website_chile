@@ -1,0 +1,418 @@
+/* ====================================
+   INPUT COMPONENT STYLES
+   ==================================== */
+
+/* Import design tokens */
+@import "../../../styles/variables.css";
+
+/* ====================================
+   INPUT WRAPPER
+   ==================================== */
+
+.input-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  position: relative;
+}
+
+.input-wrapper-full-width {
+  width: 100%;
+}
+
+/* ====================================
+   LABEL
+   ==================================== */
+
+.input-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-1);
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari/iOS */
+  user-select: none;
+}
+
+.input-required {
+  color: var(--color-error);
+  margin-left: var(--spacing-1);
+}
+
+/* ====================================
+   INPUT CONTAINER
+   ==================================== */
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+/* ====================================
+   INPUT FIELD BASE
+   ==================================== */
+
+.input-field {
+  /* Layout */
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* Typography */
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+
+  /* Appearance */
+  background-color: var(--color-bg-primary);
+  border: var(--border-width-thin) solid var(--color-border-medium);
+  border-radius: var(--border-radius-md);
+
+  /* Spacing */
+  padding: var(--spacing-3) var(--spacing-4);
+
+  /* Transitions */
+  transition: var(--transition-all);
+
+  /* Others */
+  outline: none;
+  appearance: none;
+}
+
+/* Remove default styling */
+.input-field::-webkit-outer-spin-button,
+.input-field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-field[type="number"] {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+/* ====================================
+   INPUT SIZES
+   ==================================== */
+
+.input-size-sm {
+  height: 32px;
+  font-size: var(--font-size-sm);
+  padding: var(--spacing-2) var(--spacing-3);
+}
+
+.input-size-md {
+  height: 40px;
+  font-size: var(--font-size-base);
+  padding: var(--spacing-3) var(--spacing-4);
+}
+
+.input-size-lg {
+  height: 48px;
+  font-size: var(--font-size-lg);
+  padding: var(--spacing-4) var(--spacing-5);
+}
+
+/* ====================================
+   INPUT WITH ICONS
+   ==================================== */
+
+.input-has-left-icon {
+  padding-left: var(--spacing-10);
+}
+
+.input-has-right-icon {
+  padding-right: var(--spacing-10);
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.input-icon-left {
+  left: var(--spacing-3);
+}
+
+.input-icon-right {
+  right: var(--spacing-3);
+  pointer-events: auto; /* Allow clicking for password toggle */
+}
+
+.input-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ====================================
+   INPUT STATES
+   ==================================== */
+
+/* Placeholder */
+.input-field::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+/* Focus */
+.input-field:focus,
+.input-focused {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(1, 92, 147, 0.1);
+}
+
+.input-field:focus .input-icon,
+.input-focused .input-icon {
+  color: var(--color-primary);
+}
+
+/* Hover */
+.input-field:hover:not(:disabled):not(.input-readonly):not(.input-error) {
+  border-color: var(--color-primary-light);
+}
+
+/* Disabled */
+.input-field:disabled,
+.input-disabled {
+  background-color: var(--color-gray-100);
+  color: var(--color-text-muted);
+  cursor: not-allowed;
+  opacity: var(--opacity-disabled);
+}
+
+/* Read Only */
+.input-readonly {
+  background-color: var(--color-gray-50);
+  cursor: default;
+}
+
+/* Error */
+.input-error {
+  border-color: var(--color-error);
+}
+
+.input-error:focus {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+/* ====================================
+   TEXTAREA SPECIFIC
+   ==================================== */
+
+textarea.input-field {
+  min-height: 100px;
+  height: auto;
+  padding: var(--spacing-3);
+  line-height: var(--line-height-relaxed);
+}
+
+.input-resize-none {
+  resize: none;
+}
+
+.input-resize-vertical {
+  resize: vertical;
+}
+
+.input-resize-horizontal {
+  resize: horizontal;
+}
+
+.input-resize-both {
+  resize: both;
+}
+
+/* ====================================
+   FULL WIDTH
+   ==================================== */
+
+.input-full-width {
+  width: 100%;
+}
+
+/* ====================================
+   MESSAGES (HELPER TEXT & ERROR)
+   ==================================== */
+
+.input-message {
+  font-size: var(--font-size-sm);
+  margin: var(--spacing-1) 0 0 0;
+  line-height: var(--line-height-tight);
+}
+
+.input-helper-text {
+  color: var(--color-text-muted);
+}
+
+.input-error-message {
+  color: var(--color-error);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Icon in error message */
+.input-error-message::before {
+  content: "⚠ ";
+  margin-right: var(--spacing-1);
+}
+
+/* ====================================
+   DARK MODE ADJUSTMENTS
+   ==================================== */
+
+@media (prefers-color-scheme: dark) {
+  .input-field {
+    background-color: var(--color-gray-800);
+    border-color: var(--color-gray-700);
+    color: var(--color-gray-100);
+  }
+
+  .input-field::placeholder {
+    color: var(--color-gray-500);
+  }
+
+  .input-field:hover:not(:disabled):not(.input-readonly):not(.input-error) {
+    border-color: var(--color-gray-600);
+  }
+
+  .input-field:disabled,
+  .input-disabled {
+    background-color: var(--color-gray-900);
+    color: var(--color-gray-600);
+  }
+
+  .input-readonly {
+    background-color: var(--color-gray-750);
+  }
+
+  .input-label {
+    color: var(--color-gray-200);
+  }
+
+  .input-icon {
+    color: var(--color-gray-500);
+  }
+}
+
+/* ====================================
+   RESPONSIVE ADJUSTMENTS
+   ==================================== */
+
+@media (max-width: 576px) {
+  /* Adjust sizes for mobile */
+  .input-size-lg {
+    height: 44px;
+    font-size: var(--font-size-base);
+  }
+
+  /* Increase touch targets */
+  .input-field {
+    min-height: 44px;
+  }
+
+  /* Adjust icon spacing */
+  .input-has-left-icon {
+    padding-left: var(--spacing-9);
+  }
+
+  .input-has-right-icon {
+    padding-right: var(--spacing-9);
+  }
+
+  .input-icon-left {
+    left: var(--spacing-2);
+  }
+
+  .input-icon-right {
+    right: var(--spacing-2);
+  }
+}
+
+/* ====================================
+   ACCESSIBILITY
+   ==================================== */
+
+/* Focus visible (keyboard navigation) */
+.input-field:focus-visible {
+  outline: var(--focus-ring-width) solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .input-field {
+    transition: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .input-field {
+    border-width: var(--border-width-medium);
+  }
+
+  .input-field:focus {
+    border-width: var(--border-width-thick);
+  }
+}
+
+/* ====================================
+   INPUT GROUPS (Optional future addition)
+   ==================================== */
+
+.input-group {
+  display: flex;
+  width: 100%;
+}
+
+.input-group .input-field {
+  border-radius: 0;
+}
+
+.input-group .input-field:first-child {
+  border-top-left-radius: var(--border-radius-md);
+  border-bottom-left-radius: var(--border-radius-md);
+}
+
+.input-group .input-field:last-child {
+  border-top-right-radius: var(--border-radius-md);
+  border-bottom-right-radius: var(--border-radius-md);
+}
+
+.input-group .input-field:not(:last-child) {
+  border-right: none;
+}
+
+/* ====================================
+   VALIDATION STATES (Optional)
+   ==================================== */
+
+.input-success {
+  border-color: var(--color-success);
+}
+
+.input-success:focus {
+  border-color: var(--color-success);
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.input-warning {
+  border-color: var(--color-warning);
+}
+
+.input-warning:focus {
+  border-color: var(--color-warning);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}

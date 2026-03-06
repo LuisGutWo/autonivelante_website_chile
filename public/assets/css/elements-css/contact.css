@@ -1,0 +1,287 @@
+/* Responsive mobile first */
+/* contact new style sheet */
+
+.contact__section {
+  padding: 0;
+  background-image: url(/assets/images/background/autonivelante_contact_mobile_img.webp);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: #f3f5f7;
+}
+
+.contact__main-column {
+  margin-top: 10rem;
+  margin-bottom: 38rem;
+}
+.contactcard__bar {
+  width: 50px;
+  height: 7px;
+  margin: 10px 0;
+  border-radius: 2px;
+  background-color: #015c93;
+  transition: width 0.2s ease;
+}
+
+.contact_block_one .image-box {
+  display: block;
+  overflow: visible;
+  flex-direction: column;
+  margin-top: 0;
+  padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.221) 0px 10px 15px -3px,
+    rgba(0, 0, 0, 0.199) 0px 4px 6px -2px;
+}
+
+.contactcard__text {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0;
+  height: 100%;
+  grid-area: text;
+}
+
+.contactcard__text-inner {
+  padding: 2.8rem 0 0 0;
+  height: 100%;
+}
+
+/* Cards */
+.contactcard {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0;
+  max-width: 60rem;
+  width: 100%;
+  max-height: 40.5rem;
+  padding: 2.5rem 4rem 3rem 4rem;
+
+  color: #ffffff;
+  background-color: #015c93;
+  box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
+  border-radius: 5px;
+
+  .postcard__img {
+    background-color: #110f16;
+    height: 25rem;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+  }
+
+  .contactcard__content {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: center;
+    border-bottom: solid 1px #f3f5f7;
+  }
+  .contactcard__content-tree {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    align-items: center;
+  }
+  .contactcard__content p {
+    font-size: 1rem;
+    padding: 1rem 0;
+  }
+
+  .logo-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid 1px #f3f5f7;
+    padding: 0 0 3rem 0;
+    margin: 0 1rem;
+  }
+
+  .logo-box .logo {
+    max-width: 11em;
+    width: 100%;
+  }
+
+  .logo-box .logo img {
+    width: 100%;
+  }
+  .form__contact {
+    margin: 1rem 0;
+  }
+}
+.contactcard__text-two {
+  padding: 2rem;
+  background-color: #f3f5f7;
+  border: #b8b8b8 solid 4px;
+  grid-area: form;
+}
+.contact-style {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+
+  &:hover .contactcard__bar {
+    width: 100px;
+  }
+}
+/* // /// WhatsApp Floating Button /// */
+.btn-wsp {
+  position: fixed;
+  cursor: pointer;
+  top: 82%;
+  left: 80%;
+  z-index: 100;
+  width: 5rem;
+
+  & .wsp-image {
+    width: 100%;
+    filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.624));
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+
+    &:hover {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+    }
+  }
+}
+.social__icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: absolute;
+  overflow: visible;
+  z-index: 1;
+  left: 70%;
+  top: 100%;
+  width: 5rem;
+  height: 7rem;
+
+  .contact__links {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0.5rem 0;
+    border-radius: 5px;
+    background-color: #015c93;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+
+    & svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      background: transparent !important;
+    }
+    &:hover {
+      background-color: #014a6f;
+      transform: scale(1.1);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    &:active {
+      background-color: #013b5a;
+    }
+  }
+}
+
+/* Responsive Desktop mode */
+@media screen and (min-width: 769px) {
+  .contact__section {
+    background-image: url(/assets/images/background/autonivelante_contact_bg.webp);
+    background-position: top;
+    height: 100%;
+  }
+  .contact__main-column {
+    margin-top: 5rem;
+    margin-bottom: 8rem;
+  }
+  .content-column {
+    margin-bottom: 0;
+  }
+
+  .contactcard__text {
+    width: 50%;
+    padding: 0;
+    text-align: left;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    grid-area: text;
+  }
+
+  .contactcard__text-inner {
+    padding: 2.5rem 0 0 4.4rem;
+    height: 100%;
+  }
+
+  .contact-style {
+    padding: 4rem 0 2rem 5rem;
+
+    &:hover .contactcard__bar {
+      width: 100px;
+    }
+  }
+  .contactcard {
+    flex-direction: row;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .contact_block_one .image-box {
+    margin-top: 12.5rem;
+    width: 65rem;
+  }
+  .contactcard__text-inner {
+    padding: 2.5rem 4rem;
+    height: 100%;
+  }
+  .contactcard__text-two {
+    padding: 0;
+    margin: 0;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border: none;
+  }
+  .form__contact {
+    margin: 0;
+  }
+  /* // /// WhatsApp Floating Button /// */
+  .btn-wsp {
+    position: fixed;
+    cursor: pointer;
+    top: 80%;
+    left: 90%;
+    z-index: 100;
+    width: 8rem;
+  }
+  .social__icons {
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    overflow: visible;
+    z-index: 1;
+    left: 100%;
+    top: 10%;
+    width: 3rem;
+    height: 6rem;
+
+    .contact__links {
+      height: 100%;
+    }
+  }
+  .social__icons-inner {
+    height: 100%;
+  }
+}
