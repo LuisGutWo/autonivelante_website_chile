@@ -69,7 +69,7 @@ export default function Services(): React.ReactElement {
 
           <div className="postcard__text">
             <h2 className="postcard__title blue text-light text-start">
-              <Link href="/projects">
+              <Link href="/projects" prefetch={false}>
                 Conoce Nuestros
                 <br />
                 Servicios
@@ -102,13 +102,13 @@ export default function Services(): React.ReactElement {
               ))}
             </Container>
             <Container className="buttons__container">
-              <Link href="/projects">
+              <Link href="/projects" prefetch={false}>
                 <Button variant="light" className="service-button">
                   Servicios
                   {rightArrowSvg}
                 </Button>{" "}
               </Link>
-              <Link href="/contact-page">
+              <Link href="/contact-page" prefetch={false}>
                 <Button variant="outline-light" className="service-button">
                   Contactanos
                   {rightArrowSvg}

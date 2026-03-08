@@ -38,7 +38,7 @@ export default function MobileMenu({
 
         <nav className="menu-box">
           <div className="nav-logo">
-            <Link href="/">
+            <Link href="/" prefetch={false}>
               <Image
                 src="/assets/images/logo_horizontal.webp"
                 className="img-fluid"
@@ -56,7 +56,7 @@ export default function MobileMenu({
 
           <div>
             <div className="mb-4 text-center">
-              <Link href="/cart" onClick={handleMobileMenu}>
+              <Link href="/cart" onClick={handleMobileMenu} prefetch={false}>
                 <ShoppingBag color="white" size={30} className="cart-icon" />
                 <div className="count-products-mobile">
                   <span id="contador-productos-mobile">

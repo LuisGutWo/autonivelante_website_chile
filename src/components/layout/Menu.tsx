@@ -25,6 +25,7 @@ export default function Menu(): React.ReactElement {
             <Link
               className={`link ${pathname === item.route ? "active" : ""}`}
               href={item.route}
+              prefetch={false}
             >
               {item.name}
             </Link>

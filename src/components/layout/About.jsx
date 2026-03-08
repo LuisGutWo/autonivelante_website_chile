@@ -5,7 +5,7 @@ import {
   playVideoSvg,
   arrowRightSvgDark,
   pointCharacteristicSvg,
-} from '../../lib/icons';
+} from "../../lib/icons";
 
 const caracteristicas = [
   { id: 0, name: "Suelos industriales." },
@@ -56,7 +56,7 @@ export default function About() {
 
                   <section className="aboutcard__buttons">
                     <div className="aboutcard__buttons-btn-video">
-                      <Link href="/modalvideo">
+                      <Link href="/modalvideo" prefetch={false}>
                         <Button size="lg" className="theme-btn-one w-100">
                           <p>Reproducir video</p>
                           {playVideoSvg}
@@ -64,7 +64,7 @@ export default function About() {
                       </Link>
                     </div>
                     <div className="aboutcard__buttons-btn-contact">
-                      <Link href="/contact-page">
+                      <Link href="/contact-page" prefetch={false}>
                         <Button size="lg" className="theme-btn-tree">
                           <p className="text-dark">Contáctanos</p>
                           {arrowRightSvgDark}

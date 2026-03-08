@@ -100,6 +100,7 @@ export default function Banner(): React.ReactElement {
             >
               <Link
                 href="/contact-page"
+                prefetch={false}
                 className="theme-btn-one bg-theme-color border-0"
               >
                 Contáctanos

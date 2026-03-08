@@ -21,7 +21,7 @@ export default function FeaturesBanner() {
                     alt="Autonivelante Chile Productos"
                     className="img-fluid"
                   />
-                  <Link href="/products" className="overlay-box">
+                  <Link href="/products" className="overlay-box" prefetch={false}>
                     <Button variant="outline-light">
                       Ver productos
                       {rightArrowSvg}

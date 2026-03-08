@@ -43,7 +43,7 @@ export default function HeaderGeneric({
           <div className="outer-container">
             <div className="outer-box">
               <div className="logo-box">
-                <Link href="/">
+                <Link href="/" prefetch={false}>
                   <figure className="logo">
                     <Image
                       src="/assets/images/logo_horizontal_clear.webp"
@@ -75,7 +75,7 @@ export default function HeaderGeneric({
 
               <ul className="menu-right-content">
                 <li className="cart-box">
-                  <Link href="/cart">
+                  <Link href="/cart" prefetch={false}>
                     <ShoppingBag
                       color={cartIconColor}
                       size={23}
@@ -97,7 +97,7 @@ export default function HeaderGeneric({
           <div className="outer-container">
             <div className="outer-box">
               <div className="logo-box">
-                <Link href="/">
+                <Link href="/" prefetch={false}>
                   <figure className="logo">
                     <Image
                       src="/assets/images/logo_horizontal_clear.webp"
@@ -129,7 +129,7 @@ export default function HeaderGeneric({
 
               <ul className="menu-right-content">
                 <li className="cart-box">
-                  <Link href="/cart">
+                  <Link href="/cart" prefetch={false}>
                     <ShoppingBag
                       color={cartIconColor}
                       size={23}

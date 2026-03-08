@@ -10,9 +10,9 @@ import {
   removeFromCart,
   incrementQty,
   decrementQty,
-} from '../../../../redux/slices/cartSlice';
+} from "../../../../redux/slices/cartSlice";
 import { ShoppingBag, Files, Minus, Plus, Trash2 } from "lucide-react";
-import { formatPrice } from '../../../config/formatPrice';
+import { formatPrice } from "../../../config/formatPrice";
 import "./ProductCard.css";
 
 /**
@@ -123,6 +123,7 @@ const ProductCard = ({
           <div className="product-card-image">
             <Link
               href={viewDetailsUrl}
+              prefetch={false}
               aria-label={`Ver detalles de ${product?.title}`}
               className="product-card-image-wrapper-link"
             >
@@ -153,6 +154,7 @@ const ProductCard = ({
             <div className="product-card-actions">
               <Link
                 href={viewDetailsUrl}
+                prefetch={false}
                 className="product-card-btn"
                 title={`Ver detalles de ${product?.title}`}
               >
@@ -176,7 +178,9 @@ const ProductCard = ({
           <div className="product-card-content">
             {product?.title && (
               <h3 className="product-card-title">
-                <Link href={viewDetailsUrl}>{product?.title}</Link>
+                <Link href={viewDetailsUrl} prefetch={false}>
+                  {product?.title}
+                </Link>
               </h3>
             )}
 

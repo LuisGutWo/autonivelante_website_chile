@@ -77,7 +77,7 @@ export default function Contact(): React.ReactElement {
                   <div className="contactcard__text-inner">
                     <div className="logo-box">
                       <figure className="logo">
-                        <Link href="/">
+                        <Link href="/" prefetch={false}>
                           <Image
                             src="/assets/images/autonivelante_logo_contact.webp"
                             className="img-fluid"

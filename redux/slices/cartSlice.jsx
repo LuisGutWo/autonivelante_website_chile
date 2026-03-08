@@ -41,7 +41,21 @@ const cartSlice = createSlice({
   reducers: {
     // Slice to add to cart
     addToCart: (store, action) => {
+      if (!action?.payload) {
+        console.warn("addToCart called without payload");
+        return;
+      }
+
       const { id, title, price, image } = action.payload;
+
+      if (!id || !title || typeof price !== "number" || !image) {
+        console.warn(
+          "addToCart received invalid product payload",
+          action.payload,
+        );
+        return;
+      }
+
       // Check if the item already exists in the cart
       const existingItem = store.find((item) => item.id === id);
 
@@ -56,6 +70,10 @@ const cartSlice = createSlice({
       saveState(store);
     },
     removeFromCart: (store, action) => {
+      if (!action?.payload) {
+        return;
+      }
+
       const cartId = action.payload;
       const existingItem = store.find((item) => item.id === cartId);
       if (existingItem) {
@@ -71,6 +89,10 @@ const cartSlice = createSlice({
       }
     },
     incrementQty: (store, action) => {
+      if (!action?.payload) {
+        return;
+      }
+
       const cartId = action.payload;
       const cartItem = store.find((item) => item.id === cartId);
       if (cartItem) {
@@ -79,6 +101,10 @@ const cartSlice = createSlice({
       }
     },
     decrementQty: (store, action) => {
+      if (!action?.payload) {
+        return;
+      }
+
       const cartId = action.payload;
       const cartItem = store.find((item) => item.id === cartId);
       if (cartItem && cartItem.qty > 1) {

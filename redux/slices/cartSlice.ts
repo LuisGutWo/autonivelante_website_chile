@@ -56,7 +56,17 @@ const cartSlice = createSlice({
          * Si ya existe, incrementa la cantidad
          */
         addToCart: (store, action: PayloadAction<Product>) => {
+            if (!action?.payload) {
+                console.warn("addToCart called without payload");
+                return;
+            }
+
             const { id, title, price, image } = action.payload;
+
+            if (!id || !title || typeof price !== "number" || !image) {
+                console.warn("addToCart received invalid product payload", action.payload);
+                return;
+            }
 
             // Check if the item already exists in the cart
             const existingItem = store.find((item) => item.id === id);
@@ -82,6 +92,10 @@ const cartSlice = createSlice({
          * Remover producto del carrito completamente
          */
         removeFromCart: (store, action: PayloadAction<string>) => {
+            if (!action?.payload) {
+                return;
+            }
+
             const cartId = action.payload;
             const index = store.findIndex((item) => item.id === cartId);
 
@@ -95,6 +109,10 @@ const cartSlice = createSlice({
          * Incrementar cantidad de un producto
          */
         incrementQty: (store, action: PayloadAction<string>) => {
+            if (!action?.payload) {
+                return;
+            }
+
             const cartId = action.payload;
             const cartItem = store.find((item) => item.id === cartId);
 
@@ -109,6 +127,10 @@ const cartSlice = createSlice({
          * Si la cantidad es 1, no hace nada (usar removeFromCart para eliminar)
          */
         decrementQty: (store, action: PayloadAction<string>) => {
+            if (!action?.payload) {
+                return;
+            }
+
             const cartId = action.payload;
             const cartItem = store.find((item) => item.id === cartId);
 
