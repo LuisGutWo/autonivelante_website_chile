@@ -2,11 +2,22 @@ import Stripe from "stripe";
 
 export const dynamic = "force-dynamic";
 
-const stripe = new Stripe(process.env.NEXT_STRIPE_SECRET_KEY, {
-  apiVersion: "2024-11-20",
-});
+let stripe = null;
+function getStripe() {
+  if (!stripe) {
+    const secret = process.env.NEXT_STRIPE_SECRET_KEY;
+    if (!secret) {
+      throw new Error("Missing NEXT_STRIPE_SECRET_KEY environment variable");
+    }
+    stripe = new Stripe(secret, {
+      apiVersion: "2024-11-20",
+    });
+  }
+  return stripe;
+}
 
 export async function POST(request) {
+  const stripe = getStripe();
   try {
     const { amount, orderId } = await request.json();
 

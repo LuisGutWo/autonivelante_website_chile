@@ -3,13 +3,31 @@ import Stripe from "stripe";
 export const dynamic = "force-dynamic";
 import { updateOrderStatus } from "../../../../src/lib/api";
 
-const stripe = new Stripe(process.env.NEXT_STRIPE_SECRET_KEY, {
-  apiVersion: "2024-11-20",
-});
+let stripe = null;
+function getStripe() {
+  if (!stripe) {
+    const secret = process.env.NEXT_STRIPE_SECRET_KEY;
+    if (!secret) {
+      throw new Error("Missing NEXT_STRIPE_SECRET_KEY environment variable");
+    }
+    stripe = new Stripe(secret, {
+      apiVersion: "2024-11-20",
+    });
+  }
+  return stripe;
+}
 
-const endpointSecret = process.env.NEXT_STRIPE_WEBHOOK_SECRET;
+function getEndpointSecret() {
+  const secret = process.env.NEXT_STRIPE_WEBHOOK_SECRET;
+  if (!secret) {
+    throw new Error("Missing NEXT_STRIPE_WEBHOOK_SECRET environment variable");
+  }
+  return secret;
+}
 
 export async function POST(request) {
+  const stripe = getStripe();
+  const endpointSecret = getEndpointSecret();
   try {
     const body = await request.text();
     const sig = request.headers.get("stripe-signature");
