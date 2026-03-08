@@ -1,9 +1,16 @@
 "use client";
-import React from "react";
 import { Card, ListGroup, Image } from "react-bootstrap";
 import { formatPrice } from '../../config/formatPrice';
+import type { CartItem } from "../../types";
 
-const CartSummary = ({ items, subtotal, shipping, total }) => {
+interface CartSummaryProps {
+  items: CartItem[];
+  subtotal: number;
+  shipping: number;
+  total: number;
+}
+
+const CartSummary = ({ items, subtotal, shipping, total }: CartSummaryProps): React.ReactElement => {
   return (
     <Card className="sticky-top" style={{ top: "100px" }}>
       <Card.Header className="bg-light">

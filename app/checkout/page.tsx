@@ -7,13 +7,13 @@ import Layout from '../../src/components/layout/Layout';
 import Breadcrumb from '../../src/components/common/Breadcrumb/Breadcrumb';
 import CheckoutForm from '../../src/components/checkout/CheckoutForm';
 import CartSummary from '../../src/components/checkout/CartSummary';
-import { formatPrice } from '../../src/config/formatPrice';
+import type { RootState } from "../../redux/store";
+import type { CartItem } from "../../src/types";
 
-export default function CheckoutPage() {
+export default function CheckoutPage(): React.ReactElement {
   const router = useRouter();
-  const cartItems = useSelector((store) => store.cart);
+  const cartItems = useSelector((store: RootState) => store.cart as CartItem[]);
   const [isProcessing, setIsProcessing] = useState(false);
-  const [orderData, setOrderData] = useState(null);
 
   // Redirigir si no hay items en el carrito
   if (!cartItems || cartItems.length === 0) {
@@ -45,7 +45,7 @@ export default function CheckoutPage() {
   }
 
   const subtotal = cartItems.reduce(
-    (acc, item) => acc + item.price * item.qty,
+    (acc: number, item: CartItem) => acc + item.price * item.qty,
     0,
   );
   const shipping = subtotal > 50000 ? 0 : 5000; // Envío gratis sobre $50k
@@ -69,7 +69,6 @@ export default function CheckoutPage() {
           {/* Formulario de Checkout */}
           <Col lg={8}>
             <CheckoutForm
-              onSubmit={(formData) => setOrderData(formData)}
               isProcessing={isProcessing}
               setIsProcessing={setIsProcessing}
             />

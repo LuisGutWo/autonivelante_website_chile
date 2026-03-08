@@ -228,8 +228,8 @@ export const Clickable = {
       <>
         <h3 style={{ marginTop: 0 }}>Clickable Card</h3>
         <p style={{ marginBottom: 0 }}>
-          Click anywhere on this card. It's fully accessible via keyboard (Tab +
-          Enter).
+          Click anywhere on this card. It&apos;s fully accessible via keyboard
+          (Tab + Enter).
         </p>
       </>
     ),

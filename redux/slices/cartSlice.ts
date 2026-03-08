@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { CartItem, Product } from "../../src/types";
+import type { RootState } from "../store";
 
 // Define el state type
 type CartState = CartItem[];
@@ -139,8 +140,8 @@ export const {
 export default cartSlice.reducer;
 
 // Selectors
-export const selectCartItems = (state: { cart: CartState }) => state.cart;
-export const selectCartTotal = (state: { cart: CartState }) =>
+export const selectCartItems = (state: RootState): CartItem[] => state.cart;
+export const selectCartTotal = (state: RootState): number =>
     state.cart.reduce((total, item) => total + item.price * item.qty, 0);
-export const selectCartItemCount = (state: { cart: CartState }) =>
+export const selectCartItemCount = (state: RootState): number =>
     state.cart.reduce((count, item) => count + item.qty, 0);

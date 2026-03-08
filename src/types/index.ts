@@ -25,6 +25,8 @@ export interface Product {
     updatedAt?: string;
 }
 
+export type ProductList = Product[];
+
 /**
  * Producto en el carrito con cantidad
  */
@@ -88,11 +90,52 @@ export interface ShippingInfo {
  * Estado de la orden
  */
 export type OrderStatus =
+    | 'pending_payment'
     | 'pending'
     | 'processing'
     | 'completed'
     | 'cancelled'
     | 'failed';
+
+export interface CustomerInfo {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phone: string;
+}
+
+export interface AddressInfo {
+    street: string;
+    streetNumber: string;
+    apartment?: string;
+    city: string;
+    region: string;
+    postalCode: string;
+}
+
+export interface BillingContactInfo {
+    name: string;
+    email: string;
+    phone: string;
+}
+
+export interface OrderSummary {
+    subtotal: number;
+    shipping: number;
+    total: number;
+}
+
+export interface CheckoutOrder {
+    orderId: string;
+    createdAt: string;
+    customerInfo: CustomerInfo;
+    shippingInfo: AddressInfo;
+    billingInfo: AddressInfo | BillingContactInfo;
+    items: CartItem[];
+    summary: OrderSummary;
+    notes?: string;
+    status: OrderStatus;
+}
 
 /**
  * Orden de compra
@@ -155,7 +198,7 @@ export interface NewsletterFormData {
 /**
  * Respuesta genérica de API
  */
-export interface ApiResponse<T = any> {
+export interface ApiResponse<T = unknown> {
     success: boolean;
     data?: T;
     error?: string;
@@ -169,7 +212,7 @@ export interface ApiError {
     message: string;
     code?: string;
     statusCode?: number;
-    details?: any;
+    details?: unknown;
 }
 
 // ============================================

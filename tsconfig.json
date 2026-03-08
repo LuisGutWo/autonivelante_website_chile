@@ -4,17 +4,39 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
+    // ========================================
+    // STRICT MODE: Enforce strong typing
+    // ========================================
     "strict": true,
+    // Los siguientes son habilitados automáticamente por "strict: true"
+    // Se enumeran explícitamente para claridad:
+    // - noImplicitAny
+    // - strictNullChecks
+    // - strictFunctionTypes
+    // - strictBindCallApply
+    // - strictPropertyInitialization
+    // - noImplicitThis
+    // - alwaysStrict
+    // ========================================
+    // PRAGMATISMO: Desactivar para código generado
+    // ========================================
+    "noUnusedLocals": false, // Next.js genera imports no utilizados en .next/types/
+    "noUnusedParameters": false, // Mismo problema en tipos autogenerados
+    // ========================================
+    // BEST PRACTICES
+    // ========================================
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true, // Redundante pero explícito
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
-    "ignoreDeprecations": "6.0",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
-    "baseUrl": ".",
+    "forceConsistentCasingInFileNames": true,
     "plugins": [
       {
         "name": "next"
@@ -26,19 +48,15 @@
       "@/redux/*": ["./redux/*"],
       "@/app/*": ["./app/*"],
       "@/public/*": ["./public/*"]
-    },
-    "forceConsistentCasingInFileNames": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true
+    }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "**/*.d.ts",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": ["node_modules"]
 }

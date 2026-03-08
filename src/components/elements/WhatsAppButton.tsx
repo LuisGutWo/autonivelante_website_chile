@@ -2,7 +2,6 @@ import React from "react";
 import { Image } from "react-bootstrap";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
-import "animate.css";
 
 const renderTooltip = (props: any): React.ReactElement => (
   <Tooltip id="button-tooltip" {...props}>
@@ -28,7 +27,7 @@ const WhatsAppButton: React.FC = () => {
         <Image
           src="/assets/images/icons/wa_chat_icon.webp"
           alt="" // Dejar vacío porque el <a> tiene aria-label
-          className="wsp-image animate__animated animate__tada animate__infinite animate__slower"
+          className="wsp-image animated tada infinite"
           width={40}
           height={40}
         />

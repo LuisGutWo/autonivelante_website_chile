@@ -1,21 +1,33 @@
 "use client";
 
 import { useState } from "react";
+import type { FormEvent, ReactElement } from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import styles from "./PaymentForm.module.css";
+
+interface PaymentFormProps {
+  onPaymentSuccess: (paymentIntentId: string) => void | Promise<void>;
+  orderId: string;
+  amount: number;
+  isProcessing?: boolean;
+}
+
+interface CreatePaymentIntentResponse {
+  clientSecret: string;
+}
 
 export function PaymentForm({
   onPaymentSuccess,
   orderId,
   amount,
   isProcessing = false,
-}) {
+}: PaymentFormProps): ReactElement {
   const stripe = useStripe();
   const elements = useElements();
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   const [processing, setProcessing] = useState(false);
 
-  const handlePayment = async (e) => {
+  const handlePayment = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
     setError(null);
 
@@ -41,26 +53,36 @@ export function PaymentForm({
         throw new Error("No se pudo crear la intención de pago");
       }
 
-      const { clientSecret } = await response.json();
+      const { clientSecret } =
+        (await response.json()) as CreatePaymentIntentResponse;
+
+      const cardElement = elements.getElement(CardElement);
+      if (!cardElement) {
+        setError("No se pudo leer la tarjeta. Intenta nuevamente.");
+        setProcessing(false);
+        return;
+      }
 
       // Confirmar el pago
       const result = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
-          card: elements.getElement(CardElement),
+          card: cardElement,
         },
       });
 
       if (result.error) {
-        setError(result.error.message);
+        setError(result.error.message ?? "Error al procesar el pago");
         setProcessing(false);
         return;
       }
 
       if (result.paymentIntent.status === "succeeded") {
-        onPaymentSuccess(result.paymentIntent.id);
+        await onPaymentSuccess(result.paymentIntent.id);
       }
-    } catch (err) {
-      setError(err.message || "Error al procesar el pago");
+    } catch (err: unknown) {
+      const errorMessage =
+        err instanceof Error ? err.message : "Error al procesar el pago";
+      setError(errorMessage);
       setProcessing(false);
     }
   };

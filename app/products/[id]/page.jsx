@@ -1,10 +1,10 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import Layout from '../../../src/components/layout/Layout';
-import Breadcrumb from '../../../src/components/common/Breadcrumb/Breadcrumb';
+import Layout from "../../../src/components/layout/Layout";
+import Breadcrumb from "../../../src/components/common/Breadcrumb/Breadcrumb";
 import { notFound } from "next/navigation";
-import ClientProductDetail from '../../../src/components/layout/ClientProductDetail';
-import { fetchMainProducts } from '../../../src/lib/api';
+import ClientProductDetail from "../../../src/components/layout/ClientProductDetail";
+import { fetchMainProducts } from "../../../src/lib/api";
 
 export async function generateStaticParams() {
   try {
@@ -21,7 +21,7 @@ export async function generateStaticParams() {
         if (!product || !product.id) {
           console.warn(
             "generateStaticParams: Product is null or undefined, or missing id",
-            product
+            product,
           );
           return null;
         }
@@ -34,7 +34,7 @@ export async function generateStaticParams() {
   } catch (error) {
     console.error(
       "generateStaticParams: Error generating static params",
-      error
+      error,
     );
     return [];
   }
@@ -43,7 +43,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   try {
     // Await params if it's a Promise
-    const resolvedParams = params && typeof params.then === "function" ? await params : params;
+    const resolvedParams =
+      params && typeof params.then === "function" ? await params : params;
     const response = await fetchMainProducts();
     const products = response ?? [];
 
@@ -59,7 +60,7 @@ export async function generateMetadata({ params }) {
       console.error(
         "generateMetadata: product is null or undefined, or missing id/title",
         resolvedParams?.id,
-        products
+        products,
       );
       return { title: "Product not found" };
     }
@@ -74,39 +75,49 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function SingleProduct(props) {
+  const params = props.params
+    ? typeof props.params.then === "function"
+      ? await props.params
+      : props.params
+    : {};
+
+  let response;
   try {
-    const params = props.params ? (typeof props.params.then === "function" ? await props.params : props.params) : {};
-    const response = await fetchMainProducts();
-
-    if (!Array.isArray(response)) {
-      console.error("SingleProduct: response.data is not an array", response);
-      return notFound();
-    }
-
-    const product = response.find((p) => p.id.toString() === params.id);
-
-    if (!product) {
-      console.error("SingleProduct: product is null or undefined", params.id, response);
-      return notFound();
-    }
-
-    const { id, title } = product;
-
-    return (
-      <Layout headerStyle={2} footerStyle={1}>
-        <Container className="mt_150 mb_200">
-          <Breadcrumb
-            items={[
-              { name: "Productos", href: "/products" },
-              { name: title, href: `/products/${id}` },
-            ]}
-          />
-          <ClientProductDetail product={product} />
-        </Container>
-      </Layout>
-    );
+    response = await fetchMainProducts();
   } catch (error) {
     console.error("SingleProduct: Error fetching product data", error);
     return notFound();
   }
+
+  if (!Array.isArray(response)) {
+    console.error("SingleProduct: response.data is not an array", response);
+    return notFound();
+  }
+
+  const product = response.find((p) => p.id.toString() === params.id);
+
+  if (!product) {
+    console.error(
+      "SingleProduct: product is null or undefined",
+      params.id,
+      response,
+    );
+    return notFound();
+  }
+
+  const { id, title } = product;
+
+  return (
+    <Layout headerStyle={2} footerStyle={1}>
+      <Container className="mt_150 mb_200">
+        <Breadcrumb
+          items={[
+            { name: "Productos", href: "/products" },
+            { name: title, href: `/products/${id}` },
+          ]}
+        />
+        <ClientProductDetail product={product} />
+      </Container>
+    </Layout>
+  );
 }

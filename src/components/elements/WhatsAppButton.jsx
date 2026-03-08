@@ -2,7 +2,6 @@ import React from "react";
 import { Image } from "react-bootstrap";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
-import "animate.css";
 
 const renderTooltip = (props) => (
   <Tooltip id="button-tooltip" {...props}>
@@ -26,7 +25,7 @@ const WhatsAppButton = () => {
         <Image
           src="/assets/images/icons/wa_chat_icon.webp"
           alt="WhatsApp Icon"
-          className="wsp-image animate__animated animate__tada animate__infinite animate__slower"
+          className="wsp-image animated tada infinite"
         />
       </a>
     </OverlayTrigger>

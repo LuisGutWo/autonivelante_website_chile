@@ -7,8 +7,24 @@
  * const result = await httpClient.post('/api/order', { items: [...] });
  */
 
+interface HttpClientConfig {
+  maxRetries: number;
+  initialDelay: number;
+  maxDelay: number;
+  timeout: number;
+}
+
+type HttpClientCacheOption = RequestCache | false;
+
+interface HttpClientRequestOptions extends Omit<RequestInit, "cache"> {
+  cache?: HttpClientCacheOption;
+}
+
 class HttpClientError extends Error {
-  constructor(message, status, data) {
+  status: number;
+  data: unknown;
+
+  constructor(message: string, status: number, data: unknown) {
     super(message);
     this.name = "HttpClientError";
     this.status = status;
@@ -16,7 +32,7 @@ class HttpClientError extends Error {
   }
 }
 
-const DEFAULT_CONFIG = {
+const DEFAULT_CONFIG: HttpClientConfig = {
   maxRetries: 3,
   initialDelay: 1000, // 1 segundo
   maxDelay: 10000, // 10 segundos
@@ -24,7 +40,10 @@ const DEFAULT_CONFIG = {
 };
 
 class HttpClient {
-  constructor(config = {}) {
+  private config: HttpClientConfig;
+  private cache: Map<string, unknown>;
+
+  constructor(config: Partial<HttpClientConfig> = {}) {
     this.config = { ...DEFAULT_CONFIG, ...config };
     this.cache = new Map();
   }
@@ -32,14 +51,14 @@ class HttpClient {
   /**
    * Delay para reintentos con exponential backoff
    */
-  async _delay(ms) {
+  private async _delay(ms: number): Promise<void> {
     return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
   /**
    * Calcula delay con exponential backoff
    */
-  _getDelayWithBackoff(attempt) {
+  private _getDelayWithBackoff(attempt: number): number {
     const delay = Math.min(
       this.config.initialDelay * Math.pow(2, attempt - 1),
       this.config.maxDelay,
@@ -51,7 +70,7 @@ class HttpClient {
   /**
    * Verifica si el error es retryable
    */
-  _isRetryable(status, error) {
+  private _isRetryable(status?: number, error?: unknown): boolean {
     // Reintentar en timeouts o errores de red
     if (error instanceof TypeError && error.message.includes("fetch")) {
       return true;
@@ -59,15 +78,18 @@ class HttpClient {
 
     // Reintentar en estos status codes
     const retryableStatus = [408, 429, 500, 502, 503, 504];
-    return retryableStatus.includes(status);
+    return status !== undefined && retryableStatus.includes(status);
   }
 
   /**
    * Realiza un fetch con reintentos
    */
-  async _fetchWithRetry(url, options = {}) {
-    let lastError;
-    let lastStatus;
+  private async _fetchWithRetry(
+    url: string,
+    options: RequestInit = {},
+  ): Promise<Response> {
+    let lastError: unknown;
+    let lastStatus: number | undefined;
 
     for (let attempt = 1; attempt <= this.config.maxRetries; attempt++) {
       try {
@@ -143,23 +165,25 @@ class HttpClient {
   /**
    * GET request
    */
-  async get(url, options = {}) {
+  async get<T>(url: string, options: HttpClientRequestOptions = {}): Promise<T> {
     const cacheKey = `GET_${url}`;
+    const { cache: cacheControl, ...fetchOptions } = options;
 
     // Retornar del caché si existe
-    if (options.cache !== false && this.cache.has(cacheKey)) {
-      return this.cache.get(cacheKey);
+    if (cacheControl !== false && this.cache.has(cacheKey)) {
+      return this.cache.get(cacheKey) as T;
     }
 
     const response = await this._fetchWithRetry(url, {
-      ...options,
+      ...fetchOptions,
       method: "GET",
+      ...(cacheControl ? { cache: cacheControl } : {}),
     });
 
-    const data = await response.json();
+    const data = (await response.json()) as T;
 
     // Guardar en caché
-    if (options.cache !== false) {
+    if (cacheControl !== false) {
       this.cache.set(cacheKey, data);
     }
 
@@ -169,7 +193,11 @@ class HttpClient {
   /**
    * POST request
    */
-  async post(url, body, options = {}) {
+  async post<TResponse, TBody = unknown>(
+    url: string,
+    body: TBody,
+    options: RequestInit = {},
+  ): Promise<TResponse> {
     const response = await this._fetchWithRetry(url, {
       ...options,
       method: "POST",
@@ -180,13 +208,17 @@ class HttpClient {
       body: JSON.stringify(body),
     });
 
-    return await response.json();
+    return (await response.json()) as TResponse;
   }
 
   /**
    * PUT request
    */
-  async put(url, body, options = {}) {
+  async put<TResponse, TBody = unknown>(
+    url: string,
+    body: TBody,
+    options: RequestInit = {},
+  ): Promise<TResponse> {
     const response = await this._fetchWithRetry(url, {
       ...options,
       method: "PUT",
@@ -197,32 +229,32 @@ class HttpClient {
       body: JSON.stringify(body),
     });
 
-    return await response.json();
+    return (await response.json()) as TResponse;
   }
 
   /**
    * DELETE request
    */
-  async delete(url, options = {}) {
+  async delete<T>(url: string, options: RequestInit = {}): Promise<T> {
     const response = await this._fetchWithRetry(url, {
       ...options,
       method: "DELETE",
     });
 
-    return await response.json();
+    return (await response.json()) as T;
   }
 
   /**
    * Limpia el caché
    */
-  clearCache() {
+  clearCache(): void {
     this.cache.clear();
   }
 
   /**
    * Limpia entrada específica del caché
    */
-  clearCacheEntry(url, method = "GET") {
+  clearCacheEntry(url: string, method = "GET"): void {
     const cacheKey = `${method}_${url}`;
     this.cache.delete(cacheKey);
   }

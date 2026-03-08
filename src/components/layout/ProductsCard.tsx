@@ -4,18 +4,9 @@ import { Container } from "react-bootstrap";
 import MainHomeCard from "../elements/cards/MainHomeCard";
 import CustomLoader from "../elements/CustomLoader";
 import { useHomeProducts } from "../../hooks/useProducts";
-import type { Product } from "../../types";
-
-interface ProductsQueryResult {
-  data?: Product[];
-  isLoading: boolean;
-  error: Error | null;
-}
 
 export default function ProductsCard(): React.ReactElement {
-  // useHomeProducts aun proviene de JS; hacemos cast local para tipado seguro en TSX.
-  const { data: products, isLoading, error } =
-    useHomeProducts() as ProductsQueryResult;
+  const { data: products, isLoading, error } = useHomeProducts();
 
   if (isLoading) {
     return (

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { Form, Button, Card, Alert, ProgressBar } from "react-bootstrap";
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,45 +6,70 @@ import { useRouter } from "next/navigation";
 import emailjs from "@emailjs/browser";
 import { clearCart } from '../../../redux/slices/cartSlice';
 import { formatPrice } from '../../config/formatPrice';
-import { saveOrder } from '../../lib/api';
 import { PaymentForm } from "./PaymentForm";
+import type { AppDispatch, RootState } from "../../../redux/store";
+import type {
+  AddressInfo,
+  BillingContactInfo,
+  CartItem,
+  CheckoutOrder,
+} from "../../types";
 
-const CheckoutForm = ({ onSubmit, isProcessing, setIsProcessing }) => {
-  const dispatch = useDispatch();
+type CheckoutFormData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  street: string;
+  streetNumber: string;
+  apartment: string;
+  city: string;
+  region: string;
+  postalCode: string;
+  billingName: string;
+  billingEmail: string;
+  billingPhone: string;
+  notes: string;
+};
+
+type CheckoutField = keyof CheckoutFormData;
+type CheckoutErrors = Partial<Record<CheckoutField, string>>;
+
+interface CheckoutFormProps {
+  onSubmit?: (order: CheckoutOrder) => void;
+  isProcessing: boolean;
+  setIsProcessing: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const initialFormData: CheckoutFormData = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  street: "",
+  streetNumber: "",
+  apartment: "",
+  city: "",
+  region: "",
+  postalCode: "",
+  billingName: "",
+  billingEmail: "",
+  billingPhone: "",
+  notes: "",
+};
+
+const CheckoutForm = ({ onSubmit, isProcessing, setIsProcessing }: CheckoutFormProps): React.ReactElement => {
+  const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
-  const formRef = useRef();
-  const cartItems = useSelector((store) => store.cart);
+  const cartItems = useSelector((store: RootState) => store.cart as CartItem[]);
   const [currentStep, setCurrentStep] = useState(1); // 1 = Envío, 2 = Facturación, 3 = Pago
-  const [formData, setFormData] = useState({
-    // Información personal
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-
-    // Dirección de envío
-    street: "",
-    streetNumber: "",
-    apartment: "",
-    city: "",
-    region: "",
-    postalCode: "",
-
-    // Información de facturación
-    billingName: "",
-    billingEmail: "",
-    billingPhone: "",
-
-    // Notas
-    notes: "",
-  });
-
-  const [errors, setErrors] = useState({});
+  const [formData, setFormData] = useState<CheckoutFormData>(initialFormData);
+  const [errors, setErrors] = useState<CheckoutErrors>({});
   const [sameAsShipping, setSameAsShipping] = useState(true);
-  const [orderObject, setOrderObject] = useState(null);
+  const [orderObject, setOrderObject] = useState<CheckoutOrder | null>(null);
 
-  const validateStep = (step) => {
-    const newErrors = {};
+  const validateStep = (step: number): boolean => {
+    const newErrors: CheckoutErrors = {};
 
     if (step === 1) {
       // Validar paso 1: Información de envío
@@ -79,21 +104,25 @@ const CheckoutForm = ({ onSubmit, isProcessing, setIsProcessing }) => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = (e) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ): void => {
     const { name, value } = e.target;
+    const fieldName = name as CheckoutField;
+
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
+      [fieldName]: value,
     }));
-    if (errors[name]) {
+    if (errors[fieldName]) {
       setErrors((prev) => ({
         ...prev,
-        [name]: "",
+        [fieldName]: "",
       }));
     }
   };
 
-  const handleNextStep = (e) => {
+  const handleNextStep = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     if (!validateStep(currentStep)) {
@@ -106,19 +135,23 @@ const CheckoutForm = ({ onSubmit, isProcessing, setIsProcessing }) => {
     }
   };
 
-  const handlePreviousStep = () => {
+  const handlePreviousStep = (): void => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
     }
   };
 
-  const handlePaymentSuccess = async (paymentIntentId) => {
+  const handlePaymentSuccess = async (paymentIntentId: string): Promise<void> => {
+    if (!orderObject) {
+      toast.error("No se encontró la orden para finalizar el pago.");
+      return;
+    }
+
     setIsProcessing(true);
 
     try {
       // Enviar email de confirmación
       if (process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID && orderObject) {
-        const subtotal = orderObject.summary.subtotal;
         const total = orderObject.summary.total;
         const templateParams = {
           to_email: formData.email,
@@ -148,7 +181,7 @@ const CheckoutForm = ({ onSubmit, isProcessing, setIsProcessing }) => {
 
       // Redirigir a confirmación
       router.push(`/order-confirmation?orderId=${orderObject.orderId}`);
-    } catch (error) {
+    } catch (error: unknown) {
       console.error("Error al procesar el pago:", error);
       toast.error(
         "Hubo un error al procesar tu pago. Por favor, intenta nuevamente.",
@@ -158,7 +191,7 @@ const CheckoutForm = ({ onSubmit, isProcessing, setIsProcessing }) => {
     }
   };
 
-  const prepareOrder = (e) => {
+  const prepareOrder = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
 
     if (!validateStep(1) || !validateStep(2)) {
@@ -175,7 +208,22 @@ const CheckoutForm = ({ onSubmit, isProcessing, setIsProcessing }) => {
     const total = subtotal + shipping;
 
     // Crear objeto de orden
-    const newOrderObject = {
+    const billingInfo: AddressInfo | BillingContactInfo = sameAsShipping
+      ? {
+          street: formData.street,
+          streetNumber: formData.streetNumber,
+          apartment: formData.apartment || "",
+          city: formData.city,
+          region: formData.region,
+          postalCode: formData.postalCode,
+        }
+      : {
+          name: formData.billingName,
+          email: formData.billingEmail,
+          phone: formData.billingPhone,
+        };
+
+    const newOrderObject: CheckoutOrder = {
       orderId: `ORD-${Date.now()}`,
       createdAt: new Date().toISOString(),
       customerInfo: {
@@ -192,20 +240,7 @@ const CheckoutForm = ({ onSubmit, isProcessing, setIsProcessing }) => {
         region: formData.region,
         postalCode: formData.postalCode,
       },
-      billingInfo: sameAsShipping
-        ? {
-            street: formData.street,
-            streetNumber: formData.streetNumber,
-            apartment: formData.apartment || "",
-            city: formData.city,
-            region: formData.region,
-            postalCode: formData.postalCode,
-          }
-        : {
-            name: formData.billingName,
-            email: formData.billingEmail,
-            phone: formData.billingPhone,
-          },
+      billingInfo,
       items: cartItems,
       summary: {
         subtotal,
@@ -215,6 +250,8 @@ const CheckoutForm = ({ onSubmit, isProcessing, setIsProcessing }) => {
       notes: formData.notes,
       status: "pending_payment",
     };
+
+    onSubmit?.(newOrderObject);
 
     // Guardar orden temporalmente
     setOrderObject(newOrderObject);

@@ -63,10 +63,10 @@ const Input = forwardRef(
     ref,
   ) => {
     const [isFocused, setIsFocused] = useState(false);
+    const generatedId = React.useId();
 
     // Generate ID if not provided
-    const inputId =
-      id || `input-${name || Math.random().toString(36).substr(2, 9)}`;
+    const inputId = id || `input-${name || generatedId.replace(/:/g, "")}`;
 
     // Determine if this should be a textarea
     const isTextarea = type === "textarea";
