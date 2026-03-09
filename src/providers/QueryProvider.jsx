@@ -2,7 +2,32 @@
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { useState } from "react";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // Datos frescos por 5 minutos
+      staleTime: 5 * 60 * 1000,
+      // Datos en cache por 10 minutos
+      gcTime: 10 * 60 * 1000,
+      // Refetch al volver al foco/online
+      refetchOnWindowFocus: true,
+      refetchOnReconnect: true,
+      // Evitar refetch innecesario en mount
+      refetchOnMount: false,
+      // Retry con backoff exponencial
+      retry: 3,
+      retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
+      suspense: false,
+      networkMode: "online",
+    },
+    mutations: {
+      retry: 1,
+      retryDelay: 1000,
+      networkMode: "online",
+    },
+  },
+});
 
 /**
  * 🚀 CONFIGURACIÓN DE REACT QUERY
@@ -16,61 +41,6 @@ import { useState } from "react";
  */
 
 export default function QueryProvider({ children }) {
-  // Crear QueryClient una sola vez por render
-  const [queryClient] = useState(
-    () =>
-      new QueryClient({
-        defaultOptions: {
-          queries: {
-            // ⏱️ STALE TIME: Datos considerados frescos por 5 minutos
-            // Durante este tiempo, NO se harán requests adicionales
-            staleTime: 5 * 60 * 1000, // 5 minutos
-
-            // 💾 CACHE TIME: Datos en caché por 10 minutos
-            // Después de este tiempo se eliminan si no están en uso
-            gcTime: 10 * 60 * 1000, // 10 minutos (antes era cacheTime)
-
-            // 🔄 REFETCH: Refrescar datos cuando la ventana vuelve a tener foco
-            // Útil cuando el usuario vuelve después de estar en otra tab
-            refetchOnWindowFocus: true,
-
-            // 📡 REFETCH: Refrescar cuando la conexión se recupera
-            refetchOnReconnect: true,
-
-            // 🚫 NO refetch en mount si los datos están frescos
-            // Evita requests innecesarios al navegar entre páginas
-            refetchOnMount: false,
-
-            // 🔁 RETRY: Reintentar requests fallidos
-            // - 3 intentos automáticos
-            // - Delay exponencial: 1s, 2s, 4s
-            retry: 3,
-            retryDelay: (attemptIndex) =>
-              Math.min(1000 * 2 ** attemptIndex, 30000),
-
-            // 🔄 DEDUPLICACIÓN: Requests duplicados se unen automáticamente
-            // React Query hace esto por defecto mediante queryKey
-
-            // ⚡ SUSPENSE: Deshabilitado para compatibilidad
-            // Habilitar si usas Suspense boundaries en toda la app
-            suspense: false,
-
-            // 📊 NETWORK MODE: Online by default
-            // auto = solo hace requests si hay conexión
-            networkMode: "online",
-          },
-          mutations: {
-            // 🔄 Retry para mutations (POST, PUT, DELETE)
-            retry: 1,
-            retryDelay: 1000,
-
-            // 📡 Network mode para mutations
-            networkMode: "online",
-          },
-        },
-      }),
-  );
-
   return (
     <QueryClientProvider client={queryClient}>
       {children}
