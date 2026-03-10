@@ -60,7 +60,7 @@ Abre el archivo `.env.local` y completa:
 
 ```env
 # Firebase
-NEXT_PUBLIC_FIREBASE_API_KEY=AIzaSyC6UUiFslUqVSynZzj2aL9YFsAtCDYKP4Y
+NEXT_PUBLIC_FIREBASE_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=autonivelante-new-products.firebaseapp.com
 NEXT_PUBLIC_FIREBASE_PROJECT_ID=autonivelante-new-products
 NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=autonivelante-new-products.firebasestorage.app
