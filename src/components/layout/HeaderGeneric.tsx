@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import Menu from "./Menu";
 import MobileMenu from "./MobileMenu";
 import { Image } from "react-bootstrap";
 import { ShoppingBag } from "lucide-react";
+import { useAppSelector } from "../../hooks/useRedux";
 import CartCount from "../common/CartCount";
 
 type HeaderVariant = "main" | "aux";
@@ -18,7 +20,7 @@ interface HeaderGenericProps {
 }
 
 /**
- * Header generico - reemplaza Header.jsx y HeaderAux.jsx
+ * Header genérico - reemplaza Header.jsx y HeaderAux.jsx
  */
 export default function HeaderGeneric({
   scroll = 0,
@@ -27,7 +29,18 @@ export default function HeaderGeneric({
   isSidebar = false,
   variant = "main",
 }: HeaderGenericProps): React.ReactElement {
+  const [isHydrated, setIsHydrated] = useState(false);
   const isScrolled = typeof scroll === "boolean" ? scroll : scroll > 0;
+  const cart = useAppSelector((state) => state.cart);
+  const hasItems = cart && cart.length > 0;
+  const hydratedHasItems = isHydrated && hasItems;
+  const cartAriaLabel = hydratedHasItems
+    ? `Ver carrito con ${cart.length} producto${cart.length > 1 ? "s" : ""}`
+    : "Ver carrito";
+
+  useEffect(() => {
+    setIsHydrated(true);
+  }, []);
 
   const headerClassName =
     variant === "aux"
@@ -38,7 +51,9 @@ export default function HeaderGeneric({
 
   return (
     <>
-      <header className={`${headerClassName} ${isScrolled ? "fixed-header" : ""}`}>
+      <header
+        className={`${headerClassName} ${isScrolled ? "fixed-header" : ""}`}
+      >
         <div className="header-lower">
           <div className="outer-container">
             <div className="outer-box">
@@ -57,11 +72,17 @@ export default function HeaderGeneric({
               </div>
 
               <div className="menu-area clearfix">
-                <div className="mobile-nav-toggler" onClick={handleMobileMenu}>
-                  <i className="icon-bar"></i>
-                  <i className="icon-bar"></i>
-                  <i className="icon-bar"></i>
-                </div>
+                 <button
+                   className="mobile-nav-toggler"
+                   onClick={handleMobileMenu}
+                   aria-label="Abrir menú de navegación"
+                  {...(isMobileMenu && { "aria-expanded": "true" })}
+                   type="button"
+                 >
+                   <i className="icon-bar" aria-hidden="true"></i>
+                   <i className="icon-bar" aria-hidden="true"></i>
+                   <i className="icon-bar" aria-hidden="true"></i>
+                 </button>
 
                 <nav className="main-menu navbar-expand-md navbar-light">
                   <div
@@ -75,17 +96,23 @@ export default function HeaderGeneric({
 
               <ul className="menu-right-content">
                 <li className="cart-box">
-                  <Link href="/cart" prefetch={false}>
+                   <Link
+                     href="/cart"
+                     prefetch={false}
+                     aria-label={cartAriaLabel}
+                   >
                     <ShoppingBag
                       color={cartIconColor}
                       size={23}
                       className="cart-icon"
                     />
-                    <div className="count-products">
-                      <span id="contador-productos">
-                        <CartCount />
-                      </span>
-                    </div>
+                    {hydratedHasItems && (
+                      <div className="count-products">
+                        <span id="contador-productos">
+                          <CartCount />
+                        </span>
+                      </div>
+                    )}
                   </Link>
                 </li>
               </ul>
@@ -93,7 +120,9 @@ export default function HeaderGeneric({
           </div>
         </div>
 
-        <div className={`sticky-header ${isScrolled ? "animated slideInDown" : ""}`}>
+        <div
+          className={`sticky-header ${isScrolled ? "animated slideInDown" : ""}`}
+        >
           <div className="outer-container">
             <div className="outer-box">
               <div className="logo-box">
@@ -111,11 +140,17 @@ export default function HeaderGeneric({
               </div>
 
               <div className="menu-area menu-area2 clearfix">
-                <div className="mobile-nav-toggler" onClick={handleMobileMenu}>
-                  <i className="icon-bar"></i>
-                  <i className="icon-bar"></i>
-                  <i className="icon-bar"></i>
-                </div>
+                 <button
+                   className="mobile-nav-toggler"
+                   onClick={handleMobileMenu}
+                   aria-label="Abrir menú de navegación"
+                  {...(isMobileMenu && { "aria-expanded": "true" })}
+                   type="button"
+                 >
+                   <i className="icon-bar" aria-hidden="true"></i>
+                   <i className="icon-bar" aria-hidden="true"></i>
+                   <i className="icon-bar" aria-hidden="true"></i>
+                 </button>
 
                 <nav className="main-menu navbar-expand-md navbar-light clearfix">
                   <div
@@ -129,17 +164,23 @@ export default function HeaderGeneric({
 
               <ul className="menu-right-content">
                 <li className="cart-box">
-                  <Link href="/cart" prefetch={false}>
+                   <Link
+                     href="/cart"
+                     prefetch={false}
+                     aria-label={cartAriaLabel}
+                   >
                     <ShoppingBag
                       color={cartIconColor}
                       size={23}
                       className="cart-icon"
                     />
-                    <div className="count-products">
-                      <span id="contador-productos">
-                        <CartCount />
-                      </span>
-                    </div>
+                    {hydratedHasItems && (
+                      <div className="count-products">
+                        <span id="contador-productos">
+                          <CartCount />
+                        </span>
+                      </div>
+                    )}
                   </Link>
                 </li>
               </ul>

@@ -477,7 +477,7 @@ Components/
         └── Playground
 ```
 
-### Features de Storybook
+### Funcionalidades de Storybook
 
 #### 1. **Canvas**
 
@@ -678,7 +678,7 @@ Componente responsive que detecta breakpoint:
 />
 ```
 
-### Fase 4: Documentación y Testing (3-4 días)
+### Fase 4: Documentación y Pruebas (3-4 días)
 
 1. **Guía de Estilo** completa en Storybook
 2. **Visual Regression Testing** con Chromatic
@@ -873,7 +873,7 @@ Antes de marcar un componente como "completo", verificar:
 
 ---
 
-## 🔧 Troubleshooting
+## 🔧 Solución de problemas
 
 ### Storybook no inicia
 

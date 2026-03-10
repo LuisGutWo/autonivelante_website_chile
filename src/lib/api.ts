@@ -1,7 +1,59 @@
 import { httpClient } from "./httpClient";
-import type { CheckoutOrder, OrderStatus, ProductList } from "../types";
+import { logger, LogCategory } from "./logger";
+import type { CheckoutOrder, OrderStatus, Product, ProductList } from "../types";
+import localProducts from "../data/products.json";
 
 type FirebaseOrdersMap = Record<string, CheckoutOrder>;
+
+type LocalProductsData = {
+  mainProducts: unknown[];
+  homeProducts: unknown[];
+  productsPage: unknown[];
+  allProducts: unknown[];
+};
+
+const productsData = localProducts as LocalProductsData;
+
+const normalizeDescription = (value: unknown): string | undefined => {
+  if (typeof value === "string") {
+    return value;
+  }
+
+  if (Array.isArray(value)) {
+    return value
+      .filter((entry): entry is string => typeof entry === "string")
+      .join(" ")
+      .trim();
+  }
+
+  return undefined;
+};
+
+const normalizeProducts = (items: unknown[]): ProductList => {
+  if (!Array.isArray(items)) {
+    return [];
+  }
+
+  return items
+    .filter(
+      (item): item is Record<string, unknown> =>
+        typeof item === "object" && item !== null,
+    )
+    .map((item) => {
+      const description =
+        normalizeDescription(item.description) ?? normalizeDescription(item.desc);
+
+      return {
+        ...item,
+        id: String(item.id ?? ""),
+        title: String(item.title ?? ""),
+        price: Number(item.price ?? 0),
+        image: String(item.image ?? ""),
+        description,
+      } as Product;
+    })
+    .filter((item) => item.id && item.title && item.image);
+};
 
 const getErrorMessage = (error: unknown): string =>
   error instanceof Error ? error.message : "Error desconocido";
@@ -25,23 +77,7 @@ const getFirebaseDatabaseUrl = (): string => {
  * Con retry automático y manejo de errores
  */
 export async function fetchMainProducts(): Promise<ProductList> {
-  const url = process.env.NEXT_PUBLIC_MAIN_PRODUCTS_URL;
-  if (!url) {
-    throw new Error(
-      "fetchMainProducts: NEXT_PUBLIC_MAIN_PRODUCTS_URL is not defined. Asegúrate de configurar .env.local",
-    );
-  }
-
-  try {
-    const data = await httpClient.get<ProductList>(url);
-    if (!data) {
-      throw new Error("No se devolvieron productos de la API");
-    }
-    return data;
-  } catch (error: unknown) {
-    console.error("❌ Error fetching main products:", error);
-    throw new Error(`Error al cargar productos principales: ${getErrorMessage(error)}`);
-  }
+  return normalizeProducts(productsData.mainProducts ?? []);
 }
 
 /**
@@ -49,23 +85,7 @@ export async function fetchMainProducts(): Promise<ProductList> {
  * Con retry automático y manejo de errores
  */
 export async function fetchHomeProducts(): Promise<ProductList> {
-  const url = process.env.NEXT_PUBLIC_HOME_PRODUCTS_URL;
-  if (!url) {
-    throw new Error(
-      "fetchHomeProducts: NEXT_PUBLIC_HOME_PRODUCTS_URL is not defined. Asegúrate de configurar .env.local",
-    );
-  }
-
-  try {
-    const data = await httpClient.get<ProductList>(url);
-    if (!data) {
-      throw new Error("No se devolvieron productos de la API");
-    }
-    return data;
-  } catch (error: unknown) {
-    console.error("❌ Error fetching home products:", error);
-    throw new Error(`Error al cargar productos destacados: ${getErrorMessage(error)}`);
-  }
+  return normalizeProducts(productsData.homeProducts ?? []);
 }
 
 /**
@@ -73,23 +93,7 @@ export async function fetchHomeProducts(): Promise<ProductList> {
  * Con retry automático y manejo de errores
  */
 export async function fetchProductsPage(): Promise<ProductList> {
-  const url = process.env.NEXT_PUBLIC_PRODUCTS_PAGE_URL;
-  if (!url) {
-    throw new Error(
-      "fetchProductsPage: NEXT_PUBLIC_PRODUCTS_PAGE_URL is not defined. Asegúrate de configurar .env.local",
-    );
-  }
-
-  try {
-    const data = await httpClient.get<ProductList>(url);
-    if (!data) {
-      throw new Error("No se devolvieron productos de la API");
-    }
-    return data;
-  } catch (error: unknown) {
-    console.error("❌ Error fetching products page:", error);
-    throw new Error(`Error al cargar página de productos: ${getErrorMessage(error)}`);
-  }
+  return normalizeProducts(productsData.productsPage ?? []);
 }
 
 // ============ ORDERS API ============
@@ -107,10 +111,19 @@ export async function saveOrder(orderData: CheckoutOrder): Promise<CheckoutOrder
 
   try {
     await httpClient.put<unknown, CheckoutOrder>(ordersUrl, orderData);
-    console.log("✅ Orden guardada exitosamente:", orderData.orderId);
+    logger.info(
+      "Orden guardada exitosamente",
+      { orderId: orderData.orderId },
+      LogCategory.API
+    );
     return orderData;
   } catch (error: unknown) {
-    console.error("❌ Error guardando orden:", error);
+    logger.error(
+      "Error guardando orden",
+      error,
+      { orderId: orderData.orderId },
+      LogCategory.API
+    );
     throw new Error(`Error al guardar orden: ${getErrorMessage(error)}`);
   }
 }
@@ -134,7 +147,12 @@ export async function getOrders(): Promise<CheckoutOrder[]> {
     // Convertir objeto de Firebase a array
     return Object.values(data);
   } catch (error: unknown) {
-    console.error("❌ Error obteniendo órdenes:", error);
+    logger.error(
+      "Error obteniendo órdenes",
+      error,
+      undefined,
+      LogCategory.API
+    );
     throw new Error(`Error al obtener órdenes: ${getErrorMessage(error)}`);
   }
 }
@@ -158,7 +176,12 @@ export async function getOrderById(orderId: string): Promise<CheckoutOrder> {
 
     return data;
   } catch (error: unknown) {
-    console.error("❌ Error obteniendo orden:", error);
+    logger.error(
+      "Error obteniendo orden",
+      error,
+      { orderId },
+      LogCategory.API
+    );
     throw new Error(`Error al obtener orden: ${getErrorMessage(error)}`);
   }
 }
@@ -181,7 +204,12 @@ export async function updateOrderStatus(
     await httpClient.put<unknown, OrderStatus>(orderUrl, status);
     return status;
   } catch (error: unknown) {
-    console.error("❌ Error actualizando orden:", error);
+    logger.error(
+      "Error actualizando orden",
+      error,
+      { orderId, status },
+      LogCategory.API
+    );
     throw new Error(`Error al actualizar orden: ${getErrorMessage(error)}`);
   }
 }

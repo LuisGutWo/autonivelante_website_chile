@@ -30,7 +30,7 @@ JavaScript Chunks (Top 5):
 
 ## 🎯 Optimizaciones Implementadas
 
-### 0. Quick Wins Recientes ✅
+### 0. Mejoras rápidas Recientes ✅
 
 - ✅ Lazy load de `react-player` en `app/modalvideo/page.jsx`
 - ✅ Inicializacion lazy de WOW.js en `Layout.jsx` y `Layout.tsx`
@@ -230,7 +230,7 @@ node scripts/measure-bundle.js
 
 ## 🎯 Roadmap de Optimización
 
-### Fase 1: Quick Wins (1-2 horas) 🟢 RECOMENDADO
+### Fase 1: Mejoras rápidas (1-2 horas) 🟢 RECOMENDADO
 
 ```bash
 [x] Lazy load ModalVideo
@@ -322,7 +322,7 @@ npm run start                    # Servidor producción
 - ⏳ Por medir
 - 🎯 Objetivo: **<200 KB**
 
-### Lighthouse Performance
+### Rendimiento en Lighthouse
 
 - ⏳ Por medir
 - 🎯 Objetivo: **>90**
@@ -331,7 +331,7 @@ npm run start                    # Servidor producción
 
 ## 📝 Próximos Pasos Inmediatos
 
-### 1. Implementar Quick Wins (30-60 min)
+### 1. Implementar Mejoras rápidas (30-60 min)
 
 ```bash
 # Editar componentes para lazy loading
@@ -358,7 +358,7 @@ npm run start                    # Servidor producción
 [ ] API utilities
 ```
 
-### 4. Testing de Optimizaciones (30 min)
+### 4. Pruebas de Optimizaciones (30 min)
 
 ```bash
 # Verificar funcionalidad

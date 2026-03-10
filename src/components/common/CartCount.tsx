@@ -1,25 +1,29 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import type { RootState } from "../../../redux/store";
+import React, { useMemo } from "react";
+import { useAppSelector } from "../../hooks/useRedux";
 
-export default function CartCount(): React.ReactElement | null {
-  const cart = useSelector((state: RootState) => state.cart);
-  const [cartLength, setCartLength] = useState<number>(0);
-  const [totalQuantity, setTotalQuantity] = useState<number>(0);
+/**
+ * CartCount - Muestra la cantidad total de items en el carrito
+ * 
+ * Optimizado con useMemo para evitar cálculos innecesarios en cada render.
+ * Solo recalcula cuando el carrito cambia realmente.
+ */
+const CartCount = React.memo((): React.ReactElement | null => {
+  const cart = useAppSelector((state) => state.cart);
 
-  useEffect(() => {
-    setCartLength(cart.length);
+  // Memoizar el cálculo de cantidad total
+  const totalQuantity = useMemo(() => {
+    return cart.reduce((acc, cartItem) => acc + cartItem.qty, 0);
   }, [cart]);
 
-  useEffect(() => {
-    const quantitySum = cart.reduce((acc, cartItem) => acc + cartItem.qty, 0);
-    setTotalQuantity(quantitySum);
-  }, [cart]);
-
-  if (cartLength > 0) {
-    return <span>{totalQuantity}</span>;
+  // Si no hay items, no renderizar nada
+  if (totalQuantity === 0) {
+    return null;
   }
 
-  return null;
-}
+  return <span>{totalQuantity}</span>;
+});
+
+CartCount.displayName = "CartCount";
+
+export default CartCount;

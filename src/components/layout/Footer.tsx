@@ -1,12 +1,10 @@
 import { Image } from "react-bootstrap";
 
 export default function Footer(): React.ReactElement | null {
-  const currentYear = new Date()?.getFullYear();
-
-  if (currentYear === undefined) {
-    console.error("Failed to get current year in Footer component.");
-    return null;
-  }
+  const currentYear = new Intl.DateTimeFormat("es-CL", {
+    year: "numeric",
+    timeZone: "America/Santiago",
+  }).format(new Date());
 
   return (
     <footer className="main-footer">

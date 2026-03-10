@@ -125,7 +125,7 @@ Verificar que no hay errores en terminal.
 
 ---
 
-## 🧪 Testing
+## 🧪 Pruebas
 
 ### Tarjetas de Prueba
 
@@ -137,7 +137,7 @@ Usa estas tarjetas en modo **Stripe Test**:
 | Visa | 4000 0000 0000 0002 | 12/26 | 123 | ❌ Declina |
 | Visa | 4000 0025 0000 3155 | 12/26 | 123 | ⚠️ Require 3D Secure |
 
-### Flujo de Testing
+### Flujo de Pruebas
 
 1. **Ir a /checkout**
 2. **Paso 1**: Llenar datos de envío
@@ -212,7 +212,7 @@ Router: /order-confirmation?orderId=ORD-xxxxx
 
 ---
 
-## 🔧 Troubleshooting
+## 🔧 Solución de problemas
 
 ### Error: "Stripe no está cargado"
 
@@ -255,7 +255,7 @@ Router: /order-confirmation?orderId=ORD-xxxxx
 
 ---
 
-## ✨ Features Implementados
+## ✨ Funcionalidades Implementados
 
 ✅ Formulario de 3 pasos  
 ✅ Validación de datos por paso  

@@ -1,0 +1,7 @@
+{
+    "scripts": {
+        "lighthouse": "lighthouse http://localhost:3001 --only-categories=performance --view --chrome-flags=\"--headless=new\"",
+        "lighthouse-json": "lighthouse http://localhost:3001 --only-categories=performance --output=json --output-path=./lighthouse-report.json --chrome-flags=\"--headless=new\"",
+        "lighthouse-mobile": "lighthouse http://localhost:3001 --only-categories=performance --view --preset=mobile --chrome-flags=\"--headless=new\""
+    }
+}

@@ -46,11 +46,6 @@ const REQUIRED_VARS = [
   // EmailJS
   "NEXT_PUBLIC_EMAILJS_PUBLIC_KEY",
   "NEXT_PUBLIC_EMAILJS_SERVICE_ID",
-
-  // URLs de Productos
-  "NEXT_PUBLIC_HOME_PRODUCTS_URL",
-  "NEXT_PUBLIC_MAIN_PRODUCTS_URL",
-  "NEXT_PUBLIC_PRODUCTS_PAGE_URL",
 ];
 
 // Variables opcionales (recomendadas pero no críticas)

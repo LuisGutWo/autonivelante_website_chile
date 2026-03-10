@@ -1,4 +1,4 @@
-# Error Handling Implementation Guide - Fase 3
+# Guía de implementación de manejo de errores - Fase 3
 
 ## 📋 Resumen General
 
@@ -7,14 +7,14 @@ Implementación completa de **manejo de errores en producción** con los siguien
 ✅ **ErrorBoundary** - Captura errores de componentes React  
 ✅ **httpClient** - Cliente HTTP con retry automático (exponencial backoff)  
 ✅ **APIError** - Componente UI para mostrar errores al usuario  
-✅ **Error Routes** - Páginas de error para Server Components (error.jsx)  
-✅ **Comprehensive Logging** - Logs estructurados con emojis para fácil identificación  
+✅ **Rutas de error** - Páginas de error para Server Components (error.jsx)  
+✅ **Registro estructurado** - Logs estructurados con emojis para fácil identificación  
 
 ---
 
-## 🏗️ Arquitectura de Error Handling
+## 🏗️ Arquitectura de Manejo de Errores
 
-```
+```text
 ┌─────────────────────────────────────────────────────────┐
 │  Global Error Boundary (app/layout.jsx)                 │
 │  └─ Captura todos los errores no manejados              │
@@ -42,17 +42,17 @@ Implementación completa de **manejo de errores en producción** con los siguien
 
 ### 1. **ErrorBoundary.jsx** (`/src/components/common/`)
 
-**Propósito**: Capturar errores de React y mostrar fallback UI
+**Propósito**: Capturar errores de React y mostrar una interfaz de respaldo
 
 **Características**:
 
-- Class component con `getDerivedStateFromError`
+- Componente de clase con `getDerivedStateFromError`
 - `componentDidCatch` para logging
 - Botón "Reintentar" para resetear el estado
 - Detalles técnicos en modo desarrollo
 - Estilos responsivos con Bootstrap
 
-**Props**: Ninguno (envuelve children)
+**Propiedades**: Ninguna (envuelve `children`)
 
 **Métodos Clave**:
 
@@ -76,11 +76,11 @@ Implementación completa de **manejo de errores en producción** con los siguien
 
 **Características**:
 
-- **Retry con exponencial backoff**: 1s → 2s → 4s (máx 10s)
+- **Reintentos con retroceso exponencial**: 1s → 2s → 4s (máx 10s)
 - **Jitter para evitar thundering herd**: +0-1s random
 - **Max 3 retries** por defecto (configurable)
-- **Request timeout**: 10s (configurable)
-- **Detecta errores retryables**:
+- **Tiempo de espera de solicitud**: 10s (configurable)
+- **Detecta errores reintentables**:
   - Network errors (TypeError)
   - 408 Request Timeout
   - 429 Too Many Requests
@@ -164,7 +164,7 @@ try {
 
 ---
 
-### 4. **Error Routes** (error.jsx)
+### 4. **Rutas de error** (error.jsx)
 
 Archivos creados en todas las rutas críticas:
 
@@ -224,9 +224,9 @@ export default function RouteError({ error, reset }) {
 
 ## 🔄 Flujo de Manejo de Errores
 
-### **Server Component Error Flow**
+### **Flujo de error en Server Components**
 
-```
+```text
 1. Page.jsx ejecuta fetchMainProducts()
 2. httpClient realiza GET con retry automático (3 intentos)
 3. Si todos fallan → Se lanza Error
@@ -236,9 +236,9 @@ export default function RouteError({ error, reset }) {
 7. Click en "Reintentar" → reset() → Reintenta
 ```
 
-### **Client Component Error Flow**
+### **Flujo de error en Client Components**
 
-```
+```text
 1. Componente ejecuta función que lanza Error
 2. ErrorBoundary captura el error
 3. Muestra fallback UI con detalles técnicos
@@ -247,9 +247,9 @@ export default function RouteError({ error, reset }) {
 6. Componente vuelve a renderizar normalmente
 ```
 
-### **Network Request Flow**
+### **Flujo de solicitudes de red**
 
-```
+```text
 1. httpClient.get(url) - Intento 1
    ├─ Éxito → Retorna datos
    └─ Fallo (timeout/5xx) → Espera 1s + jitter
@@ -272,22 +272,19 @@ Todas las funciones de fetch actualizadas con httpClient:
 ### **fetchMainProducts()**
 
 ```javascript
-const url = process.env.NEXT_PUBLIC_MAIN_PRODUCTS_URL;
-const data = await httpClient.get(url);
+const data = normalizeProducts(productsData.mainProducts ?? []);
 ```
 
 ### **fetchHomeProducts()**
 
 ```javascript
-const url = process.env.NEXT_PUBLIC_HOME_PRODUCTS_URL;
-const data = await httpClient.get(url);
+const data = normalizeProducts(productsData.homeProducts ?? []);
 ```
 
 ### **fetchProductsPage()**
 
 ```javascript
-const url = process.env.NEXT_PUBLIC_PRODUCTS_PAGE_URL;
-const data = await httpClient.get(url);
+const data = normalizeProducts(productsData.productsPage ?? []);
 ```
 
 ### **getOrderById()**
@@ -354,7 +351,7 @@ export default function Layout(props) {
 }
 ```
 
-### **Server Component Pages**
+### **Páginas con Server Components**
 
 Removidos try-catch que retornaban null, ahora lanzan errores:
 
@@ -410,7 +407,7 @@ return <ProductList products={products} />;
 
 ## 🧪 Pruebas Manuales
 
-### **Test 1: Network Timeout**
+### **Prueba 1: Timeout de red**
 
 ```javascript
 // Simular en httpClient.js
@@ -418,7 +415,7 @@ const timeout = 100; // ms muy bajo
 // Resultado: Error capturado, reintento automático, UI amigable
 ```
 
-### **Test 2: Invalid API Response**
+### **Prueba 2: Respuesta API inválida**
 
 ```javascript
 // Cambiar URL a endpoint inválido
@@ -426,14 +423,14 @@ const url = "https://invalid-url.com/products";
 // Resultado: Error después de 3 reintentos, APIError mostrado
 ```
 
-### **Test 3: Missing Environment Variable**
+### **Prueba 3: Variable de entorno faltante**
 
 ```javascript
-// Remover NEXT_PUBLIC_MAIN_PRODUCTS_URL
-// Resultado: Error claro indicando configurar .env.local
+// Corromper src/data/products.json (ej: product sin id o image)
+// Resultado: normalización filtra datos inválidos y no rompe UI
 ```
 
-### **Test 4: Component React Error**
+### **Prueba 4: Error de componente React**
 
 ```javascript
 // Renderizar componente que lanza error
@@ -455,59 +452,59 @@ Ver también:
 ## ✅ Checklist de Implementación
 
 - ✅ ErrorBoundary.jsx creado
-- ✅ httpClient.js con retry logic
-- ✅ APIError.jsx component
-- ✅ error.jsx para global errors
-- ✅ error.jsx para /products route
-- ✅ error.jsx para /homeproducts route
-- ✅ error.jsx para /cart route
+- ✅ httpClient.js con lógica de reintentos
+- ✅ Componente APIError.jsx
+- ✅ error.jsx para errores globales
+- ✅ error.jsx para la ruta /products
+- ✅ error.jsx para la ruta /homeproducts
+- ✅ error.jsx para la ruta /cart
 - ✅ app/layout.jsx con ErrorBoundary
 - ✅ Layout.jsx component con ErrorBoundary
 - ✅ api.jsx functions actualizadas con httpClient
-- ✅ Server Components sin try-catch que retornan null
+- ✅ Server Components sin try-catch que retornan `null`
 - ✅ Mensajes de error en español
 
 ---
 
 ## 🚀 Siguientes Pasos Opcionales
 
-1. **Toast Notifications**
+1. **Notificaciones toast**
    - Mostrar notificación cuando se completa retry
    - Usar react-hot-toast (ya instalado)
 
-2. **Advanced Monitoring**
+2. **Monitoreo avanzado**
    - Sentry integration para tracking de errores
    - Log agrupación por tipo de error
 
-3. **User Analytics**
+3. **Analítica de usuario**
    - Trackear qué errores son más comunes
    - Mejorar UX basado en patrones
 
-4. **Graceful Degradation**
+4. **Degradación gradual**
    - Cache de datos previos
    - Modo offline básico
    - Skeleton loaders en lugar de errores
 
 ---
 
-## 📞 Support & Troubleshooting
+## 📞 Soporte y solución de problemas
 
-**Error: "ErrorBoundary is not defined"**
+### Error: "ErrorBoundary is not defined"
 
 - Verificar import en layout.jsx: `import ErrorBoundary from "@/src/components/common/ErrorBoundary";`
 
-**Error: "httpClient is not defined"**
+### Error: "httpClient is not defined"
 
 - Asegurar que api.jsx tenga: `import { httpClient } from "./httpClient";`
 
-**Pages showing APIError permanentemente**
+### Páginas mostrando APIError permanentemente
 
-- Check console para ver el error real
+- Revisar consola para ver el error real
 - Verificar variables de entorno en .env.local
-- Revisar Firebase database rules
+- Revisar las reglas de la base de datos de Firebase
 
 ---
 
-_Documentación creada: Fase 3 - Error Handling Implementation_  
+_Documentación creada: Fase 3 - Implementación de manejo de errores_  
 _Última actualización: 2026_  
 _Estado: ✅ COMPLETADO_

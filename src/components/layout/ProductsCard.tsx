@@ -2,7 +2,7 @@
 
 import { Container } from "react-bootstrap";
 import MainHomeCard from "../elements/cards/MainHomeCard";
-import CustomLoader from "../elements/CustomLoader";
+import CardSkeleton from "../elements/CardSkeleton";
 import { useHomeProducts } from "../../hooks/useProducts";
 
 export default function ProductsCard(): React.ReactElement {
@@ -15,11 +15,8 @@ export default function ProductsCard(): React.ReactElement {
         className="products__card-section p_relative pt-3 centred sec-pad"
       >
         <Container fluid>
-          <div
-            className="d-flex justify-content-center align-items-center"
-            style={{ minHeight: "400px" }}
-          >
-            <CustomLoader />
+          <div className="products__card-container productcard__text">
+            <CardSkeleton variant="product" count={4} />
           </div>
         </Container>
       </section>

@@ -65,6 +65,7 @@ beforeAll(() => {
         ) {
             return;
         }
+
         originalError.call(console, ...args);
     });
 

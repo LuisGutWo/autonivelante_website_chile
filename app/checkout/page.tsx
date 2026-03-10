@@ -1,18 +1,18 @@
 "use client";
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useAppSelector } from "../../src/hooks/useRedux";
 import { useRouter } from "next/navigation";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Layout from '../../src/components/layout/Layout';
 import Breadcrumb from '../../src/components/common/Breadcrumb/Breadcrumb';
 import CheckoutForm from '../../src/components/checkout/CheckoutForm';
 import CartSummary from '../../src/components/checkout/CartSummary';
-import type { RootState } from "../../redux/store";
 import type { CartItem } from "../../src/types";
+import { trackBeginCheckout } from "../../src/lib/analytics";
 
 export default function CheckoutPage(): React.ReactElement {
   const router = useRouter();
-  const cartItems = useSelector((store: RootState) => store.cart as CartItem[]);
+  const cartItems = useAppSelector((store) => store.cart);
   const [isProcessing, setIsProcessing] = useState(false);
 
   // Redirigir si no hay items en el carrito
@@ -50,6 +50,14 @@ export default function CheckoutPage(): React.ReactElement {
   );
   const shipping = subtotal > 50000 ? 0 : 5000; // Envío gratis sobre $50k
   const total = subtotal + shipping;
+
+  useEffect(() => {
+    if (!cartItems || cartItems.length === 0) {
+      return;
+    }
+
+    trackBeginCheckout(cartItems, total, shipping);
+  }, [cartItems, total, shipping]);
 
   return (
     <Layout headerStyle={2} footerStyle={1}>

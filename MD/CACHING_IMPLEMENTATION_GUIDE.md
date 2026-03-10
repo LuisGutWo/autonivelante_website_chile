@@ -693,7 +693,7 @@ Total: 1 request (-67%)
 **Modo Desarrollo**: Automático  
 **Ubicación**: Esquina inferior izquierda (botón flotante)
 
-### Features
+### Funcionalidades
 
 1. **Query Inspector**: Ver estado de todas las queries
 2. **Cache Explorer**: Inspeccionar datos en caché
@@ -714,7 +714,7 @@ const queryClient = useQueryClient();
 console.log(queryClient.getQueryData(["products", "main"]));
 ```
 
-#### Invalidar Manualmente (Testing)
+#### Invalidar Manualmente (Pruebas)
 
 ```javascript
 // En DevTools Console

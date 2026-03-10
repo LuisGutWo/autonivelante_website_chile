@@ -382,7 +382,7 @@ Todos los componentes están documentados en Storybook en <http://localhost:6006
 
 ## 🚀 Próximos Pasos (Phase 4)
 
-### Testing
+### Pruebas
 
 - [ ] Revisar todas las páginas (home, products, cart, contact, projects)
 - [ ] Verificar no haya errores de imports

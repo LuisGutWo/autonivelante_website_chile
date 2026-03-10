@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
-    "build:analyze": "ANALYZE=true next build",
-    "build:production": "NODE_ENV=production next build",
+    "build": "npm run generate:blur && next build",
+    "build:analyze": "npm run generate:blur && ANALYZE=true next build",
+    "build:production": "npm run generate:blur && NODE_ENV=production next build",
+    "generate:blur": "node scripts/generate-blur-urls.js",
     "start": "next start",
     "start:production": "NODE_ENV=production next start -p 3000",
     "lint": "eslint .",
@@ -29,11 +30,14 @@
     "@tanstack/react-query": "^5.90.21",
     "@tanstack/react-query-devtools": "^5.91.3",
     "animate.css": "^4.1.1",
+    "blurhash": "^2.0.5",
     "caniuse-lite": "^1.0.30001776",
     "firebase": "^12.10.0",
     "lucide-react": "^0.577.0",
     "next": "16.1.6",
     "next-navigation": "^1.0.6",
+    "node-fetch": "^2.7.0",
+    "plaiceholder": "^3.0.0",
     "react": "^19.2.4",
     "react-bootstrap": "^2.10.10",
     "react-content-loader": "^7.1.2",
@@ -72,6 +76,7 @@
     "happy-dom": "^20.8.3",
     "storybook": "^10.2.15",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.18"
+    "vitest": "^4.0.18",
+    "vitest-axe": "^0.1.0"
   }
 }

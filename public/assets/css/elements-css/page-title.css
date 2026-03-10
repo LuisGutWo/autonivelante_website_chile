@@ -1,65 +1,64 @@
-
 /** page-title **/
 
-.page-title{
-	position: relative;
-	padding: 140px 0px 140px 0px;
+.page-title {
+  position: relative;
+  padding: var(--spacing-24) 0px var(--spacing-24) 0px;
 }
 
-.page-title .bg-layer{
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
+.page-title .bg-layer {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.page-title .bg-layer:before{
-	position: absolute;
-	content: '';
-	background-color: #17141F;
-	width: 100%;
-	height: 100%;
-	left: 0px;
-	top: 0px;
-	opacity: 0.65;
+.page-title .bg-layer:before {
+  position: absolute;
+  content: "";
+  background-color: var(--color-bg-hero-dark);
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  opacity: 0.65;
 }
 
-.page-title h1{
-	position: relative;
-	display: block;
-	font-size: 60px;
-	line-height: 70px;
-	color: #fff;
-	font-weight: 700;
-	margin-bottom: 22px;
+.page-title h1 {
+  position: relative;
+  display: block;
+  font-size: var(--font-size-6xl);
+  line-height: 70px;
+  color: var(--color-text-white);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-6);
 }
 
-.page-title .bread-crumb li{
-	position: relative;
-	display: inline-block;
-	font-size: 18px;
-	line-height: 28px;
-	color: #fff;
-	font-weight: 500;
-	margin-right: 32px;
+.page-title .bread-crumb li {
+  position: relative;
+  display: inline-block;
+  font-size: var(--font-size-lg);
+  line-height: 28px;
+  color: var(--color-text-white);
+  font-weight: var(--font-weight-medium);
+  margin-right: var(--spacing-12);
 }
 
-.page-title .bread-crumb li:last-child{
-	margin: 0px;
+.page-title .bread-crumb li:last-child {
+  margin: 0px;
 }
 
-.page-title .bread-crumb li a{
-	display: inline-block;
-	color: #fff;
+.page-title .bread-crumb li a {
+  display: inline-block;
+  color: var(--color-text-white);
 }
 
 .page-title .bread-crumb li:after {
   position: absolute;
-  font-family: 'Font Awesome 5 Pro';
+  font-family: "Font Awesome 5 Pro";
   content: "\f105";
   font-size: 16px;
   font-weight: 500;
@@ -67,27 +66,6 @@
   top: 0px;
 }
 
-.page-title .bread-crumb li:last-child:after{
-	display: none;
+.page-title .bread-crumb li:last-child:after {
+  display: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 import { Form, Button, Card, Alert, ProgressBar } from "react-bootstrap";
 import toast from "react-hot-toast";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "../../hooks/useRedux";
 import { useRouter } from "next/navigation";
 import emailjs from "@emailjs/browser";
 import { clearCart } from '../../../redux/slices/cartSlice';
 import { formatPrice } from '../../config/formatPrice';
 import { PaymentForm } from "./PaymentForm";
-import type { AppDispatch, RootState } from "../../../redux/store";
+import { trackPurchase } from "../../lib/analytics";
 import type {
   AddressInfo,
   BillingContactInfo,
@@ -59,14 +59,30 @@ const initialFormData: CheckoutFormData = {
 };
 
 const CheckoutForm = ({ onSubmit, isProcessing, setIsProcessing }: CheckoutFormProps): React.ReactElement => {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useAppDispatch();
   const router = useRouter();
-  const cartItems = useSelector((store: RootState) => store.cart as CartItem[]);
+  const cartItems = useAppSelector((store) => store.cart);
   const [currentStep, setCurrentStep] = useState(1); // 1 = Envío, 2 = Facturación, 3 = Pago
   const [formData, setFormData] = useState<CheckoutFormData>(initialFormData);
   const [errors, setErrors] = useState<CheckoutErrors>({});
   const [sameAsShipping, setSameAsShipping] = useState(true);
   const [orderObject, setOrderObject] = useState<CheckoutOrder | null>(null);
+
+  // Memoizar cálculo de totales - Solo recalcula cuando cambia el carrito
+  const { subtotal, shipping, total } = useMemo(() => {
+    const calculatedSubtotal = cartItems.reduce(
+      (acc, item) => acc + item.price * item.qty,
+      0,
+    );
+    const calculatedShipping = calculatedSubtotal > 50000 ? 0 : 5000;
+    const calculatedTotal = calculatedSubtotal + calculatedShipping;
+
+    return {
+      subtotal: calculatedSubtotal,
+      shipping: calculatedShipping,
+      total: calculatedTotal,
+    };
+  }, [cartItems]);
 
   const validateStep = (step: number): boolean => {
     const newErrors: CheckoutErrors = {};
@@ -176,13 +192,25 @@ const CheckoutForm = ({ onSubmit, isProcessing, setIsProcessing }: CheckoutFormP
 
       toast.success("¡Pago realizado exitosamente!");
 
+      trackPurchase(
+        orderObject.orderId,
+        cartItems,
+        orderObject.summary.total,
+        orderObject.summary.shipping
+      );
+
       // Limpiar carrito
       dispatch(clearCart());
 
       // Redirigir a confirmación
       router.push(`/order-confirmation?orderId=${orderObject.orderId}`);
     } catch (error: unknown) {
-      console.error("Error al procesar el pago:", error);
+      logger.error(
+        "Error al procesar el pago",
+        error,
+        { orderId: orderObject?.orderId },
+        LogCategory.CHECKOUT
+      );
       toast.error(
         "Hubo un error al procesar tu pago. Por favor, intenta nuevamente.",
       );
@@ -199,13 +227,8 @@ const CheckoutForm = ({ onSubmit, isProcessing, setIsProcessing }: CheckoutFormP
       return;
     }
 
-    // Calcular totales
-    const subtotal = cartItems.reduce(
-      (acc, item) => acc + item.price * item.qty,
-      0,
-    );
-    const shipping = subtotal > 50000 ? 0 : 5000;
-    const total = subtotal + shipping;
+    // Usar totales memoizados
+    // (subtotal, shipping y total ya están calculados arriba)
 
     // Crear objeto de orden
     const billingInfo: AddressInfo | BillingContactInfo = sameAsShipping

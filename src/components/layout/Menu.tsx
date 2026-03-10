@@ -1,8 +1,15 @@
+import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { menuList } from "../../config/menu";
 
-export default function Menu(): React.ReactElement {
+/**
+ * Menu - Componente de navegación principal
+ * 
+ * Optimizado con React.memo porque el menú no cambia frecuentemente
+ * y se renderiza en cada cambio de header scroll.
+ */
+const Menu = React.memo((): React.ReactElement => {
   const pathname = usePathname();
 
   return (
@@ -26,6 +33,7 @@ export default function Menu(): React.ReactElement {
               className={`link ${pathname === item.route ? "active" : ""}`}
               href={item.route}
               prefetch={false}
+              aria-current={pathname === item.route ? "page" : undefined}
             >
               {item.name}
             </Link>
@@ -34,4 +42,8 @@ export default function Menu(): React.ReactElement {
       })}
     </ul>
   );
-}
+});
+
+Menu.displayName = "Menu";
+
+export default Menu;

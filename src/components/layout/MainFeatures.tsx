@@ -1,3 +1,5 @@
+"use client";
+import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { checkSvg } from "../../lib/icons";
 
@@ -7,38 +9,44 @@ interface FeatureItem {
 }
 
 const caracteristicas: FeatureItem[] = [
-  { id: 0, name: "Facil preparacion y colocacion." },
+  { id: 0, name: "Fácil preparacion y colocación." },
   { id: 1, name: "Solo necesita 4 horas de secado." },
   {
     id: 2,
-    name: "Instala revestimientos entre 24 y 48 horas despues de su aplicacion.",
+    name: "Instala revestimientos entre 24 y 48 horas después de su aplicación.",
   },
   { id: 3, name: "Alta estabilidad dimensional y durabilidad." },
-  { id: 4, name: "Acabado liso y fino acompanado de alta resistencia final." },
+  { id: 4, name: "Acabado liso y fino acompañado de alta resistencia final." },
 ];
 
 export default function MainFeatures() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <Container className="mainfeat-section p_relative p-0 ms-auto me-auto">
       <div
-        className="bg-layer wow fadeIn animated"
+        className={`bg-layer ${isClient ? "wow fadeIn animated" : ""}`}
         data-wow-delay="00ms"
         data-wow-duration="1000ms"
         style={{ backgroundColor: "#015c93" }}
       >
-        <h2 className="text-light fw-bold">Campos de Aplicacion</h2>
+        <h2 className="text-light fw-bold">Campos de Aplicación</h2>
         <div className="mainfeat__bar-2"></div>
         <p className="text-light">
-          El autonivelante esta disenado para la instalacion de recubrimientos
+          El autonivelante esta diseñado para la instalación de recubrimientos
           de alfombras, pisos vinilicos, de madera, flotantes, y de goma.
           <br />
           <br />
-          Es utilizado principalmente para la nivelacion reparacion y afinado de
+          Es utilizado principalmente para la nivelación reparación y afinado de
           losas, sobrelosas, radieres y pisos de concreto.
         </p>
       </div>
       <div
-        className="auto-container wow fadeIn animated"
+        className={`auto-container ${isClient ? "wow fadeIn animated" : ""}`}
         data-wow-delay="00ms"
         data-wow-duration="1000ms"
       >
@@ -68,14 +76,14 @@ export default function MainFeatures() {
         </div>
       </div>
       <div
-        className="outer-box wow fadeIn animated"
+        className={`outer-box ${isClient ? "wow fadeIn animated" : ""}`}
         data-wow-delay="00ms"
         data-wow-duration="1000ms"
       >
         <h2>Espesor aplicable</h2>
         <div className="mainfeat__bar"></div>
         <p className="text-dark">
-          Cargas desde 3 mm hasta 30 mm de espesor en una sola aplicacion;
+          Cargas desde 3 mm hasta 30 mm de espesor en una sola aplicación;
           tomando en cuenta las especificaciones de cada producto.
         </p>
       </div>

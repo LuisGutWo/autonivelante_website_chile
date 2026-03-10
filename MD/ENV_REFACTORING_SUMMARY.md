@@ -106,7 +106,7 @@ NEXT_STRIPE_SECRET_KEY=sk_test_xxxxx  # ← SOLO EN SERVIDOR
 Estas variables se exponen al navegador y están prefijadas con `NEXT_PUBLIC_`:
 
 | Categoría | Cantidad | Variables |
-|-----------|----------|-----------|
+| --- | --- | --- |
 | **Firebase** | 7 | API Key, Auth Domain, Project ID, Storage Bucket, Messaging Sender ID, App ID, Database URL |
 | **EmailJS** | 4 | Public Key, Service ID, Template ID, Order Template ID |
 | **Stripe** | 1 | Publishable Key |
@@ -121,7 +121,7 @@ Estas variables se exponen al navegador y están prefijadas con `NEXT_PUBLIC_`:
 Estas variables **SOLO** están disponibles en el servidor:
 
 | Categoría | Cantidad | Variables |
-|-----------|----------|-----------|
+| --- | --- | --- |
 | **Firebase** | 1 | Database URL (server-side) |
 | **EmailJS** | 1 | Private Key (si existe) |
 | **Stripe** | 2 | Secret Key, Webhook Secret |
@@ -134,7 +134,7 @@ Estas variables **SOLO** están disponibles en el servidor:
 
 ### Regla de Prefijos
 
-```
+```text
 NEXT_PUBLIC_*  → Accesible en cliente (browser) + servidor
 NEXT_*         → SOLO accesible en servidor (API routes, getServerSideProps, etc.)
 ```
@@ -266,7 +266,7 @@ npm run dev
 
 ---
 
-## 🐛 TROUBLESHOOTING
+## 🐛 SOLUCIÓN DE PROBLEMAS
 
 ### Error: "Firebase config is undefined"
 
@@ -327,7 +327,7 @@ npm run dev
 ### Seguridad
 
 | Métrica | Antes | Después | Mejora |
-|---------|-------|---------|--------|
+| --- | --- | --- | --- |
 | **Score de Seguridad** | 1/10 | 9/10 | +800% |
 | **Secrets Expuestos** | Sí | No | ✅ |
 | **Riesgo de Compromiso** | Crítico | Bajo | ✅ |
@@ -361,7 +361,7 @@ La refactorización de variables de entorno ha sido un **éxito total**:
 
 ### Estado Final
 
-```
+```text
 ✅ COMPLETADO - 5 de Marzo 2026
 ```
 

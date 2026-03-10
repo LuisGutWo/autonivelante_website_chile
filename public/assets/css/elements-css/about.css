@@ -4,20 +4,19 @@
   background-position: top;
   background-repeat: no-repeat;
   background-size: contain;
-  background-color: #f3f5f7;
+  background-color: var(--color-bg-tertiary);
 }
 
 .about__main-column {
-  margin: 10rem 0 7rem 0;
+  margin: var(--spacing-20) 0 var(--spacing-12) 0;
 }
 
 .image_block .image-box {
   display: block;
   margin-top: 25rem;
-  border-radius: 10px;
+  border-radius: var(--border-radius-lg);
   padding: 0;
-  box-shadow: rgba(0, 0, 0, 0.221) 0px 10px 15px -3px,
-    rgba(0, 0, 0, 0.199) 0px 4px 6px -2px;
+  box-shadow: var(--shadow-lg);
 }
 .proyects__card {
   &:hover .aboutcard__bar {
@@ -40,67 +39,86 @@
 }
 .aboutcard__preview-txt {
   overflow: hidden;
-  color: black;
+  color: var(--color-text-primary);
   font-size: 0.9rem;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   text-overflow: ellipsis;
   text-align: justify;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-4);
 }
 
 .aboutcard__text-inner {
-  padding: 4rem 3rem 0rem 3rem;
+  padding: var(--spacing-16) var(--spacing-12) 0rem var(--spacing-12);
 }
 
 .aboutcard__bar {
   width: 50px;
   height: 7px;
-  margin: 10px 0;
-  border-radius: 2px;
-  background-color: #015c93;
-  transition: width 0.2s ease;
+  margin: var(--spacing-3) 0;
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-primary);
+  transition: width var(--transition-fast) ease;
 }
 
 .aboutcard__buttons {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-3);
+  padding: 0 var(--spacing-12) var(--spacing-12);
 }
-.aboutcard__buttons-btn-video {
-  height: 5.1rem;
+
+.aboutcard__button-item {
+  width: 100%;
+}
+
+.aboutcard__button-link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.aboutcard__button {
+  min-height: 3.5rem;
+  width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #015c93;
-  border-radius: 5px 5px 0 0;
+  gap: var(--spacing-2);
+  border-radius: var(--border-radius-md);
+  transition:
+    background-color var(--transition-fast) ease,
+    box-shadow var(--transition-fast) ease,
+    filter var(--transition-fast) ease;
+}
 
-  p {
-    font-size: 1rem;
-    color: #f3f5f7;
+.aboutcard__button:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.aboutcard__button:focus-visible {
+  outline: 2px solid rgba(216, 236, 255, 0.85);
+  outline-offset: var(--focus-ring-offset);
+}
+
+.aboutcard__button svg {
+  flex-shrink: 0;
+}
+
+.aboutcard__button p {
+  margin: 0;
+  font-size: var(--font-size-base);
+  color: var(--color-text-white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aboutcard__button {
+    transition: none;
   }
-}
-.aboutcard__buttons-btn-video button {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
 
-.aboutcard__buttons-btn-contact {
-  height: 5.1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f3f5f7;
-  border: solid black 1px;
-  border-top: none;
-  border-radius: 0 0 5px 5px;
-}
-.aboutcard__buttons-btn-contact button {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  .aboutcard__button:hover {
+    filter: none;
+  }
 }
 
 .image_block .image-box .video-btn {
@@ -117,9 +135,9 @@
   line-height: 160px;
   text-align: center;
   font-size: 80px;
-  color: #fff;
+  color: var(--color-text-white);
   text-align: center;
-  border-radius: 50%;
+  border-radius: var(--border-radius-full);
   z-index: 1;
   cursor: pointer;
 }
@@ -128,7 +146,7 @@
 .image_block .image-box .video-btn a:after {
   width: 100%;
   height: 100%;
-  border-radius: 50%;
+  border-radius: var(--border-radius-full);
   background: transparent;
   position: absolute;
   top: 50%;
@@ -143,8 +161,8 @@
   box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
   -webkit-animation: ripple 3s infinite;
   animation: ripple 3s infinite;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
+  -webkit-transition: all var(--transition-base) ease;
+  transition: all var(--transition-base) ease;
 }
 
 .image_block .image-box .video-btn a:after {
@@ -154,7 +172,7 @@
 .modalvideo__section {
   width: 100vw;
   height: 80vh;
-  margin-top: 4rem;
+  margin-top: var(--spacing-16);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -184,65 +202,37 @@
 
 @media screen and (min-width: 769px) {
   .about__section {
-    margin-top: 7rem;
+    margin-top: var(--spacing-12);
     background-image: url(/assets/images/background/about_bg_image.webp);
   }
-  
+
   .about__main-column {
     width: 80%;
     margin-top: 18rem;
-    margin-left: 7rem;
+    margin-left: var(--spacing-12);
   }
 
   .image_block .image-box {
-    margin-left: 2rem;
-    margin-top: 7rem;
+    margin-left: var(--spacing-8);
+    margin-top: var(--spacing-12);
   }
   .aboutcard__text-inner {
     margin-left: 0.8rem;
   }
   .aboutcard__preview-txt {
     font-size: 100%;
-    padding: 2rem 0;
+    padding: var(--spacing-8) 0;
   }
   .aboutcard__buttons {
-    height: 10rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
-    grid-template-areas: 50% 50%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-4);
+    padding: 0 var(--spacing-12) var(--spacing-12);
   }
-  .aboutcard__buttons-btn-video {
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #015c93;
 
-    p {
-      font-size: 100%;
-      color: currentColor;
-    }
-  }
-  .aboutcard__buttons-btn-contact {
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f3f5f7;
-    border: none;
-    border-radius: none;
-
-    button {
-      padding: 1rem;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      align-items: center;
-      p {
-        font-size: 100%;
-        color: currentColor;
-      }
-    }
+  .aboutcard__button {
+    min-height: 3.75rem;
+    padding: var(--spacing-3) var(--spacing-4);
   }
   .modalvideo__section {
     height: 100vh;

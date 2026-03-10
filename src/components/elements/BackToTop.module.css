@@ -1,0 +1,52 @@
+.scrollToTarget {
+  position: fixed;
+  top: 82%;
+  left: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #0066cc;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 999;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.3s ease;
+}
+
+.scrollToTarget:hover {
+  background-color: #0052a3;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.scrollToTarget:active {
+  transform: translateY(-1px);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .scrollToTarget {
+    top: 82%;
+    left: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+}

@@ -1,9 +1,9 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import toast from "react-hot-toast";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../../../hooks/useRedux";
 import {
   addToCart,
   removeFromCart,
@@ -12,11 +12,16 @@ import {
 } from "../../../../redux/slices/cartSlice";
 import { Files, Minus, Plus, Trash2 } from "lucide-react";
 import { formatPrice } from "../../../config/formatPrice";
+import { logger, LogCategory } from "../../../lib/logger";
 import type { ProductCardProps, Product, CartItem } from "../../../types";
+import ImageSkeleton from "../../elements/ImageSkeleton";
 import "./ProductCard.css";
 
 /**
  * ProductCard - Componente genérico para mostrar productos en diferentes contextos
+ * 
+ * OPTIMIZADO con React.memo y useCallback para evitar re-renders innecesarios.
+ * Se renderiza frecuentemente en listas, por lo que la performance es crítica.
  *
  * @component
  * @example
@@ -52,14 +57,15 @@ const ProductCard: React.FC<ProductCardProps> = ({
   className = "",
   ...props
 }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const [imgLoading, setImgLoading] = useState<boolean>(true);
 
   // Validación del producto
   if (!product) {
-    console.warn(
+    logger.warn(
       "ProductCard: No se encontró información del producto",
-      "El prop 'product' es requerido",
+      { message: "El prop 'product' es requerido" },
+      LogCategory.PRODUCT
     );
     return null;
   }
@@ -69,37 +75,50 @@ const ProductCard: React.FC<ProductCardProps> = ({
     return 'qty' in prod;
   };
 
-  // Handlers
-  const handleAddToCart = (): void => {
+  // ==========================================
+  // HANDLERS OPTIMIZADOS CON useCallback
+  // ==========================================
+  
+  const handleAddToCart = useCallback((): void => {
     try {
       dispatch(addToCart(product));
       toast.success(`${product.title} se agregó al carrito`);
       onAddToCartProp?.(product);
     } catch (error) {
-      console.error("Error al agregar al carrito:", error);
+      logger.error(
+        "Error al agregar al carrito",
+        error,
+        { productId: product.id },
+        LogCategory.CART
+      );
       toast.error("Error al agregar el producto al carrito");
     }
-  };
+  }, [dispatch, product, onAddToCartProp]);
 
-  const handleRemoveFromCart = (): void => {
+  const handleRemoveFromCart = useCallback((): void => {
     try {
       dispatch(removeFromCart(product.id));
       toast.success(`${product.title} se removió del carrito`);
       onRemove?.(product.id);
     } catch (error) {
-      console.error("Error al remover del carrito:", error);
+      logger.error(
+        "Error al remover del carrito",
+        error,
+        { productId: product.id },
+        LogCategory.CART
+      );
       toast.error("Error al remover el producto");
     }
-  };
+  }, [dispatch, product.id, product.title, onRemove]);
 
-  const handleIncrementQty = (): void => {
+  const handleIncrementQty = useCallback((): void => {
     if (isCartItem(product)) {
       dispatch(incrementQty(product.id));
       onQtyChange?.(product.id, product.qty + 1);
     }
-  };
+  }, [dispatch, product, onQtyChange]);
 
-  const handleDecrementQty = (): void => {
+  const handleDecrementQty = useCallback((): void => {
     if (isCartItem(product)) {
       if (product.qty === 1) {
         if (
@@ -113,7 +132,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         onQtyChange?.(product.id, product.qty - 1);
       }
     }
-  };
+  }, [dispatch, product, onQtyChange, handleRemoveFromCart]);
 
   // ==========================================
   // GRID VIEW (Productos - Home y Products)
@@ -138,7 +157,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
               <div className="product-card-image-wrapper">
                 {imgLoading && (
                   <div className="product-card-image-loading">
-                    <div className="spinner" />
+                    <ImageSkeleton width="100%" height={imageHeight} variant="rectangular" />
                   </div>
                 )}
                 <Image
@@ -288,8 +307,31 @@ const ProductCard: React.FC<ProductCardProps> = ({
   }
 
   // Unknown variant
-  console.warn(`ProductCard: Variante '${variant}' no reconocida`);
+  logger.warn(
+    `ProductCard: Variante no reconocida`,
+    { variant, receivedVariant: variant },
+    LogCategory.UI
+  );
   return null;
 };
 
-export default ProductCard;
+/**
+ * Función de comparación personalizada para React.memo
+ * Solo re-renderiza si cambian props relevantes
+ */
+const arePropsEqual = (
+  prevProps: ProductCardProps,
+  nextProps: ProductCardProps
+): boolean => {
+  return (
+    prevProps.product?.id === nextProps.product?.id &&
+    prevProps.variant === nextProps.variant &&
+    prevProps.product?.qty === nextProps.product?.qty &&
+    prevProps.product?.price === nextProps.product?.price &&
+    prevProps.disableAddToCart === nextProps.disableAddToCart &&
+    prevProps.showQuantityControls === nextProps.showQuantityControls
+  );
+};
+
+// Exportar componente memoizado
+export default React.memo(ProductCard, arePropsEqual);

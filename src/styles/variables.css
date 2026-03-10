@@ -22,6 +22,15 @@
   --color-secondary-light: #ffb347;
   --color-secondary-dark: #d47800;
 
+  /* Colores de Contacto */
+  --color-contact-whatsapp: #25d366;
+  --color-contact-phone: #0ea5e9;
+  --color-contact-email: #6366f1;
+
+  /* Variaciones de Colores */
+  --color-primary-darker: #014a6f;
+  --color-primary-darkest: #013b5a;
+
   /* Grises */
   --color-gray-50: #f9fafb;
   --color-gray-100: #f3f4f6;
@@ -53,6 +62,8 @@
   --color-bg-tertiary: #f3f4f6;
   --color-bg-dark: #1f2937;
   --color-bg-overlay: rgba(0, 0, 0, 0.5);
+  --color-bg-light-primary: #f1f1f1;
+  --color-bg-hero-dark: #241e2f;
 
   /* Borders */
   --color-border-light: #e5e7eb;
@@ -245,19 +256,3 @@
 /* ========================================
    DARK MODE (Optional)
    ======================================== */
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-text-primary: #f9fafb;
-    --color-text-secondary: #d1d5db;
-    --color-text-muted: #9ca3af;
-
-    --color-bg-primary: #1f2937;
-    --color-bg-secondary: #111827;
-    --color-bg-tertiary: #374151;
-
-    --color-border-light: #374151;
-    --color-border-medium: #4b5563;
-    --color-border-dark: #6b7280;
-  }
-}

@@ -14,7 +14,7 @@ interface HeaderProps {
 /**
  * @deprecated Usar HeaderGeneric en /src/components/layout/HeaderGeneric.tsx en su lugar
  * Este componente ahora es simplemente un wrapper del nuevo HeaderGeneric
- * para mantener compatibilidad hacia atras.
+ * para mantener compatibilidad hacia atrás.
  */
 export default function Header(props: HeaderProps): React.ReactElement {
   const normalizedScroll =

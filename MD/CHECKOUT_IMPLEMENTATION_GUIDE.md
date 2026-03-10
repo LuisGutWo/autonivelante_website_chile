@@ -80,7 +80,7 @@ npm install @emailjs/browser  # Ya instalado
 
 ## 🎯 ESTRUCTURA DE ÓRDENES EN FIREBASE
 
-```
+```text
 orders/
 ├── ORD-1704067200000/
 │   ├── orderId: "ORD-1704067200000"
@@ -461,29 +461,29 @@ NEXT_PUBLIC_EMAILJS_ORDER_TEMPLATE_ID=template_order_confirmation
 
 ---
 
-## 🧪 FLUJO COMPLETO DE TESTING
+## 🧪 FLUJO COMPLETO DE PRUEBAS
 
 ### 1. Carrito → Checkout
 
-```
+```text
 /cart → Click "Ir al Checkout" → /checkout
 ```
 
 ### 2. Checkout → Confirmación
 
-```
+```text
 Llenar formulario → Validación → Guardar orden → /order-confirmation
 ```
 
 ### 3. Email de Confirmación
 
-```
+```text
 Orden creada → EmailJS envía email → Cliente recibe confirmación
 ```
 
 ### 4. Pago (Cuando se implemente)
 
-```
+```text
 Cliente hace clic "Pagar" → Stripe/MP → Confirmación → Webhook → Actualizar estado
 ```
 
@@ -511,7 +511,7 @@ Cliente hace clic "Pagar" → Stripe/MP → Confirmación → Webhook → Actual
 ## 📊 ESTADÍSTICAS DE IMPLEMENTACIÓN
 
 | Tarea | Estado | Tiempo | Prioridad |
-|-------|--------|--------|-----------|
+| --- | --- | --- | --- |
 | Estructura base | ✅ Hecho | 3h | 🔴 Crítico |
 | Stripe integration | ⏳ Próximo | 2h | 🔴 Crítico |
 | Mercado Pago | ⏳ Próximo | 2h | 🟠 Alto |
@@ -546,7 +546,7 @@ Cliente hace clic "Pagar" → Stripe/MP → Confirmación → Webhook → Actual
 
 ---
 
-## 🆘 TROUBLESHOOTING
+## 🆘 SOLUCIÓN DE PROBLEMAS
 
 ### "La orden no se guarda en Firebase"
 

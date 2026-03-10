@@ -12,7 +12,7 @@ interface CartSummaryProps {
 
 const CartSummary = ({ items, subtotal, shipping, total }: CartSummaryProps): React.ReactElement => {
   return (
-    <Card className="sticky-top" style={{ top: "100px" }}>
+    <Card className="sticky-top" style={{ top: "100px", zIndex: 990 }}>
       <Card.Header className="bg-light">
         <h5 className="mb-0">Resumen de Orden</h5>
       </Card.Header>

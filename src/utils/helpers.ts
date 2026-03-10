@@ -1,3 +1,5 @@
+import { logger, LogCategory } from "../lib/logger";
+
 /**
  * Formato de precio en pesos chilenos
  * @param price Precio numérico
@@ -7,7 +9,11 @@ export const formatPrice = (price: number | string): string => {
     const numPrice = typeof price === 'string' ? parseFloat(price) : price;
 
     if (isNaN(numPrice)) {
-        console.warn(`formatPrice: Valor inválido recibido: ${price}`);
+        logger.warn(
+            "formatPrice: Valor inválido recibido",
+            { receivedValue: price, type: typeof price },
+            LogCategory.GENERAL
+        );
         return '$0';
     }
 

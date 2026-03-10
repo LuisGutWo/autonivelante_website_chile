@@ -17,6 +17,7 @@ import {
     getOrderById,
     updateOrderStatus,
 } from "../lib/api";
+import { logger, LogCategory } from "../lib/logger";
 import type { CheckoutOrder, OrderStatus, Product } from "../types";
 
 type ProductsResult = UseQueryResult<Product[], Error>;
@@ -132,7 +133,12 @@ export function useSaveOrder(): UseMutationResult<CheckoutOrder, Error, Checkout
             queryClient.invalidateQueries({ queryKey: ["orders"] });
         },
         onError: (error: Error) => {
-            console.error("Error guardando orden:", error);
+            logger.error(
+                "Error guardando orden",
+                error,
+                undefined,
+                LogCategory.API
+            );
         },
     });
 }
@@ -151,7 +157,12 @@ export function useUpdateOrderStatus(): UseMutationResult<
             queryClient.invalidateQueries({ queryKey: ["orders"] });
         },
         onError: (error: Error) => {
-            console.error("Error actualizando orden:", error);
+            logger.error(
+                "Error actualizando orden",
+                error,
+                undefined,
+                LogCategory.API
+            );
         },
     });
 }

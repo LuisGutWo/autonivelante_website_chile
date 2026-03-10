@@ -7,6 +7,8 @@
  * const result = await httpClient.post('/api/order', { items: [...] });
  */
 
+import { logger, LogCategory } from "./logger";
+
 interface HttpClientConfig {
   maxRetries: number;
   initialDelay: number;
@@ -128,8 +130,10 @@ class HttpClient {
 
         // Esperar antes de reintentar
         const delay = this._getDelayWithBackoff(attempt);
-        console.warn(
-          `⚠️ Request falló (status ${response.status}). Reintentando en ${Math.round(delay)}ms... (intento ${attempt}/${this.config.maxRetries})`,
+        logger.warn(
+          `Request falló (status ${response.status}). Reintentando en ${Math.round(delay)}ms...`,
+          { attempt, maxRetries: this.config.maxRetries, status: response.status },
+          LogCategory.API
         );
         await this._delay(delay);
       } catch (error) {
@@ -141,8 +145,10 @@ class HttpClient {
           attempt < this.config.maxRetries
         ) {
           const delay = this._getDelayWithBackoff(attempt);
-          console.warn(
-            `⚠️ Error de red. Reintentando en ${Math.round(delay)}ms... (intento ${attempt}/${this.config.maxRetries})`,
+          logger.warn(
+            `Error de red. Reintentando en ${Math.round(delay)}ms...`,
+            { attempt, maxRetries: this.config.maxRetries },
+            LogCategory.API
           );
           await this._delay(delay);
         } else {

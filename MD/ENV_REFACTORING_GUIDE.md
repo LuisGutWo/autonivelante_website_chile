@@ -12,7 +12,7 @@
 
 Las credenciales estaban hardcodeadas en `next.config.mjs` visibles en:
 
-- Build output
+- Salida de compilación
 - Código fuente
 - Repositorio Git
 
@@ -56,7 +56,7 @@ Esto crea un archivo `.env.local` con la estructura correcta.
 
 Abre el archivo `.env.local` y completa:
 
-#### 🔓 VARIABLES PÚBLICAS (Cliente - Safe)
+#### 🔓 VARIABLES PÚBLICAS (Cliente - Seguro)
 
 ```env
 # Firebase
@@ -73,12 +73,9 @@ NEXT_PUBLIC_EMAILJS_SERVICE_ID=service_3k8blmt
 
 # Stripe
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_xxxxxxxxxxxxxxxxxxxx
-
-# URLs de Productos
-NEXT_PUBLIC_HOME_PRODUCTS_URL=https://autonivelante-new-products-default-rtdb.firebaseio.com/home-products/products.json
-NEXT_PUBLIC_MAIN_PRODUCTS_URL=https://huellitas-products-default-rtdb.firebaseio.com/products.json
-NEXT_PUBLIC_PRODUCTS_PAGE_URL=https://autonivelante-new-products-default-rtdb.firebaseio.com/main-products/products.json
 ```
+
+> Productos: ahora se leen de `src/data/products.json` (sin variables de entorno para URLs de productos).
 
 #### 🔒 VARIABLES PRIVADAS (Servidor - SECRET)
 
@@ -112,7 +109,7 @@ El servidor leerá `.env.local` automáticamente.
 ### Archivos Actualizados
 
 | Archivo | Cambios |
-|---------|---------|
+| --- | --- |
 | `next.config.mjs` | Dinámico: lee variables desde .env.local |
 | `.env.local.example` | ✅ NUEVO - Plantilla con documentación |
 | `src/config/firebase.jsx` | Actualizado: nuevos nombres de variables |
@@ -124,7 +121,7 @@ El servidor leerá `.env.local` automáticamente.
 ### Cambios de Nombres de Variables
 
 | Antigua (❌ Insegura) | Nueva (✅ Segura) | Tipo |
-|----------------------|------------------|------|
+| --- | --- | --- |
 | NEXT_API_KEY | NEXT_PUBLIC_FIREBASE_API_KEY | Público |
 | NEXT_AUTH_DOMAIN | NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN | Público |
 | NEXT_DATABASE_URL | NEXT_FIREBASE_DATABASE_URL | Privado |
@@ -134,18 +131,18 @@ El servidor leerá `.env.local` automáticamente.
 | NEXT_APP_ID | NEXT_PUBLIC_FIREBASE_APP_ID | Público |
 | NEXT_SERVICE_ID | NEXT_PUBLIC_EMAILJS_SERVICE_ID | Público |
 | NEXT_TEMPLATE_ID | NEXT_EMAILJS_ORDER_TEMPLATE_ID | Privado |
-| NEXT_HOME_PRODUCTS_URL | NEXT_PUBLIC_HOME_PRODUCTS_URL | Público |
-| NEXT_MAIN_PRODUCTS_URL | NEXT_PUBLIC_MAIN_PRODUCTS_URL | Público |
-| NEXT_PRODUCTS_PAGE_URL | NEXT_PUBLIC_PRODUCTS_PAGE_URL | Público |
+| NEXT_HOME_PRODUCTS_URL | Eliminada (usa `src/data/products.json`) | N/A |
+| NEXT_MAIN_PRODUCTS_URL | Eliminada (usa `src/data/products.json`) | N/A |
+| NEXT_PRODUCTS_PAGE_URL | Eliminada (usa `src/data/products.json`) | N/A |
 
 ---
 
 ## 🔒 FLUJO DE SEGURIDAD
 
-```
+```text
 .env.local (SECRETO - NO en Git)
     ↓
-Next.js Lee en build time
+Next.js lee en tiempo de compilación
     ↓
 next.config.mjs procesa dinámicamente
     ↓
@@ -207,7 +204,7 @@ NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=tu_clave_aquí
 
 **Los antiguos valores estaban aquí:**
 
-```
+```text
 next.config.mjs (hardcodeadas) → Ahora en .env.local
 ```
 
@@ -217,7 +214,7 @@ next.config.mjs (hardcodeadas) → Ahora en .env.local
 
 ### Antes (CRÍTICO ❌)
 
-```
+```text
 Riesgo: CRÍTICO
 ├── API Keys expuestas en build
 ├── Secrets visibles en repositorio
@@ -228,7 +225,7 @@ Riesgo: CRÍTICO
 
 ### Después (SEGURO ✅)
 
-```
+```text
 Riesgo: BAJO
 ├── Secrets en archivo local (nunca en Git)
 ├── Variables públicas claramente separadas
@@ -250,7 +247,7 @@ Riesgo: BAJO
 
 2. **En el servidor, crea `.env.local` con valores live**
 
-   ```
+    ```bash
    SSH al servidor
    cd /ruta/al/proyecto
    nano .env.local  # O usar archivo manager
@@ -264,7 +261,7 @@ Riesgo: BAJO
 
 4. **Reinicia la aplicación**
 
-   ```
+    ```bash
    npm run build
    npm run start
    ```

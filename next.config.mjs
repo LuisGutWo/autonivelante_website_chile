@@ -37,6 +37,7 @@ const nextConfig = {
     formats: ["image/avif", "image/webp"], // Formatos modernos
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    qualities: [75, 85, 90], // Calidades de compresión permitidas
     minimumCacheTTL: 60 * 60 * 24 * 365, // 1 año
   },
 
@@ -101,7 +102,10 @@ const nextConfig = {
       "react-bootstrap",
       "lucide-react",
       "@reduxjs/toolkit",
+      "react-hot-toast",
     ],
+    // Optimizar carga de CSS
+    optimizeCss: true,
   },
 
   // Logging para debugging
@@ -146,13 +150,6 @@ const nextConfig = {
     // ===============================================
     NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY:
       process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY,
-
-    // ===============================================
-    // PRODUCTOS - URLs de Firebase
-    // ===============================================
-    NEXT_PUBLIC_HOME_PRODUCTS_URL: process.env.NEXT_PUBLIC_HOME_PRODUCTS_URL,
-    NEXT_PUBLIC_MAIN_PRODUCTS_URL: process.env.NEXT_PUBLIC_MAIN_PRODUCTS_URL,
-    NEXT_PUBLIC_PRODUCTS_PAGE_URL: process.env.NEXT_PUBLIC_PRODUCTS_PAGE_URL,
 
     // ===============================================
     // CONFIGURACIÓN DEL SITIO

@@ -15,10 +15,10 @@
   position: relative;
   display: block;
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: var(--border-radius-lg);
   width: min(80%, 70rem);
   left: 0;
-  box-shadow: rgba(0, 0, 0, 0.203) 0px 25px 50px -12px;
+  box-shadow: var(--shadow-2xl);
 }
 
 .feature-block .inner-box .image-box img {
@@ -26,7 +26,7 @@
   z-index: 3;
   width: 100%;
   height: auto;
-  transition: all 500ms ease;
+  transition: var(--transition-all);
 }
 .feature-block .inner-box .image-box button {
   position: absolute;
@@ -52,9 +52,9 @@
     display: block;
     overflow: hidden;
     max-width: 100%;
-    border-radius: 5px;
+    border-radius: var(--border-radius-lg);
     left: 0;
-    box-shadow: rgba(0, 0, 0, 0.203) 0px 25px 50px -12px;
+    box-shadow: var(--shadow-2xl);
   }
 
   .feature-block .inner-box .image-box button {

@@ -42,7 +42,7 @@ Estas rutas **NO pueden ser pre-renderizadas** como archivos estáticos, necesit
    npm prune --production
    ```
 
-2. **Subir archivos vía FTP/SFTP:**
+1. **Subir archivos vía FTP/SFTP:**
    - `.next/` - Build de producción
    - `node_modules/` - Dependencias
    - `public/` - Assets estáticos
@@ -50,24 +50,24 @@ Estas rutas **NO pueden ser pre-renderizadas** como archivos estáticos, necesit
    - `next.config.mjs`
    - `.env.local` (variables de entorno)
 
-3. **Configurar Node.js App en cPanel:**
+1. **Configurar Node.js App en cPanel:**
    - Application root: `/home/usuario/autonivelante`
    - Application URL: `https://autonivelante.cl`
    - Application startup file: `node_modules/next/dist/bin/next`
    - Arguments: `start -p 3000`
    - Node.js version: 18.x o superior
 
-4. **Variables de entorno necesarias:**
+1. **Variables de entorno necesarias:**
 
-   ```
-   NODE_ENV=production
-   NEXT_STRIPE_SECRET_KEY=sk_live_xxx
-   NEXT_STRIPE_WEBHOOK_SECRET=whsec_xxx
-   NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_xxx
-   (todas las demás del archivo .env.local)
-   ```
+    ```env
+    NODE_ENV=production
+    NEXT_STRIPE_SECRET_KEY=sk_live_xxx
+    NEXT_STRIPE_WEBHOOK_SECRET=whsec_xxx
+    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_live_xxx
+    (todas las demás del archivo .env.local)
+    ```
 
-5. **Reiniciar la aplicación** en cPanel Node.js Selector
+1. **Reiniciar la aplicación** en cPanel Node.js Selector
 
 ---
 
@@ -226,12 +226,9 @@ NEXT_PUBLIC_FIREBASE_DATABASE_URL=xxx
 NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=xxx
 NEXT_PUBLIC_EMAILJS_SERVICE_ID=xxx
 NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=xxx
-
-# URLs de Productos
-NEXT_PUBLIC_HOME_PRODUCTS_URL=https://xxx.firebaseio.com/home-products.json
-NEXT_PUBLIC_MAIN_PRODUCTS_URL=https://xxx.firebaseio.com/products.json
-NEXT_PUBLIC_PRODUCTS_PAGE_URL=https://xxx.firebaseio.com/featured-products.json
 ```
+
+> Nota: Los productos ahora se cargan localmente desde `src/data/products.json`.
 
 ### Opcionales
 
@@ -331,7 +328,7 @@ stripe trigger payment_intent.succeeded --forward-to https://autonivelante.cl/ap
 
 ---
 
-## 🐛 Troubleshooting
+## 🐛 Solución de problemas
 
 ### Error: "Cannot find module 'next'"
 

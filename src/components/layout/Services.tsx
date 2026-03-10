@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { rightArrowSvg, serviceSvg } from "../../lib/icons";
 
@@ -28,6 +29,12 @@ const servicePoints: string[][] = [
 ];
 
 export default function Services(): React.ReactElement {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <section
       id="services-section"
@@ -35,7 +42,7 @@ export default function Services(): React.ReactElement {
     >
       <Container
         fluid
-        className="d-flex justify-content-center wow fadeInUp animated"
+        className={`d-flex justify-content-center ${isClient ? "wow fadeInUp animated" : ""}`}
         data-wow-delay="00ms"
         data-wow-duration="1000ms"
       >

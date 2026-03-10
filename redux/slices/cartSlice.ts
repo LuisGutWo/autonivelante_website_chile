@@ -1,29 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { CartItem, Product } from "../../src/types";
 import type { RootState } from "../store";
+import { trackAddToCart } from "../../src/lib/analytics";
 
 // Define el state type
 type CartState = CartItem[];
-
-/**
- * Carga el state desde localStorage
- */
-const loadState = (): CartState | undefined => {
-    if (typeof window === "undefined") {
-        return undefined;
-    }
-
-    try {
-        const serializedState = window.localStorage.getItem("cart");
-        if (serializedState === null) {
-            return undefined;
-        }
-        return JSON.parse(serializedState) as CartState;
-    } catch (err) {
-        console.error("Error loading cart state:", err);
-        return undefined;
-    }
-};
 
 /**
  * Guarda el state en localStorage
@@ -41,8 +22,8 @@ const saveState = (store: CartState): void => {
     }
 };
 
-// Load initial state from localStorage
-const initialState: CartState = loadState() || [];
+// Initial state determinista para evitar hydration mismatch SSR/CSR
+const initialState: CartState = [];
 
 /**
  * Cart Slice - Manejo del carrito de compras con Redux Toolkit
@@ -51,6 +32,13 @@ const cartSlice = createSlice({
     name: "cart",
     initialState,
     reducers: {
+        /**
+         * Hidrata el carrito desde persistencia en cliente
+         */
+        hydrateCart: (_store, action: PayloadAction<CartState>) => {
+            return action.payload;
+        },
+
         /**
          * Agregar producto al carrito
          * Si ya existe, incrementa la cantidad
@@ -74,6 +62,15 @@ const cartSlice = createSlice({
             if (existingItem) {
                 // If the item exists, update the quantity
                 existingItem.qty += 1;
+                trackAddToCart(
+                    {
+                        id,
+                        title,
+                        price,
+                        category: action.payload.category,
+                    },
+                    existingItem.qty
+                );
             } else {
                 // If the item doesn't exist, add it to the cart
                 store.push({
@@ -83,6 +80,16 @@ const cartSlice = createSlice({
                     image,
                     qty: 1
                 });
+
+                trackAddToCart(
+                    {
+                        id,
+                        title,
+                        price,
+                        category: action.payload.category,
+                    },
+                    1
+                );
             }
 
             saveState(store);
@@ -152,6 +159,7 @@ const cartSlice = createSlice({
 
 // Export the reducers (actions)
 export const {
+    hydrateCart,
     addToCart,
     removeFromCart,
     incrementQty,

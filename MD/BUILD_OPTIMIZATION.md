@@ -389,7 +389,7 @@ export default function RootLayout({ children }) {
 
 ---
 
-## 🚀 Quick Wins (Implementación Rápida)
+## 🚀 Mejoras rápidas (Implementación Rápida)
 
 ### 1. Lazy Load Modal Video (5 min)
 

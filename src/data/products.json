@@ -1,0 +1,534 @@
+{
+  "mainProducts": [
+    {
+      "desc": [
+        "Rhenacret Nivelador 2000 es un mortero autonivelante diseñado para la nivelación y afinado de pisos interiores como losas y sobrelosas de concreto y radieres. Su formulación aporta consistencia plástica y reológica permitiendo una óptima trabajabilidad y terminación final."
+      ],
+      "details": [
+        "Autonivelante.",
+        "Fácil preparación y colocación.",
+        "Transitable a partir de las 4 horas en adelante.",
+        "Alta estabilidad dimensional y durabilidad.",
+        "Acabado liso y fino acompañado de alta resistencia final.",
+        "Alta trabajabilidad y rendimiento.",
+        "Colocación desde 3 hasta 30 mm. de espesor en una sola aplicación.",
+        "No sufre retracciones hasta el espesor máximo indicado.",
+        "Uso exclusivo para superficies interiores."
+      ],
+      "id": "P001",
+      "image": "/assets/images/products/rhenacret_nivelador_img1.png",
+      "price": 17100,
+      "subtitle": "Mortero Autonivelante Cementicio",
+      "title": "Rhenacret Nivelador 2000",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAACXBIWXMAAAsTAAALEwEAmpwYAAABHklEQVR4nGNgYGBgqKqqEi6qrTVIz0k3D0tLc6itrXD+dWSSKAMMzJ/TsnDLpgn/U6vKfufWl/xe1FL///++PbPgCmKKcpb3dhb+X5Ua+rstM+x3TWbm//+H9i2CKzixb9Hy/2fn/v+/quLX7f15v97unfX///69CAX/X25Z/v/IrP//D037/f9I6+//5+f+/3/qyGKEglfbVvy/tfr//72Tfv+/suj3/xc7/v8/tBOh4Mre2ctenlv2//qOib8eHZ3++/+pxf//79mGsKK+sXRZT1/D/02L2n43Nef9PLui////I0iOXG9tuGCZs83/ZUFOf5aGuf6+khXz///uzQvhCq6aSIucN5Iy3asr4XpYVyLsiJ5kwrHCBGWQJAC+W5xZISU0BAAAAABJRU5ErkJggg=="
+    },
+    {
+      "desc": [
+        "Rhenacret TOP RTU es una emulsión elastomérica que permite mejorar la trabajabilidad, adherencia, flexibilidad e impermeabilidad de los morteros. Forma parte del sistema de productos Rhenatec para la nivelación de pisos, actuando como matapolvo, promotor de adherencia y sellador de superficies."
+      ],
+      "details": [
+        "Producto sustentable",
+        "No requiere dilución con agua",
+        "Aumenta la resistencia mecánica y la adherencia",
+        "Reduce tiempos de secado",
+        "Mejora la impermeabilidad",
+        "Alta capacidad selladora",
+        "Mejora la cohesión interna del mortero",
+        "Mayor resistencia a la alcalinidad (evita formación de sales)",
+        "Aumenta la docilidad de los morteros frescos"
+      ],
+      "id": "P002",
+      "image": "/assets/images/products/rhenatec_top_img2.png",
+      "price": 70400,
+      "subtitle": "Promotor de Adherencia Listo para Uso",
+      "title": "Rhenacret TOP RTU",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAACXBIWXMAAAsTAAALEwEAmpwYAAABKklEQVR4nGNgIAT4+b2V8oum7ywqmrrXxiZ/n7Fx6l4fr5K9ObmT9shLhRowLF26xXjZwgO/Z8ze879jypp/Dd2L/5W1rfo/fcLG/8vW7nVi2LZ8m/LixQeez1t79v/EjqW/Z7fM/d2xeP+/GTN3fNuwaoMWw////9n2f/1/dv/9z//nbDj7d/bW039333nxf9/bb4+vXLnCBnaHXdO2gyaTTvwXqtr4Rzl+6l+LwuX/LRs2X2VgYGAGK8iI7N0SHjThv4NT5W9lldi/Rtq5/xNDOo/CfWKVvHC5Z8Ss/9qa2T+4Ob1/Mnh0/dcoWL4drmD2phOzVm29/L+saPbvlIT2Pw3z9/2ftuXECriC/9/uyv3/8tL96dPb/jdunw/4eOOi54ezO1RAkgAMnpdd+TQeygAAAABJRU5ErkJggg=="
+    },
+    {
+      "desc": [
+        "Rhenapur Espuma PU Autoexpandible es una espuma de poliuretano de color amarillo suave monocomponente, ideal para rellenos de cavidades, aislación térmica y acústica. Tiene afinidad a una gran variedad de materiales de construcción."
+      ],
+      "details": [
+        "Monocomponente.",
+        "Curado por humedad.",
+        "Gran afinidad con la mayoría de los materiales de construcción.",
+        "Aislante térmico - acústico.",
+        "Fácil aplicación.",
+        "Ideal para el relleno de huecos y cavidades.",
+        "Ideal para fijar puertas, ventanas y paneles."
+      ],
+      "id": "P003",
+      "image": "/assets/images/products/rhenapur_espuma_img3.png",
+      "price": 16590,
+      "subtitle": "Espuma de poliuretano",
+      "title": "Rhenapur Espuma PU Expansiva",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAnUlEQVR4nGNgQADGezdv6l+9etUQSYyB4f///4wgur6+nuX5q7fXbt65ew9VAQMDWAEDAwPLwfyS64ujElEVgIyG0qzL01KuzynJxW6CMYMx6+4pHTc2L+i7j8OKNNatlak3NndlYVdgzMDAumFW5/VV6yfgdCTrxoq8G2v6qrCbUM/AwLLeyu/KVE272+i+gIMTD25pdSxbpo0sCAAwUT9OMnnqKQAAAABJRU5ErkJggg=="
+    },
+    {
+      "desc": [
+        "Adhesivo acrílico universal en dispersión acuosa, sin disolventes, con un tiempo abierto prolongado. Para la colocación de pavimentos de goma, PVC, vinílicos, poliolefínicos, linóleo.",
+        "Ultrabond Eco V4 SP es un adhesivo a base de polímeros sintéticos en dispersión acuosa, exento de disolventes, de aplicación simple, que se presenta bajo forma de pasta de color beige lista al uso. Está caracterizado por un tiempo abierto particularmente largo, adecuado para la colocación de pavimentos y revestimientos flexibles, siempre que sean estables dimensionalmente.",
+        "Por esta característica se puede utilizar también para la colocación en superficies no absorbentes, como alternativa a los adhesivos policloroprénicos de doble encolado o epoxipoliuretánicos (tiempo de espera 30-40 minutos a +23ºC)."
+      ],
+      "id": "P004",
+      "image": "/assets/images/products/ultrabond_eco_img4.png",
+      "price": 140000,
+      "subtitle": "Adhesivo Vinílico | 4 Lvt (14 Kg)",
+      "title": "Ultrabond Eco V4 Evolution",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAYAAABmBXS+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABHklEQVR4nGNgIBp0SGgytHGEM/TLJDFM00hjWOCSyDDLLJJhmrwhWP7///+8rXe33Q69N/9/4LW5f0OPt/wP3F3z13NL/f/4rd2vz5w5IwdSxL3i+u2L7Tfu/W+/eOlXxb4DfybtPPDryKG9/w/v333j7t0z/GDTzDaX9jLMCf7P0Ob+m6HT63/ztjl/Nm3b8H/+moUr4U7qOXeuou7cmf/NB07+nrj39P81Ozb9Wbd97f/lG5dPhyu69+hm7umzJ/5v37Lxx/Gzp35vP3zw+6ptq/6v2Ly6Ha7o+avnodcf3P5/8uKpf7fOH/p3+MyxP5t2b/q/fN3yHLii////s7758Nzs7JEd4Rc2r0w6dGhX5O79m2yOHTvGSXQ4AgALzJ3AsS+iogAAAABJRU5ErkJggg=="
+    },
+    {
+      "desc": [
+        "Es una imprimación que consolida las superficies y mejora la adhesión de enlucidos, pinturas, adhesivos para papel pintado, colas, adhesivos para porcelanatos, ceramicas, gres porcelanicos y morteros cementicios (autonivelante).",
+        "Primer G es una imprimación con base de resinas sintéticas que, una vez aplicada, se seca formando una película elástica, compacta y brillante. Esta película consolida las superficies, si es necesario, y mejora la adhesión de enlucidos, pinturas, adhesivos para papel pintado, colas, adhesivos para baldosas y morteros de revoque."
+      ],
+      "details": [
+        "Para el tratamiento de superficies de yeso, antes de la colocación de cerámicos y porcelanatos. ",
+        "Como capa de anclaje para revoques proyectados de base yeso.",
+        "Para regular la absorción de superficies cementicias o de yeso."
+      ],
+      "id": "P005",
+      "image": "/assets/images/products/primer_g_img5.png",
+      "price": 60000,
+      "subtitle": "Promotor De Adherencia Universal | (10 Kg)",
+      "title": "Primer G",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAABWElEQVR4nGNgYGBguHfvqvyN2zdSInKWFIpbTCqTtZ9cIGPeUSujlhYAkmdgYGAEk739S1Iz6w/95/Pe9EfEcel/Xqdlfxi8dvwXN24/DlH3H6JQRLUsj8Fi7n9Oyxk/uKxn/Ga3m/uDwXn5f3Hjlj0oCnlVypPqu/f9X7vt3B/p6HX/2+cc+bN8w4X/8uZtYIX//0MVsspWxE+de/D/jZtX/nS1Lvp/8eSRP+cu3f+vZtlyAEUhl1xBbPvEnf8vXTj39/SRY/8vnTv7Z/e+8/9VLBoOoyjkEMuI6pm87f/9O5f/njt75v/TJ/f+XL719L+aaSXYM3CF3JLp0YUN2/5v2nf115It5/+s3XPl1/z1V/4rGVaeRVEorRgXI2Iy+T+DzeK/DE6r/jM4rfnLY7Xwv4RK1iUUXwsKusjJKmc3KGiXtivo1LTK6dS0ymuVdMnI+EfBAhwA+9enzoJpD3AAAAAASUVORK5CYII="
+    },
+    {
+      "desc": [
+        "Listo para usar tanto en interiores como en exteriores, en paredes y pavimentos. Mejora la adherencia de enlucidos y adhesivos para cerámica en superficies no absorbentes como porcelanatos, metal, estuco, yeso, incluso vidrio. Secado rápido y tiempo de uso extendido. Monocomponente y fácil aplicación con brocha o rodillo.",
+        "Eco Prim Grip Plus",
+        "es una imprimación a base de resina sintética en dispersión acuosa y agregada, prensada inodora, libre de Disolventes, con excelentes características de adherencia, resistencia al agua y al envejecimiento. Garantizar una superficie sistema de enganche rugoso ideal para enlucidos, enlucidos y adhesivos cementosos, asegurando una excelente adherencia incluso sobre soportes lisos o poco absorbente.",
+        "Una vez seco, garantiza la adherencia tenaz de los adhesivos, alisadores y morteros cementicios sobre sustratos de diversa naturaleza: hormigón, ladrillos, piedras, ladrillos, placas de yeso, madera, cerámica, metal, yeso, etc.",
+        "Eco Prim Grip Plus es de color gris, listo para usar y de fácil aplicación a brocha y rodillo, no es inflamable y tiene un contenido volátil (VOC) de contenido orgánico muy bajo. puede almacenarse sin precauciones particulares."
+      ],
+      "id": "P006",
+      "image": "/assets/images/products/mapei_grip_plus_img6.png",
+      "price": 106990,
+      "subtitle": "Promotor De Adherencia Universal | (10 Kg)",
+      "title": "Eco Prim Grip Plus",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAABJklEQVR4nGNgIBboFd1zZzC7PJ9B+uwcBpULyxiUL65lUDq3kUHp7GYGlYsrGZSvVAo4npVn2HLiQemUHf//R3Z9/RPc8PJ/UtuL//GdT/7Hdt7/n9x3/0/F3Kf/iyaey2Q4fHB79rlTB/4fO7jz151nD39Xrj3+u271gT+Fi3b/XrX34J83jy/8/vjkkiXDoaNHIzZt3fW/rbHzz5KNu/4y5C3+49i14w9D8aZf3v27/p4+ffrTo0d3dBhOnj3psf/I8f812aX/cosb/gvWrP8vNPHEf4bWff+ql+z5f/fa+Xfv3r2TY/j//z/n+k1b2np6JlxrmLb0vELp6iM+k7dvL5swf8WhJXNmnz97tuzWrVvscN///3+F7f///6z///9nxBY8ABkjonPa5C+hAAAAAElFTkSuQmCC"
+    },
+    {
+      "desc": [
+        "Mortero autonivelante altamente fluido, de secado rápido para espesores de 3 a 40 mm con alta resistencia a la compresión (28 MPa). Para nivelación de pisos previo a la instalación de revestimientos: pisos vinilicos pegados, de caucho madera o pisos flotantes (SPC, LVT)."
+      ],
+      "details": [
+        "Exclusivo: Uso interior",
+        "espesores de 3 a 40 mm",
+        "Transitable a las 3 hrs /Bombeable.",
+        "CONSUMO: 1,7 kg/m² por cada mm de espesor.",
+        "PRESENTACIÓN: bolsas de 20 kg."
+      ],
+      "id": "P007",
+      "image": "/assets/images/products/uktraplan-contract.png",
+      "price": 16990,
+      "subtitle": "Mortero Autonivelante",
+      "title": "Ultraplan Contract 3-40",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAYAAABmBXS+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVR4nGNgYGBg+P/zuXbYwuv5Au1XCiRbz5fylV8rK+xdWrY23laOAQb+//3QU7T/93+B1qe/pGY8+8+X+/j38v3X/u+Y1tYEV/T724uOgn03//NO2PS9aNPm3+nLjn4/dOnS/0NbFncjTPrxoj5y7cP/3HmHfjlOPPLfceW935vOXfi/ZlZSL1zRl48vq3yWvPrPk3HxN2/pxf98lTd+bz598f+6ZVldcEXPX78s8V/5/D9v+YXfvDXn//NmXvm94MDF/9vWl3XAFX17ey/HY/6D/1yhp/7wxF/6L9D98PeB02f/L5ib3QZX9Pn5pRy3+Y/+85Xf+VGx5tLvfXv3fr92buf/+RPCEb67ePZc9trrD/7vvHT6z9VN/f9PHd30++71S/9nz8qugSuaP3++eM+yZQHJ0/pT4qZWlfYvnNq4bP689rI0A0WQAgAcDrgSL2aaXgAAAABJRU5ErkJggg=="
+    },
+    {
+      "desc": [
+        "Mortero cementicio de retape y parchado tixotrópico de textura fina y secado ultrarrápido. Adecuado para afinado, retape de pisos y muros de hormigón nuevo y existente, para espesores de 0 a 3 mm, preparación de superficies previa a la instalación de todo tipo de revestimientos de pisos y muros. Se puede instalar el revestimiento muy rápidamente (2 horas), incluyendo vinilos, caucho y textiles.",
+        "Donde usarlo: sobre pisos y paredes interiores de hormigón, cerámica, piedra natural previo a la instalación de revestimientos vinílicos, de caucho y textiles"
+      ],
+      "details": [
+        "Consistencia: polvo fino",
+        "Color: gris",
+        "Tiempo de trabajabilidad: aprox. 25 minutos",
+        "Espesor aplicado: de 0 a 3 mm (1cm para trabajos de reparación localizados)",
+        "Ajuste para trafico ligero: aprox. 1 hora (3 mm)",
+        "Almacenamiento 12 meses en lugar seco y en su envase original cerrado",
+        "Aplicación con llana de acero o llana de goma",
+        "Consumo aproximado: 1.0 kg/m² por mm de espesor",
+        "Presentación: bolsas de 4 kg"
+      ],
+      "id": "P008",
+      "image": "/assets/images/products/mapei_planiprep_fast_img8.png",
+      "price": 15900,
+      "subtitle": "Retape De Piso (4 Kg)",
+      "title": "Planiprep Fast Track",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAYAAABmBXS+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABPUlEQVR4nE2Qv0sCcRjGX7soKmhPmqKC5qaWCqn+gZBaggiCIIKKhpDonISI6Ac5ZS0O1vdscFEk5C5RBHOwuM6uH1c6SQpFRuh18MQpVz3T+z7vw8OHlwDYiIgU5am/d/lygkbZSMd0aFxKqQOmT0Q24kWx2Zxu1UcvraRBw8EqrSaRyt4fmj5jjCOe55vMRSuWAo4DDT3ubPXq5RMptcRMH0D9TowRp1fuMtviG8Y8Su3I/4CoWJAtlIa6Btu1fCGfTrwi5Msa855rrHnjz0C48zfT7dxpq9V0jUll9C3FvmkqgsmNcxUIt/41EbUYX2XZn/wAzUg6zcbg2g/IgJP7l3FyMKoZIZ6DY/NCP9nlEWV7MllMFtx7xQje5CQIblf5bH2h6BOOTwE0mqwQALsSSQxtLc7ZAdR/Z+kHjlCrmc3zlA0AAAAASUVORK5CYII="
+    }
+  ],
+  "homeProducts": [
+    {
+      "desc": "Rhenacret Nivelador 2000 es un mortero autonivelante diseñado para la nivelación y afinado de pisos interiores como losas y sobrelosas de concreto y radieres. Su formulación aporta consistencia plástica y reológica permitiendo una óptima trabajabilidad y terminación final.",
+      "details": [
+        "Autonivelante",
+        "Fácil preparación y aplicación",
+        "Alta estabilidad dimensional y durabilidad",
+        "Acabado liso y fino acompañado de alta resistencia final",
+        "Alta trabajabilidad y rendimiento",
+        "No sufre retracciones hasta el espesor máximo indicado",
+        "Uso exclusivo para superficies interiores"
+      ],
+      "id": "H001",
+      "image": "/assets/images/products/mortero1.png",
+      "price": 16990,
+      "subtitle": "Mortero Autonivelante",
+      "title": "Rhenacret Mortero Autonivelante",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAYAAABmBXS+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABRklEQVR4nGNgYGBg+L++lvFhmL3+XldDzyMexqG/k5wLvsU7pvxfNZ+FAQb+NyVJ/C/wff6/O+X//5aYv/8rgv93WQT+1Pcu1Ycrykpdph4fMu/v/9zM/6uCGv4Epu7965s++4d5TJ0hXJFjxBzV0KJ9vxM7L/5P7rz6N7Li2H//yjU/oytn6MEVNW14JTflwv/fG57+/7/h8f+/s+/9/5/ce+iXdUizAVxRyZJXslVbvv5eePn///mX//9t2vn/f+qkk78CcuYi3OTptU0mo/3Rz5a9//+XL/r+N67o6v/06Re+ly89qw1XlNR4TS63883PqsX//1Qs/PMro/nJ3+QJF3/Eth1AONwva7N8fP2F3yXzP/3Pn/Lmb0rD3f9JPRc/eRXOU4Urso+dwuqQOsHDs3BRsXfxsqnOSXM22UZNSoVKMwIApFWjoq+fPecAAAAASUVORK5CYII="
+    },
+    {
+      "desc": "Mortero autonivelante altamente fluido, de secado rápido para espesores de 3 a 40 mm con alta resistencia a la compresión (28 MPa). Para nivelación de pisos previo a la instalación de revestimientos: pisos vinilicos pegados, de caucho madera o pisos flotantes (SPC, LVT).",
+      "id": "H002",
+      "image": "/assets/images/products/mortero2.png",
+      "price": 22990,
+      "subtitle": "Mortero Autonivelante",
+      "title": "Ultraplan Contract 3-40",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAYAAABmBXS+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVR4nGNgYGBg+P/zuXbYwuv5Au1XCiRbz5fylV8rK+xdWrY23laOAQb+//3QU7T/93+B1qe/pGY8+8+X+/j38v3X/u+Y1tYEV/T724uOgn03//NO2PS9aNPm3+nLjn4/dOnS/0NbFncjTPrxoj5y7cP/3HmHfjlOPPLfceW935vOXfi/ZlZSL1zRl48vq3yWvPrPk3HxN2/pxf98lTd+bz598f+6ZVldcEXPX78s8V/5/D9v+YXfvDXn//NmXvm94MDF/9vWl3XAFX17ey/HY/6D/1yhp/7wxF/6L9D98PeB02f/L5ib3QZX9Pn5pRy3+Y/+85Xf+VGx5tLvfXv3fr92buf/+RPCEb67ePZc9trrD/7vvHT6z9VN/f9PHd30++71S/9nz8qugSuaP3++eM+yZQHJ0/pT4qZWlfYvnNq4bP689rI0A0WQAgAcDrgSL2aaXgAAAABJRU5ErkJggg=="
+    },
+    {
+      "desc": "Mortero cementicio de retape y parchado tixotrópico de textura fina y secado ultrarrápido. Adecuado para afinado, retape de pisos y muros de hormigón nuevo y existente, para espesores de 0 a 3 mm, preparación de superficies previa a la instalación de todo tipo de revestimientos de pisos y muros. Se puede instalar el revestimiento muy rápidamente (2 horas), incluyendo vinilos, caucho y textiles.",
+      "desc2": "Donde usarlo: sobre pisos y paredes interiores de hormigón, cerámica, piedra natural previo a la instalación de revestimientos vinílicos, de caucho y textiles.",
+      "id": "H003",
+      "image": "/assets/images/products/mapei_planiprep_fast_img8.png",
+      "price": 15990,
+      "subtitle": "Retape De Piso (4 Kg)",
+      "title": "Planiprep Fast Track",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAYAAABmBXS+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABPUlEQVR4nE2Qv0sCcRjGX7soKmhPmqKC5qaWCqn+gZBaggiCIIKKhpDonISI6Ac5ZS0O1vdscFEk5C5RBHOwuM6uH1c6SQpFRuh18MQpVz3T+z7vw8OHlwDYiIgU5am/d/lygkbZSMd0aFxKqQOmT0Q24kWx2Zxu1UcvraRBw8EqrSaRyt4fmj5jjCOe55vMRSuWAo4DDT3ubPXq5RMptcRMH0D9TowRp1fuMtviG8Y8Su3I/4CoWJAtlIa6Btu1fCGfTrwi5Msa855rrHnjz0C48zfT7dxpq9V0jUll9C3FvmkqgsmNcxUIt/41EbUYX2XZn/wAzUg6zcbg2g/IgJP7l3FyMKoZIZ6DY/NCP9nlEWV7MllMFtx7xQje5CQIblf5bH2h6BOOTwE0mqwQALsSSQxtLc7ZAdR/Z+kHjlCrmc3zlA0AAAAASUVORK5CYII="
+    }
+  ],
+  "productsPage": [
+    {
+      "characteristics": [
+        "Autonivelante.",
+        "Fácil preparación y colocación.",
+        "Transitable a partir de las 4 horas en adelante.",
+        "Alta estabilidad dimensional y durabilidad.",
+        "Acabado liso y fino acompañado de alta resistencia final.",
+        "Alta trabajabilidad y rendimiento.",
+        "Colocación desde 3 hasta 30 mm. de espesor en una sola aplicación.",
+        "No sufre retracciones hasta el espesor máximo indicado.",
+        "Uso exclusivo para superficies interiores."
+      ],
+      "description": [
+        "Rhenacret Nivelador 2000 es un mortero autonivelante diseñado para la nivelación y afinado de pisos interiores como losas y sobrelosas de concreto y radieres. Su formulación aporta consistencia plástica y reológica permitiendo una óptima trabajabilidad y terminación final."
+      ],
+      "id": "P001",
+      "image": "/assets/images/products/rhenacret_nivelador_img1.png",
+      "price": 17100,
+      "subtitle": "Mortero Autonivelante Cementicio",
+      "title": "Rhenacret Nivelador 2000",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAACXBIWXMAAAsTAAALEwEAmpwYAAABHklEQVR4nGNgYGBgqKqqEi6qrTVIz0k3D0tLc6itrXD+dWSSKAMMzJ/TsnDLpgn/U6vKfufWl/xe1FL///++PbPgCmKKcpb3dhb+X5Ua+rstM+x3TWbm//+H9i2CKzixb9Hy/2fn/v+/quLX7f15v97unfX///69CAX/X25Z/v/IrP//D037/f9I6+//5+f+/3/qyGKEglfbVvy/tfr//72Tfv+/suj3/xc7/v8/tBOh4Mre2ctenlv2//qOib8eHZ3++/+pxf//79mGsKK+sXRZT1/D/02L2n43Nef9PLui////I0iOXG9tuGCZs83/ZUFOf5aGuf6+khXz///uzQvhCq6aSIucN5Iy3asr4XpYVyLsiJ5kwrHCBGWQJAC+W5xZISU0BAAAAABJRU5ErkJggg=="
+    },
+    {
+      "characteristics": [
+        "Producto sustentable",
+        "No requiere dilución con agua",
+        "Aumenta la resistencia mecánica y la adherencia",
+        "Reduce tiempos de secado",
+        "Mejora la impermeabilidad",
+        "Alta capacidad selladora",
+        "Mejora la cohesión interna del mortero",
+        "Mayor resistencia a la alcalinidad (evita formación de sales)",
+        "Aumenta la docilidad de los morteros frescos"
+      ],
+      "description": [
+        "Rhenacret TOP RTU es una emulsión elastomérica que permite mejorar la trabajabilidad, adherencia, flexibilidad e impermeabilidad de los morteros. Forma parte del sistema de productos Rhenatec para la nivelación de pisos, actuando como matapolvo, promotor de adherencia y sellador de superficies."
+      ],
+      "id": "P002",
+      "image": "/assets/images/products/rhenatec_top_img2.png",
+      "price": 70400,
+      "subtitle": "Promotor de Adherencia Listo para Uso",
+      "title": "Rhenacret TOP RTU",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAACXBIWXMAAAsTAAALEwEAmpwYAAABKklEQVR4nGNgIAT4+b2V8oum7ywqmrrXxiZ/n7Fx6l4fr5K9ObmT9shLhRowLF26xXjZwgO/Z8ze879jypp/Dd2L/5W1rfo/fcLG/8vW7nVi2LZ8m/LixQeez1t79v/EjqW/Z7fM/d2xeP+/GTN3fNuwaoMWw////9n2f/1/dv/9z//nbDj7d/bW039333nxf9/bb4+vXLnCBnaHXdO2gyaTTvwXqtr4Rzl+6l+LwuX/LRs2X2VgYGAGK8iI7N0SHjThv4NT5W9lldi/Rtq5/xNDOo/CfWKVvHC5Z8Ss/9qa2T+4Ob1/Mnh0/dcoWL4drmD2phOzVm29/L+saPbvlIT2Pw3z9/2ftuXECriC/9/uyv3/8tL96dPb/jdunw/4eOOi54ezO1RAkgAMnpdd+TQeygAAAABJRU5ErkJggg=="
+    },
+    {
+      "characteristics": [
+        "Monocomponente.",
+        "Curado por humedad.",
+        "Gran afinidad con la mayoría de los materiales de construcción.",
+        "Aislante térmico - acústico.",
+        "Fácil aplicación.",
+        "Ideal para el relleno de huecos y cavidades.",
+        "Ideal para fijar puertas, ventanas y paneles."
+      ],
+      "description": [
+        "Rhenapur Espuma PU Autoexpandible es una espuma de poliuretano de color amarillo suave monocomponente, ideal para rellenos de cavidades, aislación térmica y acústica. Tiene afinidad a una gran variedad de materiales de construcción."
+      ],
+      "id": "P003",
+      "image": "/assets/images/products/rhenapur_espuma_img3.png",
+      "price": 16590,
+      "subtitle": "Espuma de poliuretano",
+      "title": "Rhenapur Espuma PU Expansiva",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAnUlEQVR4nGNgQADGezdv6l+9etUQSYyB4f///4wgur6+nuX5q7fXbt65ew9VAQMDWAEDAwPLwfyS64ujElEVgIyG0qzL01KuzynJxW6CMYMx6+4pHTc2L+i7j8OKNNatlak3NndlYVdgzMDAumFW5/VV6yfgdCTrxoq8G2v6qrCbUM/AwLLeyu/KVE272+i+gIMTD25pdSxbpo0sCAAwUT9OMnnqKQAAAABJRU5ErkJggg=="
+    },
+    {
+      "description": [
+        "Adhesivo acrílico universal en dispersión acuosa, sin disolventes, con un tiempo abierto prolongado. Para la colocación de pavimentos de goma, PVC, vinílicos, poliolefínicos, linóleo.",
+        "Ultrabond Eco V4 SP es un adhesivo a base de polímeros sintéticos en dispersión acuosa, exento de disolventes, de aplicación simple, que se presenta bajo forma de pasta de color beige lista al uso. Está caracterizado por un tiempo abierto particularmente largo, adecuado para la colocación de pavimentos y revestimientos flexibles, siempre que sean estables dimensionalmente.",
+        "Por esta característica se puede utilizar también para la colocación en superficies no absorbentes, como alternativa a los adhesivos policloroprénicos de doble encolado o epoxipoliuretánicos (tiempo de espera 30-40 minutos a +23ºC)."
+      ],
+      "id": "P004",
+      "image": "/assets/images/products/ultrabond_eco_img4.png",
+      "price": 140000,
+      "subtitle": "Adhesivo Vinílico | 4 Lvt (14 Kg)",
+      "title": "Ultrabond Eco V4 Evolution",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAYAAABmBXS+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABHklEQVR4nGNgIBp0SGgytHGEM/TLJDFM00hjWOCSyDDLLJJhmrwhWP7///+8rXe33Q69N/9/4LW5f0OPt/wP3F3z13NL/f/4rd2vz5w5IwdSxL3i+u2L7Tfu/W+/eOlXxb4DfybtPPDryKG9/w/v333j7t0z/GDTzDaX9jLMCf7P0Ob+m6HT63/ztjl/Nm3b8H/+moUr4U7qOXeuou7cmf/NB07+nrj39P81Ozb9Wbd97f/lG5dPhyu69+hm7umzJ/5v37Lxx/Gzp35vP3zw+6ptq/6v2Ly6Ha7o+avnodcf3P5/8uKpf7fOH/p3+MyxP5t2b/q/fN3yHLii////s7758Nzs7JEd4Rc2r0w6dGhX5O79m2yOHTvGSXQ4AgALzJ3AsS+iogAAAABJRU5ErkJggg=="
+    },
+    {
+      "characteristics": [
+        "Para el tratamiento de superficies de yeso, antes de la colocación de cerámicos y porcelanatos. ",
+        "Como capa de anclaje para revoques proyectados de base yeso.",
+        "Para regular la absorción de superficies cementicias o de yeso."
+      ],
+      "description": [
+        "Es una imprimación que consolida las superficies y mejora la adhesión de enlucidos, pinturas, adhesivos para papel pintado, colas, adhesivos para porcelanatos, ceramicas, gres porcelanicos y morteros cementicios (autonivelante).",
+        "Primer G es una imprimación con base de resinas sintéticas que, una vez aplicada, se seca formando una película elástica, compacta y brillante. Esta película consolida las superficies, si es necesario, y mejora la adhesión de enlucidos, pinturas, adhesivos para papel pintado, colas, adhesivos para baldosas y morteros de revoque."
+      ],
+      "id": "P005",
+      "image": "/assets/images/products/primer_g_img5.png",
+      "price": 60000,
+      "subtitle": "Promotor De Adherencia Universal | (10 Kg)",
+      "title": "Primer G",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAABWElEQVR4nGNgYGBguHfvqvyN2zdSInKWFIpbTCqTtZ9cIGPeUSujlhYAkmdgYGAEk739S1Iz6w/95/Pe9EfEcel/Xqdlfxi8dvwXN24/DlH3H6JQRLUsj8Fi7n9Oyxk/uKxn/Ga3m/uDwXn5f3Hjlj0oCnlVypPqu/f9X7vt3B/p6HX/2+cc+bN8w4X/8uZtYIX//0MVsspWxE+de/D/jZtX/nS1Lvp/8eSRP+cu3f+vZtlyAEUhl1xBbPvEnf8vXTj39/SRY/8vnTv7Z/e+8/9VLBoOoyjkEMuI6pm87f/9O5f/njt75v/TJ/f+XL719L+aaSXYM3CF3JLp0YUN2/5v2nf115It5/+s3XPl1/z1V/4rGVaeRVEorRgXI2Iy+T+DzeK/DE6r/jM4rfnLY7Xwv4RK1iUUXwsKusjJKmc3KGiXtivo1LTK6dS0ymuVdMnI+EfBAhwA+9enzoJpD3AAAAAASUVORK5CYII="
+    },
+    {
+      "description": [
+        "Listo para usar tanto en interiores como en exteriores, en paredes y pavimentos. Mejora la adherencia de enlucidos y adhesivos para cerámica en superficies no absorbentes como porcelanatos, metal, estuco, yeso, incluso vidrio. Secado rápido y tiempo de uso extendido. Monocomponente y fácil aplicación con brocha o rodillo.",
+        "Eco Prim Grip Plus",
+        "es una imprimación a base de resina sintética en dispersión acuosa y agregada, prensada inodora, libre de Disolventes, con excelentes características de adherencia, resistencia al agua y al envejecimiento. Garantizar una superficie sistema de enganche rugoso ideal para enlucidos, enlucidos y adhesivos cementosos, asegurando una excelente adherencia incluso sobre soportes lisos o poco absorbente.",
+        "Una vez seco, garantiza la adherencia tenaz de los adhesivos, alisadores y morteros cementicios sobre sustratos de diversa naturaleza: hormigón, ladrillos, piedras, ladrillos, placas de yeso, madera, cerámica, metal, yeso, etc.",
+        "Eco Prim Grip Plus es de color gris, listo para usar y de fácil aplicación a brocha y rodillo, no es inflamable y tiene un contenido volátil (VOC) de contenido orgánico muy bajo. puede almacenarse sin precauciones particulares."
+      ],
+      "id": "P006",
+      "image": "/assets/images/products/mapei_grip_plus_img6.png",
+      "price": 106990,
+      "subtitle": "Promotor De Adherencia Universal | (10 Kg)",
+      "title": "Eco Prim Grip Plus",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAABJklEQVR4nGNgIBboFd1zZzC7PJ9B+uwcBpULyxiUL65lUDq3kUHp7GYGlYsrGZSvVAo4npVn2HLiQemUHf//R3Z9/RPc8PJ/UtuL//GdT/7Hdt7/n9x3/0/F3Kf/iyaey2Q4fHB79rlTB/4fO7jz151nD39Xrj3+u271gT+Fi3b/XrX34J83jy/8/vjkkiXDoaNHIzZt3fW/rbHzz5KNu/4y5C3+49i14w9D8aZf3v27/p4+ffrTo0d3dBhOnj3psf/I8f812aX/cosb/gvWrP8vNPHEf4bWff+ql+z5f/fa+Xfv3r2TY/j//z/n+k1b2np6JlxrmLb0vELp6iM+k7dvL5swf8WhJXNmnz97tuzWrVvscN///3+F7f///6z///9nxBY8ABkjonPa5C+hAAAAAElFTkSuQmCC"
+    },
+    {
+      "characteristics": [
+        "Exclusivo: Uso interior",
+        "espesores de 3 a 40 mm",
+        "Transitable a las 3 hrs /Bombeable.",
+        "CONSUMO: 1,7 kg/m² por cada mm de espesor.",
+        "PRESENTACIÓN: bolsas de 20 kg."
+      ],
+      "description": [
+        "Mortero autonivelante altamente fluido, de secado rápido para espesores de 3 a 40 mm con alta resistencia a la compresión (28 MPa). Para nivelación de pisos previo a la instalación de revestimientos: pisos vinilicos pegados, de caucho madera o pisos flotantes (SPC, LVT)."
+      ],
+      "id": "P007",
+      "image": "/assets/images/products/uktraplan-contract.png",
+      "price": 16990,
+      "subtitle": "Mortero Autonivelante",
+      "title": "Ultraplan Contract 3-40",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAYAAABmBXS+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVR4nGNgYGBg+P/zuXbYwuv5Au1XCiRbz5fylV8rK+xdWrY23laOAQb+//3QU7T/93+B1qe/pGY8+8+X+/j38v3X/u+Y1tYEV/T724uOgn03//NO2PS9aNPm3+nLjn4/dOnS/0NbFncjTPrxoj5y7cP/3HmHfjlOPPLfceW935vOXfi/ZlZSL1zRl48vq3yWvPrPk3HxN2/pxf98lTd+bz598f+6ZVldcEXPX78s8V/5/D9v+YXfvDXn//NmXvm94MDF/9vWl3XAFX17ey/HY/6D/1yhp/7wxF/6L9D98PeB02f/L5ib3QZX9Pn5pRy3+Y/+85Xf+VGx5tLvfXv3fr92buf/+RPCEb67ePZc9trrD/7vvHT6z9VN/f9PHd30++71S/9nz8qugSuaP3++eM+yZQHJ0/pT4qZWlfYvnNq4bP689rI0A0WQAgAcDrgSL2aaXgAAAABJRU5ErkJggg=="
+    },
+    {
+      "characteristics": [
+        "Consistencia: polvo fino",
+        "Color: gris",
+        "Tiempo de trabajabilidad: aprox. 25 minutos",
+        "Espesor aplicado: de 0 a 3 mm (1cm para trabajos de reparación localizados)",
+        "Ajuste para trafico ligero: aprox. 1 hora (3 mm)",
+        "Almacenamiento 12 meses en lugar seco y en su envase original cerrado",
+        "Aplicación con llana de acero o llana de goma",
+        "Consumo aproximado: 1.0 kg/m² por mm de espesor",
+        "Presentación: bolsas de 4 kg"
+      ],
+      "description": [
+        "Mortero cementicio de retape y parchado tixotrópico de textura fina y secado ultrarrápido. Adecuado para afinado, retape de pisos y muros de hormigón nuevo y existente, para espesores de 0 a 3 mm, preparación de superficies previa a la instalación de todo tipo de revestimientos de pisos y muros. Se puede instalar el revestimiento muy rápidamente (2 horas), incluyendo vinilos, caucho y textiles.",
+        "Donde usarlo: sobre pisos y paredes interiores de hormigón, cerámica, piedra natural previo a la instalación de revestimientos vinílicos, de caucho y textiles"
+      ],
+      "id": "P008",
+      "image": "/assets/images/products/mapei_planiprep_fast_img8.png",
+      "price": 15900,
+      "subtitle": "Retape De Piso (4 Kg)",
+      "title": "Planiprep Fast Track",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAYAAABmBXS+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABPUlEQVR4nE2Qv0sCcRjGX7soKmhPmqKC5qaWCqn+gZBaggiCIIKKhpDonISI6Ac5ZS0O1vdscFEk5C5RBHOwuM6uH1c6SQpFRuh18MQpVz3T+z7vw8OHlwDYiIgU5am/d/lygkbZSMd0aFxKqQOmT0Q24kWx2Zxu1UcvraRBw8EqrSaRyt4fmj5jjCOe55vMRSuWAo4DDT3ubPXq5RMptcRMH0D9TowRp1fuMtviG8Y8Su3I/4CoWJAtlIa6Btu1fCGfTrwi5Msa855rrHnjz0C48zfT7dxpq9V0jUll9C3FvmkqgsmNcxUIt/41EbUYX2XZn/wAzUg6zcbg2g/IgJP7l3FyMKoZIZ6DY/NCP9nlEWV7MllMFtx7xQje5CQIblf5bH2h6BOOTwE0mqwQALsSSQxtLc7ZAdR/Z+kHjlCrmc3zlA0AAAAASUVORK5CYII="
+    }
+  ],
+  "allProducts": [
+    {
+      "characteristics": [
+        "Monocomponente.",
+        "Curado por humedad.",
+        "Gran afinidad con la mayoría de los materiales de construcción.",
+        "Aislante térmico - acústico.",
+        "Fácil aplicación.",
+        "Ideal para el relleno de huecos y cavidades.",
+        "Ideal para fijar puertas, ventanas y paneles."
+      ],
+      "description": [
+        "Rhenapur Espuma PU Autoexpandible es una espuma de poliuretano de color amarillo suave monocomponente, ideal para rellenos de cavidades, aislación térmica y acústica. Tiene afinidad a una gran variedad de materiales de construcción."
+      ],
+      "id": "P003",
+      "image": "/assets/images/products/rhenapur_espuma_img3.png",
+      "price": 16590,
+      "subtitle": "Espuma de poliuretano",
+      "title": "Rhenapur Espuma PU Expansiva",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAnUlEQVR4nGNgQADGezdv6l+9etUQSYyB4f///4wgur6+nuX5q7fXbt65ew9VAQMDWAEDAwPLwfyS64ujElEVgIyG0qzL01KuzynJxW6CMYMx6+4pHTc2L+i7j8OKNNatlak3NndlYVdgzMDAumFW5/VV6yfgdCTrxoq8G2v6qrCbUM/AwLLeyu/KVE272+i+gIMTD25pdSxbpo0sCAAwUT9OMnnqKQAAAABJRU5ErkJggg=="
+    },
+    {
+      "characteristics": [
+        "Exclusivo: Uso interior",
+        "espesores de 3 a 40 mm",
+        "Transitable a las 3 hrs /Bombeable.",
+        "CONSUMO: 1,7 kg/m² por cada mm de espesor.",
+        "PRESENTACIÓN: bolsas de 20 kg."
+      ],
+      "description": [
+        "Mortero autonivelante altamente fluido, de secado rápido para espesores de 3 a 40 mm con alta resistencia a la compresión (28 MPa). Para nivelación de pisos previo a la instalación de revestimientos: pisos vinilicos pegados, de caucho madera o pisos flotantes (SPC, LVT)."
+      ],
+      "id": "P007",
+      "image": "/assets/images/products/uktraplan-contract.png",
+      "price": 16990,
+      "subtitle": "Mortero Autonivelante",
+      "title": "Ultraplan Contract 3-40",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAYAAABmBXS+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVR4nGNgYGBg+P/zuXbYwuv5Au1XCiRbz5fylV8rK+xdWrY23laOAQb+//3QU7T/93+B1qe/pGY8+8+X+/j38v3X/u+Y1tYEV/T724uOgn03//NO2PS9aNPm3+nLjn4/dOnS/0NbFncjTPrxoj5y7cP/3HmHfjlOPPLfceW935vOXfi/ZlZSL1zRl48vq3yWvPrPk3HxN2/pxf98lTd+bz598f+6ZVldcEXPX78s8V/5/D9v+YXfvDXn//NmXvm94MDF/9vWl3XAFX17ey/HY/6D/1yhp/7wxF/6L9D98PeB02f/L5ib3QZX9Pn5pRy3+Y/+85Xf+VGx5tLvfXv3fr92buf/+RPCEb67ePZc9trrD/7vvHT6z9VN/f9PHd30++71S/9nz8qugSuaP3++eM+yZQHJ0/pT4qZWlfYvnNq4bP689rI0A0WQAgAcDrgSL2aaXgAAAABJRU5ErkJggg=="
+    },
+    {
+      "characteristics": [
+        "Para el tratamiento de superficies de yeso, antes de la colocación de cerámicos y porcelanatos. ",
+        "Como capa de anclaje para revoques proyectados de base yeso.",
+        "Para regular la absorción de superficies cementicias o de yeso."
+      ],
+      "description": [
+        "Es una imprimación que consolida las superficies y mejora la adhesión de enlucidos, pinturas, adhesivos para papel pintado, colas, adhesivos para porcelanatos, ceramicas, gres porcelanicos y morteros cementicios (autonivelante).",
+        "Primer G es una imprimación con base de resinas sintéticas que, una vez aplicada, se seca formando una película elástica, compacta y brillante. Esta película consolida las superficies, si es necesario, y mejora la adhesión de enlucidos, pinturas, adhesivos para papel pintado, colas, adhesivos para baldosas y morteros de revoque."
+      ],
+      "id": "P005",
+      "image": "/assets/images/products/primer_g_img5.png",
+      "price": 60000,
+      "subtitle": "Promotor De Adherencia Universal | (10 Kg)",
+      "title": "Primer G",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAACXBIWXMAAAsTAAALEwEAmpwYAAABWElEQVR4nGNgYGBguHfvqvyN2zdSInKWFIpbTCqTtZ9cIGPeUSujlhYAkmdgYGAEk739S1Iz6w/95/Pe9EfEcel/Xqdlfxi8dvwXN24/DlH3H6JQRLUsj8Fi7n9Oyxk/uKxn/Ga3m/uDwXn5f3Hjlj0oCnlVypPqu/f9X7vt3B/p6HX/2+cc+bN8w4X/8uZtYIX//0MVsspWxE+de/D/jZtX/nS1Lvp/8eSRP+cu3f+vZtlyAEUhl1xBbPvEnf8vXTj39/SRY/8vnTv7Z/e+8/9VLBoOoyjkEMuI6pm87f/9O5f/njt75v/TJ/f+XL719L+aaSXYM3CF3JLp0YUN2/5v2nf115It5/+s3XPl1/z1V/4rGVaeRVEorRgXI2Iy+T+DzeK/DE6r/jM4rfnLY7Xwv4RK1iUUXwsKusjJKmc3KGiXtivo1LTK6dS0ymuVdMnI+EfBAhwA+9enzoJpD3AAAAAASUVORK5CYII="
+    },
+    {
+      "description": [
+        "Adhesivo acrílico universal en dispersión acuosa, sin disolventes, con un tiempo abierto prolongado. Para la colocación de pavimentos de goma, PVC, vinílicos, poliolefínicos, linóleo.",
+        "Ultrabond Eco V4 SP es un adhesivo a base de polímeros sintéticos en dispersión acuosa, exento de disolventes, de aplicación simple, que se presenta bajo forma de pasta de color beige lista al uso. Está caracterizado por un tiempo abierto particularmente largo, adecuado para la colocación de pavimentos y revestimientos flexibles, siempre que sean estables dimensionalmente.",
+        "Por esta característica se puede utilizar también para la colocación en superficies no absorbentes, como alternativa a los adhesivos policloroprénicos de doble encolado o epoxipoliuretánicos (tiempo de espera 30-40 minutos a +23ºC)."
+      ],
+      "id": "P004",
+      "image": "/assets/images/products/ultrabond_eco_img4.png",
+      "price": 140000,
+      "subtitle": "Adhesivo Vinílico | 4 Lvt (14 Kg)",
+      "title": "Ultrabond Eco V4 Evolution",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAYAAABmBXS+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABHklEQVR4nGNgIBp0SGgytHGEM/TLJDFM00hjWOCSyDDLLJJhmrwhWP7///+8rXe33Q69N/9/4LW5f0OPt/wP3F3z13NL/f/4rd2vz5w5IwdSxL3i+u2L7Tfu/W+/eOlXxb4DfybtPPDryKG9/w/v333j7t0z/GDTzDaX9jLMCf7P0Ob+m6HT63/ztjl/Nm3b8H/+moUr4U7qOXeuou7cmf/NB07+nrj39P81Ozb9Wbd97f/lG5dPhyu69+hm7umzJ/5v37Lxx/Gzp35vP3zw+6ptq/6v2Ly6Ha7o+avnodcf3P5/8uKpf7fOH/p3+MyxP5t2b/q/fN3yHLii////s7758Nzs7JEd4Rc2r0w6dGhX5O79m2yOHTvGSXQ4AgALzJ3AsS+iogAAAABJRU5ErkJggg=="
+    },
+    {
+      "description": [
+        "Listo para usar tanto en interiores como en exteriores, en paredes y pavimentos. Mejora la adherencia de enlucidos y adhesivos para cerámica en superficies no absorbentes como porcelanatos, metal, estuco, yeso, incluso vidrio. Secado rápido y tiempo de uso extendido. Monocomponente y fácil aplicación con brocha o rodillo.",
+        "Eco Prim Grip Plus",
+        "es una imprimación a base de resina sintética en dispersión acuosa y agregada, prensada inodora, libre de Disolventes, con excelentes características de adherencia, resistencia al agua y al envejecimiento. Garantizar una superficie sistema de enganche rugoso ideal para enlucidos, enlucidos y adhesivos cementosos, asegurando una excelente adherencia incluso sobre soportes lisos o poco absorbente.",
+        "Una vez seco, garantiza la adherencia tenaz de los adhesivos, alisadores y morteros cementicios sobre sustratos de diversa naturaleza: hormigón, ladrillos, piedras, ladrillos, placas de yeso, madera, cerámica, metal, yeso, etc.",
+        "Eco Prim Grip Plus es de color gris, listo para usar y de fácil aplicación a brocha y rodillo, no es inflamable y tiene un contenido volátil (VOC) de contenido orgánico muy bajo. puede almacenarse sin precauciones particulares."
+      ],
+      "id": "P006",
+      "image": "/assets/images/products/mapei_grip_plus_img6.png",
+      "price": 106990,
+      "subtitle": "Promotor De Adherencia Universal | (10 Kg)",
+      "title": "Eco Prim Grip Plus",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAICAYAAADA+m62AAAACXBIWXMAAAsTAAALEwEAmpwYAAABJklEQVR4nGNgIBboFd1zZzC7PJ9B+uwcBpULyxiUL65lUDq3kUHp7GYGlYsrGZSvVAo4npVn2HLiQemUHf//R3Z9/RPc8PJ/UtuL//GdT/7Hdt7/n9x3/0/F3Kf/iyaey2Q4fHB79rlTB/4fO7jz151nD39Xrj3+u271gT+Fi3b/XrX34J83jy/8/vjkkiXDoaNHIzZt3fW/rbHzz5KNu/4y5C3+49i14w9D8aZf3v27/p4+ffrTo0d3dBhOnj3psf/I8f812aX/cosb/gvWrP8vNPHEf4bWff+ql+z5f/fa+Xfv3r2TY/j//z/n+k1b2np6JlxrmLb0vELp6iM+k7dvL5swf8WhJXNmnz97tuzWrVvscN///3+F7f///6z///9nxBY8ABkjonPa5C+hAAAAAElFTkSuQmCC"
+    },
+    {
+      "characteristics": [
+        "Producto sustentable",
+        "No requiere dilución con agua",
+        "Aumenta la resistencia mecánica y la adherencia",
+        "Reduce tiempos de secado",
+        "Mejora la impermeabilidad",
+        "Alta capacidad selladora",
+        "Mejora la cohesión interna del mortero",
+        "Mayor resistencia a la alcalinidad (evita formación de sales)",
+        "Aumenta la docilidad de los morteros frescos"
+      ],
+      "description": [
+        "Rhenacret TOP RTU es una emulsión elastomérica que permite mejorar la trabajabilidad, adherencia, flexibilidad e impermeabilidad de los morteros. Forma parte del sistema de productos Rhenatec para la nivelación de pisos, actuando como matapolvo, promotor de adherencia y sellador de superficies."
+      ],
+      "id": "P002",
+      "image": "/assets/images/products/rhenatec_top_img2.png",
+      "price": 70400,
+      "subtitle": "Promotor de Adherencia Listo para Uso",
+      "title": "Rhenacret TOP RTU",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAACXBIWXMAAAsTAAALEwEAmpwYAAABKklEQVR4nGNgIAT4+b2V8oum7ywqmrrXxiZ/n7Fx6l4fr5K9ObmT9shLhRowLF26xXjZwgO/Z8ze879jypp/Dd2L/5W1rfo/fcLG/8vW7nVi2LZ8m/LixQeez1t79v/EjqW/Z7fM/d2xeP+/GTN3fNuwaoMWw////9n2f/1/dv/9z//nbDj7d/bW039333nxf9/bb4+vXLnCBnaHXdO2gyaTTvwXqtr4Rzl+6l+LwuX/LRs2X2VgYGAGK8iI7N0SHjThv4NT5W9lldi/Rtq5/xNDOo/CfWKVvHC5Z8Ss/9qa2T+4Ob1/Mnh0/dcoWL4drmD2phOzVm29/L+saPbvlIT2Pw3z9/2ftuXECriC/9/uyv3/8tL96dPb/jdunw/4eOOi54ezO1RAkgAMnpdd+TQeygAAAABJRU5ErkJggg=="
+    },
+    {
+      "desc": "Mortero cementicio de retape y parchado tixotrópico de textura fina y secado ultrarrápido. Adecuado para afinado, retape de pisos y muros de hormigón nuevo y existente, para espesores de 0 a 3 mm, preparación de superficies previa a la instalación de todo tipo de revestimientos de pisos y muros. Se puede instalar el revestimiento muy rápidamente (2 horas), incluyendo vinilos, caucho y textiles.",
+      "desc2": "Donde usarlo: sobre pisos y paredes interiores de hormigón, cerámica, piedra natural previo a la instalación de revestimientos vinílicos, de caucho y textiles.",
+      "id": "H003",
+      "image": "/assets/images/products/mapei_planiprep_fast_img8.png",
+      "price": 15990,
+      "subtitle": "Retape De Piso (4 Kg)",
+      "title": "Planiprep Fast Track",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAYAAABmBXS+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABPUlEQVR4nE2Qv0sCcRjGX7soKmhPmqKC5qaWCqn+gZBaggiCIIKKhpDonISI6Ac5ZS0O1vdscFEk5C5RBHOwuM6uH1c6SQpFRuh18MQpVz3T+z7vw8OHlwDYiIgU5am/d/lygkbZSMd0aFxKqQOmT0Q24kWx2Zxu1UcvraRBw8EqrSaRyt4fmj5jjCOe55vMRSuWAo4DDT3ubPXq5RMptcRMH0D9TowRp1fuMtviG8Y8Su3I/4CoWJAtlIa6Btu1fCGfTrwi5Msa855rrHnjz0C48zfT7dxpq9V0jUll9C3FvmkqgsmNcxUIt/41EbUYX2XZn/wAzUg6zcbg2g/IgJP7l3FyMKoZIZ6DY/NCP9nlEWV7MllMFtx7xQje5CQIblf5bH2h6BOOTwE0mqwQALsSSQxtLc7ZAdR/Z+kHjlCrmc3zlA0AAAAASUVORK5CYII="
+    },
+    {
+      "characteristics": [
+        "Autonivelante.",
+        "Fácil preparación y colocación.",
+        "Transitable a partir de las 4 horas en adelante.",
+        "Alta estabilidad dimensional y durabilidad.",
+        "Acabado liso y fino acompañado de alta resistencia final.",
+        "Alta trabajabilidad y rendimiento.",
+        "Colocación desde 3 hasta 30 mm. de espesor en una sola aplicación.",
+        "No sufre retracciones hasta el espesor máximo indicado.",
+        "Uso exclusivo para superficies interiores."
+      ],
+      "description": [
+        "Rhenacret Nivelador 2000 es un mortero autonivelante diseñado para la nivelación y afinado de pisos interiores como losas y sobrelosas de concreto y radieres. Su formulación aporta consistencia plástica y reológica permitiendo una óptima trabajabilidad y terminación final."
+      ],
+      "id": "P001",
+      "image": "/assets/images/products/rhenacret_nivelador_img1.png",
+      "price": 17100,
+      "subtitle": "Mortero Autonivelante Cementicio",
+      "title": "Rhenacret Nivelador 2000",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAACXBIWXMAAAsTAAALEwEAmpwYAAABHklEQVR4nGNgYGBgqKqqEi6qrTVIz0k3D0tLc6itrXD+dWSSKAMMzJ/TsnDLpgn/U6vKfufWl/xe1FL///++PbPgCmKKcpb3dhb+X5Ua+rstM+x3TWbm//+H9i2CKzixb9Hy/2fn/v+/quLX7f15v97unfX///69CAX/X25Z/v/IrP//D037/f9I6+//5+f+/3/qyGKEglfbVvy/tfr//72Tfv+/suj3/xc7/v8/tBOh4Mre2ctenlv2//qOib8eHZ3++/+pxf//79mGsKK+sXRZT1/D/02L2n43Nef9PLui////I0iOXG9tuGCZs83/ZUFOf5aGuf6+khXz///uzQvhCq6aSIucN5Iy3asr4XpYVyLsiJ5kwrHCBGWQJAC+W5xZISU0BAAAAABJRU5ErkJggg=="
+    },
+    {
+      "desc": "Mortero autonivelante altamente fluido, de secado rápido para espesores de 3 a 40 mm con alta resistencia a la compresión (28 MPa). Para nivelación de pisos previo a la instalación de revestimientos: pisos vinilicos pegados, de caucho madera o pisos flotantes (SPC, LVT).",
+      "id": "H002",
+      "image": "/assets/images/products/mortero2.png",
+      "price": 22990,
+      "subtitle": "Mortero Autonivelante",
+      "title": "Ultraplan Contract 3-40",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAYAAABmBXS+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABTklEQVR4nGNgYGBg+P/zuXbYwuv5Au1XCiRbz5fylV8rK+xdWrY23laOAQb+//3QU7T/93+B1qe/pGY8+8+X+/j38v3X/u+Y1tYEV/T724uOgn03//NO2PS9aNPm3+nLjn4/dOnS/0NbFncjTPrxoj5y7cP/3HmHfjlOPPLfceW935vOXfi/ZlZSL1zRl48vq3yWvPrPk3HxN2/pxf98lTd+bz598f+6ZVldcEXPX78s8V/5/D9v+YXfvDXn//NmXvm94MDF/9vWl3XAFX17ey/HY/6D/1yhp/7wxF/6L9D98PeB02f/L5ib3QZX9Pn5pRy3+Y/+85Xf+VGx5tLvfXv3fr92buf/+RPCEb67ePZc9trrD/7vvHT6z9VN/f9PHd30++71S/9nz8qugSuaP3++eM+yZQHJ0/pT4qZWlfYvnNq4bP689rI0A0WQAgAcDrgSL2aaXgAAAABJRU5ErkJggg=="
+    },
+    {
+      "characteristics": [
+        "Consistencia: polvo fino",
+        "Color: gris",
+        "Tiempo de trabajabilidad: aprox. 25 minutos",
+        "Espesor aplicado: de 0 a 3 mm (1cm para trabajos de reparación localizados)",
+        "Ajuste para trafico ligero: aprox. 1 hora (3 mm)",
+        "Almacenamiento 12 meses en lugar seco y en su envase original cerrado",
+        "Aplicación con llana de acero o llana de goma",
+        "Consumo aproximado: 1.0 kg/m² por mm de espesor",
+        "Presentación: bolsas de 4 kg"
+      ],
+      "description": [
+        "Mortero cementicio de retape y parchado tixotrópico de textura fina y secado ultrarrápido. Adecuado para afinado, retape de pisos y muros de hormigón nuevo y existente, para espesores de 0 a 3 mm, preparación de superficies previa a la instalación de todo tipo de revestimientos de pisos y muros. Se puede instalar el revestimiento muy rápidamente (2 horas), incluyendo vinilos, caucho y textiles.",
+        "Donde usarlo: sobre pisos y paredes interiores de hormigón, cerámica, piedra natural previo a la instalación de revestimientos vinílicos, de caucho y textiles"
+      ],
+      "id": "P008",
+      "image": "/assets/images/products/mapei_planiprep_fast_img8.png",
+      "price": 15900,
+      "subtitle": "Retape De Piso (4 Kg)",
+      "title": "Planiprep Fast Track",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAYAAABmBXS+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABPUlEQVR4nE2Qv0sCcRjGX7soKmhPmqKC5qaWCqn+gZBaggiCIIKKhpDonISI6Ac5ZS0O1vdscFEk5C5RBHOwuM6uH1c6SQpFRuh18MQpVz3T+z7vw8OHlwDYiIgU5am/d/lygkbZSMd0aFxKqQOmT0Q24kWx2Zxu1UcvraRBw8EqrSaRyt4fmj5jjCOe55vMRSuWAo4DDT3ubPXq5RMptcRMH0D9TowRp1fuMtviG8Y8Su3I/4CoWJAtlIa6Btu1fCGfTrwi5Msa855rrHnjz0C48zfT7dxpq9V0jUll9C3FvmkqgsmNcxUIt/41EbUYX2XZn/wAzUg6zcbg2g/IgJP7l3FyMKoZIZ6DY/NCP9nlEWV7MllMFtx7xQje5CQIblf5bH2h6BOOTwE0mqwQALsSSQxtLc7ZAdR/Z+kHjlCrmc3zlA0AAAAASUVORK5CYII="
+    },
+    {
+      "desc": "Rhenacret Nivelador 2000 es un mortero autonivelante diseñado para la nivelación y afinado de pisos interiores como losas y sobrelosas de concreto y radieres. Su formulación aporta consistencia plástica y reológica permitiendo una óptima trabajabilidad y terminación final.",
+      "details": [
+        "Autonivelante",
+        "Fácil preparación y aplicación",
+        "Alta estabilidad dimensional y durabilidad",
+        "Acabado liso y fino acompañado de alta resistencia final",
+        "Alta trabajabilidad y rendimiento",
+        "No sufre retracciones hasta el espesor máximo indicado",
+        "Uso exclusivo para superficies interiores"
+      ],
+      "id": "H001",
+      "image": "/assets/images/products/mortero1.png",
+      "price": 16990,
+      "subtitle": "Mortero Autonivelante",
+      "title": "Rhenacret Mortero Autonivelante",
+      "blurDataUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAKCAYAAABmBXS+AAAACXBIWXMAAAsTAAALEwEAmpwYAAABRklEQVR4nGNgYGBg+L++lvFhmL3+XldDzyMexqG/k5wLvsU7pvxfNZ+FAQb+NyVJ/C/wff6/O+X//5aYv/8rgv93WQT+1Pcu1Ycrykpdph4fMu/v/9zM/6uCGv4Epu7965s++4d5TJ0hXJFjxBzV0KJ9vxM7L/5P7rz6N7Li2H//yjU/oytn6MEVNW14JTflwv/fG57+/7/h8f+/s+/9/5/ce+iXdUizAVxRyZJXslVbvv5eePn///mX//9t2vn/f+qkk78CcuYi3OTptU0mo/3Rz5a9//+XL/r+N67o6v/06Re+ly89qw1XlNR4TS63883PqsX//1Qs/PMro/nJ3+QJF3/Eth1AONwva7N8fP2F3yXzP/3Pn/Lmb0rD3f9JPRc/eRXOU4Urso+dwuqQOsHDs3BRsXfxsqnOSXM22UZNSoVKMwIApFWjoq+fPecAAAAASUVORK5CYII="
+    }
+  ]
+}

@@ -160,7 +160,7 @@ NEXT_PUBLIC_EMAILJS_ORDER_TEMPLATE_ID=template_xxx
 | Declina | 4000 0000 0000 0002 | 12/26 | 123 | ❌ Rechaza pago |
 | 3D Secure | 4000 0025 0000 3155 | 12/26 | 123 | ⚠️ Requiere 2FA |
 
-### 2. **Pasos de Testing**
+### 2. **Pasos de Pruebas**
 
 ```
 1. npm run dev
@@ -243,7 +243,7 @@ npm run build
 
 ---
 
-## 🔧 Troubleshooting Rápido
+## 🔧 Solución de problemas Rápido
 
 | Problema | Solución |
 |----------|----------|
@@ -264,7 +264,7 @@ npm run build
 
 ---
 
-## ✨ Features Implementados
+## ✨ Funcionalidades Implementados
 
 ✅ Formulario de checkout en 3 pasos  
 ✅ Validación progresiva por paso  

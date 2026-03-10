@@ -3,12 +3,12 @@
 import React, { useMemo, useRef } from "react";
 import Link from "next/link";
 import { Button, Col, Container, Image, Row, Form } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../hooks/useRedux";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 import { formatPrice } from "../../config/formatPrice";
-import type { RootState } from "../../../redux/store";
-import type { CartItem } from "../../types";
+import { logger, LogCategory } from "../../lib/logger";
+import { trackContactClick } from "../../lib/analytics";
 import {
   arrowRightSvg,
   clockSvg,
@@ -20,7 +20,7 @@ import {
 
 export default function Contact(): React.ReactElement {
   const form = useRef<HTMLFormElement | null>(null);
-  const cart = useSelector<RootState, CartItem[]>((state) => state.cart);
+  const cart = useAppSelector((state) => state.cart);
 
   const selectedProductsMessage = useMemo(() => {
     if (!cart.length) {
@@ -56,12 +56,22 @@ export default function Contact(): React.ReactElement {
       )
       .then(
         () => {
+          trackContactClick("contact_form", "contact_page");
           toast.success("Enviado con exito.");
-          console.log("SUCCESS!");
+          logger.info(
+            "Email sent successfully",
+            undefined,
+            LogCategory.API
+          );
         },
         (error: { text?: string }) => {
           toast.error("Algo salio mal.");
-          console.log("FAILED...", error.text);
+          logger.error(
+            "Failed to send email",
+            new Error(error.text || "Unknown error"),
+            { errorText: error.text },
+            LogCategory.API
+          );
         },
       );
   };
@@ -112,7 +122,7 @@ export default function Contact(): React.ReactElement {
                             {addressSvg}
 
                             <p className="text-light">
-                              <b>Direccion</b>
+                              <b>Dirección</b>
                               <br />
                               Av. La Dehesa 1822 - Of. 430,
                               <br />
@@ -145,7 +155,7 @@ export default function Contact(): React.ReactElement {
                           <div className="form__contact content-box mr_70">
                             <div className="sec-title mb_35 ms-1">
                               <h2 className="postcard__title blue text-dark text-start fw-bold fs-2">
-                                Contactanos
+                                Contáctanos
                               </h2>
                               <div className="contactcard__bar"></div>
                             </div>
@@ -157,26 +167,35 @@ export default function Contact(): React.ReactElement {
                               ref={form}
                               onSubmit={sendEmail}
                               id="contact-form"
+                              aria-label="Formulario de contacto"
                             >
                               <Form.Group
                                 className="mb-3"
                                 controlId="formBasicName"
                               >
+                                <Form.Label className="visually-hidden">
+                                  Nombre y Apellido
+                                </Form.Label>
                                 <Form.Control
                                   name="user_name"
                                   type="text"
                                   placeholder="Nombre y Apellido"
                                   required
+                                  aria-required="true"
                                 />
                               </Form.Group>
                               <Form.Group
                                 className="mb-3"
                                 controlId="formBasicPhone"
                               >
+                                <Form.Label className="visually-hidden">
+                                  Teléfono
+                                </Form.Label>
                                 <Form.Control
                                   name="user_phone"
                                   type="tel"
-                                  placeholder="Telefono"
+                                  placeholder="Teléfono"
+                                  aria-required="true"
                                   required
                                 />
                               </Form.Group>
@@ -184,10 +203,14 @@ export default function Contact(): React.ReactElement {
                                 className="mb-3"
                                 controlId="formBasicEmail"
                               >
+                                <Form.Label className="visually-hidden">
+                                  Correo electrónico
+                                </Form.Label>
                                 <Form.Control
                                   name="user_email"
                                   type="email"
-                                  placeholder="Correo electronico"
+                                  placeholder="Correo electrónico"
+                                  aria-required="true"
                                   required
                                 />
                               </Form.Group>
@@ -195,11 +218,15 @@ export default function Contact(): React.ReactElement {
                                 className="mb-3"
                                 controlId="formBasicCurrentMessage"
                               >
+                                <Form.Label className="visually-hidden">
+                                  Motivo de contacto
+                                </Form.Label>
                                 <Form.Control
                                   name="user_message"
                                   as="textarea"
                                   placeholder="Motivo de contacto"
                                   rows={3}
+                                  aria-required="true"
                                   required
                                 />
                               </Form.Group>
@@ -207,6 +234,9 @@ export default function Contact(): React.ReactElement {
                                 className="mb-3"
                                 controlId="formBasicMessage"
                               >
+                                <Form.Label className="visually-hidden">
+                                  Productos seleccionados
+                                </Form.Label>
                                 <Form.Control
                                   name="message"
                                   as="textarea"
@@ -214,6 +244,7 @@ export default function Contact(): React.ReactElement {
                                   rows={4}
                                   value={selectedProductsMessage}
                                   readOnly
+                                  aria-readonly="true"
                                 />
                               </Form.Group>
 
@@ -223,6 +254,7 @@ export default function Contact(): React.ReactElement {
                                 value="Send"
                                 type="submit"
                                 name="submit-form"
+                                aria-label="Enviar formulario de contacto"
                               >
                                 Enviar mensaje
                                 {arrowRightSvg}

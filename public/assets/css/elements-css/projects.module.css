@@ -1,7 +1,7 @@
 .projects__item + .projects__item {
-  border-top: 1px solid #015c93;
-  margin: 60px 0;
-  padding-top: 60px;
+  border-top: var(--border-width-thin) solid var(--color-primary);
+  margin: var(--spacing-24) 0;
+  padding-top: var(--spacing-24);
 }
 
 .project__item__gallery {
@@ -14,15 +14,15 @@
   z-index: 9;
   background: rgba(0, 0, 0, 0.66);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--transition-all);
 
   font-family: swiper-icons;
-  font-size: 18px;
+  font-size: var(--font-size-lg);
   text-transform: none !important;
   letter-spacing: 0;
   font-variant: normal;
   line-height: 1;
-  color: white;
+  color: var(--color-text-white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,7 +45,6 @@
 .projects__img:hover {
   cursor: pointer;
   transform: scale(1.05);
-  transition: all 0.3s ease;
+  transition: var(--transition-all);
   transition-delay: calc(0.1);
 }
-

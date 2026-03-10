@@ -1,7 +1,7 @@
 .mainfeat-section {
-  margin: 5rem 0 6rem 0;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 5px;
+  margin: var(--spacing-20) 0 var(--spacing-24) 0;
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--border-radius-lg);
 
   display: flex;
   flex-direction: column;
@@ -13,14 +13,14 @@
 .mainfeat__bar-2 {
   width: 50px;
   height: 7px;
-  margin: 10px 0;
-  border-radius: 2.5px;
-  background-color: #d7d9d9;
-  transition: width 0.2s ease;
+  margin: var(--spacing-3) 0;
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-gray-300);
+  transition: width var(--transition-fast) ease;
 }
 
 .mainfeat-section .content-box {
-  padding: 50px 0px 140px 0;
+  padding: var(--spacing-20) 0px 56px 0;
   height: 100%;
 }
 
@@ -30,15 +30,15 @@
 
 .content_block_two .content-box .sec-title p {
   color: rgba(255, 255, 255, 0.7);
-  margin-top: 24px;
-  font-size: 10px;
+  margin-top: var(--spacing-6);
+  font-size: var(--font-size-xs);
 }
 
 .content_block_two .content-box .inner-box .single-item {
   position: relative;
   display: block;
-  padding: 0px 0px 0px 80px;
-  margin-bottom: 28px;
+  padding: 0px 0px 0px var(--spacing-20);
+  margin-bottom: var(--spacing-10);
 }
 
 .content_block_two .content-box .inner-box .single-item:last-child {
@@ -54,18 +54,18 @@
   height: 60px;
   line-height: 60px;
   text-align: center;
-  font-size: 26px;
-  color: #fff;
-  border-radius: 50%;
+  font-size: var(--font-size-2xl);
+  color: var(--color-text-white);
+  border-radius: var(--border-radius-full);
 }
 
 .content_block_two .content-box .inner-box .single-item h3 {
   display: block;
-  font-size: 22px;
+  font-size: var(--font-size-2xl);
   line-height: 30px;
-  color: #fff;
-  font-weight: 600;
-  margin-bottom: 6px;
+  color: var(--color-text-white);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--spacing-3);
 }
 
 /* main features main card */
@@ -86,7 +86,7 @@
 }
 
 .featcard__title {
-  font-size: 1.5rem;
+  font-size: var(--font-size-2xl);
 }
 .featcard__content {
   display: flex;
@@ -122,32 +122,32 @@
 
 .mainfeat-section .outer-box h2 {
   display: block;
-  font-size: 30px;
+  font-size: var(--font-size-3xl);
   line-height: 40px;
-  font-weight: 700;
-  color: #222;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
 }
 .mainfeat__bar {
   width: 50px;
   height: 7px;
-  margin: 0.6rem 0 2.5rem 0;
-  border-radius: 2.5px;
-  background-color: #015c93;
-  transition: width 0.2s ease;
+  margin: var(--spacing-3) 0 var(--spacing-10) 0;
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-primary);
+  transition: width var(--transition-fast) ease;
 }
 
 .mainfeat-section .outer-box .theme-btn-one {
-  background: #241e2f;
-  box-shadow: #fff;
+  background: var(--color-bg-hero-dark);
+  box-shadow: none;
   box-shadow: none;
 }
 
 .mainfeat-section .outer-box .theme-btn-one:before {
-  background: #fff;
+  background: var(--color-text-white);
 }
 
 .mainfeat-section .outer-box .theme-btn-one:hover {
-  color: #241e2f !important;
+  color: var(--color-bg-hero-dark) !important;
 }
 
 .mainfeat-section .bg-layer {
@@ -297,7 +297,6 @@
 @media screen and (min-width: 1260px) {
   .mainfeat-section {
     margin: 8rem 0 6rem 0;
-    height: 85vh;
 
     .bg-layer {
       padding: 3.5rem;

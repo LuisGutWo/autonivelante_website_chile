@@ -35,7 +35,14 @@ export interface CartItem extends Product {
 }
 
 /**
- * State del carrito en Redux
+ * State del carrito en Redux (array simple)
+ * Usado por Redux Toolkit slice actual
+ */
+export type CartStateArray = CartItem[];
+
+/**
+ * State del carrito en Redux (estructura completa)
+ * Para futuras implementaciones avanzadas
  */
 export interface CartState {
     items: CartItem[];
@@ -318,3 +325,13 @@ export interface PaymentOptions {
     orderId: string;
     currency?: string;
 }
+
+// ============================================
+// LOGGING TYPES
+// ============================================
+
+/**
+ * Re-exportar tipos del logger para acceso centralizado
+ * Ver src/lib/logger.ts para documentación completa
+ */
+export { LogLevel, LogCategory } from '../lib/logger';

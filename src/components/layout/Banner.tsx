@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 import { arrowRightSvg } from "../../lib/icons";
@@ -16,6 +17,11 @@ export default function Banner(): React.ReactElement {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [videoLoaded, setVideoLoaded] = useState<boolean>(false);
   const [videoError, setVideoError] = useState<boolean>(false);
+  const [isClient, setIsClient] = useState<boolean>(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Precargar video después de que la página esté lista
   useEffect(() => {
@@ -31,18 +37,16 @@ export default function Banner(): React.ReactElement {
     <section className="banner-style alternat-2 p_relative">
       {/* Imagen fallback mientras se carga el video */}
       {!videoLoaded || videoError ? (
-        <img
+        <Image
           src={BANNER_POSTER}
           alt="Banner de películas autonivelante"
           className="banner-video"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
+          fill
+          priority
+          quality={90}
+          sizes="100vw"
           style={{
             objectFit: "cover",
-            width: "100%",
-            height: "100%",
-            display: "block",
           }}
         />
       ) : null}
@@ -81,7 +85,7 @@ export default function Banner(): React.ReactElement {
         <div className="container-item p_relative">
           <div className="content-box">
             <h1
-              className="wow fadeInLeft animated fs_40 fw_sbold mb-5 mt-5 text-light"
+              className={`fs_40 fw_sbold mb-5 mt-5 text-light ${isClient ? "wow fadeInLeft animated" : ""}`}
               data-wow-delay="00ms"
               data-wow-duration="1000ms"
             >
@@ -94,7 +98,7 @@ export default function Banner(): React.ReactElement {
               residenciales
             </h1>
             <div
-              className="btn-box wow fadeInLeft animated"
+              className={`btn-box ${isClient ? "wow fadeInLeft animated" : ""}`}
               data-wow-delay="00ms"
               data-wow-duration="1500ms"
             >

@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect, useRef } from "react";
 import { Image } from "react-bootstrap";
 import { ShoppingBag } from "lucide-react";
+import { useAppSelector } from "../../hooks/useRedux";
 import CartCount from "../common/CartCount";
 import Menu from "./Menu";
 
@@ -22,21 +23,89 @@ export default function MobileMenu({
   handleSidebar,
 }: MobileMenuProps): React.ReactElement {
   const [isActive, setIsActive] = useState<string | boolean>(false);
+  const cart = useAppSelector((state) => state.cart);
+  const hasItems = cart && cart.length > 0;
+  const menuRef = useRef<HTMLElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   const handleToggle = useCallback(
     (key: string) => setIsActive((prev) => (prev === key ? false : key)),
     [],
   );
 
+  // Keyboard navigation: ESC para cerrar el menú
+  useEffect(() => {
+    const handleEscKey = (event: KeyboardEvent): void => {
+      if (event.key === "Escape") {
+        handleMobileMenu();
+      }
+
+      if (event.key !== "Tab" || !menuRef.current) {
+        return;
+      }
+
+      const focusableElements = menuRef.current.querySelectorAll<HTMLElement>(
+        'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])',
+      );
+
+      if (focusableElements.length === 0) {
+        return;
+      }
+
+      const firstElement = focusableElements[0];
+      const lastElement = focusableElements[focusableElements.length - 1];
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    };
+
+    // Solo agregar el listener cuando el menú está visible
+    document.addEventListener("keydown", handleEscKey);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscKey);
+    };
+  }, [handleMobileMenu]);
+
+  useEffect(() => {
+    if (!isSidebar) {
+      return;
+    }
+
+    closeButtonRef.current?.focus();
+  }, [isSidebar]);
+
   return (
     <>
-      <div className="mobile-menu">
-        <div className="menu-backdrop" onClick={handleMobileMenu} />
-        <div className="close-btn" onClick={handleMobileMenu}>
-          <span className="far fa-times" />
-        </div>
+      <div className="mobile-menu" id="mobile-menu">
+        <button
+          className="menu-backdrop"
+          onClick={handleMobileMenu}
+          aria-label="Cerrar menú de navegación"
+          type="button"
+        />
+        <button
+          className="close-btn"
+          onClick={handleMobileMenu}
+          aria-label="Cerrar menú"
+          type="button"
+          ref={closeButtonRef}
+        >
+          <span className="far fa-times" aria-hidden="true" />
+        </button>
 
-        <nav className="menu-box">
+        <nav
+          className="menu-box"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menú de navegación móvil"
+          ref={menuRef}
+        >
           <div className="nav-logo">
             <Link href="/" prefetch={false}>
               <Image
@@ -56,13 +125,20 @@ export default function MobileMenu({
 
           <div>
             <div className="mb-4 text-center">
-              <Link href="/cart" onClick={handleMobileMenu} prefetch={false}>
+              <Link
+                href="/cart"
+                onClick={handleMobileMenu}
+                prefetch={false}
+                aria-label={hasItems ? `Ver carrito con ${cart.length} producto${cart.length > 1 ? 's' : ''}` : "Ver carrito"}
+              >
                 <ShoppingBag color="white" size={30} className="cart-icon" />
-                <div className="count-products-mobile">
-                  <span id="contador-productos-mobile">
-                    <CartCount />
-                  </span>
-                </div>
+                {hasItems && (
+                  <div className="count-products-mobile">
+                    <span id="contador-productos-mobile">
+                      <CartCount />
+                    </span>
+                  </div>
+                )}
               </Link>
             </div>
           </div>
@@ -80,13 +156,23 @@ export default function MobileMenu({
           <div className="social-links">
             <ul className="clearfix">
               <li>
-                <Link href="https://web.facebook.com/profile.php?id=100088723373843">
-                  <span className="fab fa-facebook-square" />
+                <Link
+                  href="https://web.facebook.com/profile.php?id=100088723373843"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visitar página de Facebook"
+                >
+                  <span className="fab fa-facebook-square" aria-hidden="true" />
                 </Link>
               </li>
               <li>
-                <Link href="https://www.instagram.com/autonivelante_cl/">
-                  <span className="fab fa-instagram" />
+                <Link
+                  href="https://www.instagram.com/autonivelante_cl/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Visitar perfil de Instagram"
+                >
+                  <span className="fab fa-instagram" aria-hidden="true" />
                 </Link>
               </li>
             </ul>
@@ -94,10 +180,12 @@ export default function MobileMenu({
         </nav>
       </div>
 
-      <div
+      <button
         className="nav-overlay"
         style={{ display: isSidebar ? "block" : "none" }}
         onClick={handleSidebar}
+        aria-label="Cerrar menú lateral"
+        type="button"
       />
     </>
   );

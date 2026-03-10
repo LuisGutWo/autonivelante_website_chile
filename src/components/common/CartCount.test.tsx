@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach } from "vitest";
+import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
@@ -6,29 +6,50 @@ import cartReducer from "../../../redux/slices/cartSlice";
 import CartCount from "./CartCount";
 
 describe("CartCount Component", () => {
-  let store: any;
-
-  beforeEach(() => {
-    store = configureStore({
+  it("does not render when cart is empty", () => {
+    const store = configureStore({
       reducer: {
         cart: cartReducer,
       },
+      preloadedState: {
+        cart: [],
+      },
     });
-  });
 
-  it("should render without crashing with empty cart", () => {
     render(
       <Provider store={store}>
         <CartCount />
       </Provider>
     );
 
-    // Component should render a span with initial quantity
-    const span = screen.getByText(/^\d+$/);
-    expect(span).toBeInTheDocument();
+    expect(screen.queryByText(/^\d+$/)).not.toBeInTheDocument();
   });
 
-  it("should render inside Redux Provider", () => {
+  it("renders total quantity when cart has items", () => {
+    const store = configureStore({
+      reducer: {
+        cart: cartReducer,
+      },
+      preloadedState: {
+        cart: [
+          {
+            id: "prod-1",
+            title: "Producto Test",
+            price: 1000,
+            image: "/test.webp",
+            qty: 2,
+          },
+          {
+            id: "prod-2",
+            title: "Producto Test 2",
+            price: 500,
+            image: "/test2.webp",
+            qty: 1,
+          },
+        ],
+      },
+    });
+
     const { container } = render(
       <Provider store={store}>
         <CartCount />
@@ -36,5 +57,6 @@ describe("CartCount Component", () => {
     );
 
     expect(container.querySelector("span")).toBeInTheDocument();
+    expect(screen.getByText("3")).toBeInTheDocument();
   });
 });

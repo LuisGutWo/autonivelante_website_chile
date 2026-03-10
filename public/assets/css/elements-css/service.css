@@ -11,10 +11,10 @@
   margin: 0;
   height: 100%;
 
-  color: #ffffff;
-  background-color: #015c93;
+  color: var(--color-text-white);
+  background-color: var(--color-primary);
   box-shadow: 0 4px 21px -12px rgba(0, 0, 0, 0.66);
-  border-radius: 5px;
+  border-radius: var(--border-radius-lg);
 
   &.light {
     background-color: #e1e5ea;
@@ -30,32 +30,31 @@
 
   h1,
   .h1 {
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    line-height: 1.2;
+    margin-bottom: var(--spacing-2);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-tight);
   }
 
   .small {
     font-size: 80%;
   }
-  
+
   /*Service image carousel */
   .swiper {
     width: 100%;
     height: 100%;
   }
-  
+
   .swiper-slide {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 18px;
+    border-radius: var(--border-radius-2xl);
   }
-  
 
   .postcard__title {
-    font-size: 1.75rem;
-    padding: 1rem;
+    font-size: var(--font-size-2xl);
+    padding: var(--spacing-4);
   }
 
   .postcard__img {
@@ -74,14 +73,14 @@
   .postcard__bar {
     width: 3.125rem;
     height: 1.25rem;
-    margin: 0.6rem 0 1rem 1rem;
-    border-radius: 2px;
+    margin: 0.6rem 0 var(--spacing-4) var(--spacing-4);
+    border-radius: var(--border-radius-md);
     background-color: #f3f3f3;
-    transition: width 0.2s ease;
+    transition: width var(--transition-fast) ease;
   }
 
   .postcard__text {
-    padding: 1rem;
+    padding: var(--spacing-4);
     text-align: left;
     max-height: 100%;
     position: relative;
@@ -95,7 +94,7 @@
     font-size: 0.6rem;
     text-overflow: ellipsis;
     text-align: justify;
-    padding: 1rem;
+    padding: var(--spacing-4);
     height: 100%;
   }
 
@@ -115,11 +114,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: var(--spacing-8);
 
     .service-button {
       width: 20rem;
-      height: 3rem;
+      height: var(--spacing-12);
     }
   }
 
@@ -127,20 +126,20 @@
     display: flex;
     flex-flow: row wrap;
     font-size: 14px;
-    margin: 20px 0 0 0;
+    margin: var(--spacing-5) 0 0 0;
     padding: 0;
     justify-content: center;
 
     .tag__item {
       display: inline-block;
       background: rgba(83, 83, 83, 0.4);
-      border-radius: 3px;
+      border-radius: var(--border-radius-sm);
       padding: 2.5px 10px;
       margin: 0 5px 5px 0;
       cursor: default;
       -webkit-user-select: none;
       user-select: none;
-      transition: background-color 0.3s;
+      transition: background-color var(--transition-base);
 
       &:hover {
         background: rgba(83, 83, 83, 0.8);
