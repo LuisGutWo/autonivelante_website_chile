@@ -67,7 +67,7 @@
   border-radius: var(--border-radius-lg);
 
   .postcard__img {
-    background-color: #110f16;
+    background-color: var(--color-bg-dark-accent);
     height: 25rem;
     width: 100%;
     object-fit: cover;
@@ -177,7 +177,7 @@
   }
 
   &:focus-visible {
-    outline: var(--focus-ring-width) solid #003a21;
+    outline: var(--focus-ring-width) solid var(--color-primary-darkest);
     outline-offset: var(--focus-ring-offset);
   }
 
@@ -264,7 +264,7 @@
 }
 
 .btn-wsp-link:focus-visible {
-  outline: var(--focus-ring-width) solid #0a2f1d;
+  outline: var(--focus-ring-width) solid var(--color-primary-darker);
   outline-offset: var(--focus-ring-offset);
 }
 
@@ -272,7 +272,7 @@
   background: linear-gradient(
     130deg,
     var(--color-contact-whatsapp) 0%,
-    #1ea854 100%
+    var(--color-success) 100%
   );
 }
 
@@ -280,7 +280,7 @@
   background: linear-gradient(
     130deg,
     var(--color-contact-phone) 0%,
-    #0369a1 100%
+    var(--color-primary) 100%
   );
 }
 
@@ -288,7 +288,7 @@
   background: linear-gradient(
     130deg,
     var(--color-contact-email) 0%,
-    #4338ca 100%
+    var(--color-primary-darker) 100%
   );
 }
 

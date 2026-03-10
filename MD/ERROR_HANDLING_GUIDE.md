@@ -5,8 +5,8 @@
 Implementación completa de **manejo de errores en producción** con los siguientes componentes:
 
 ✅ **ErrorBoundary** - Captura errores de componentes React  
-✅ **httpClient** - Cliente HTTP con retry automático (exponencial backoff)  
-✅ **APIError** - Componente UI para mostrar errores al usuario  
+✅ **httpClient** - Cliente HTTP con reintentos automáticos (retroceso exponencial)  
+✅ **APIError** - Componente de interfaz para mostrar errores al usuario  
 ✅ **Rutas de error** - Páginas de error para Server Components (error.jsx)  
 ✅ **Registro estructurado** - Logs estructurados con emojis para fácil identificación  
 
@@ -16,12 +16,12 @@ Implementación completa de **manejo de errores en producción** con los siguien
 
 ```text
 ┌─────────────────────────────────────────────────────────┐
-│  Global Error Boundary (app/layout.jsx)                 │
+│  Límite de error global (app/layout.jsx)                │
 │  └─ Captura todos los errores no manejados              │
 └────────────────────┬────────────────────────────────────┘
                      │
 ┌────────────────────┴────────────────────────────────────┐
-│  Layout Component ErrorBoundary                         │
+│  ErrorBoundary del componente Layout                    │
 │  └─ Maneja errores específicos de contenido             │
 └────────────────────┬────────────────────────────────────┘
                      │
@@ -32,8 +32,8 @@ Implementación completa de **manejo de errores en producción** con los siguien
    (Page.jsx)                (usa ErrorBoundary)
         │                           │
         v                           v
-   error.jsx Routes          Component-level
-   (Fallback UI)             error handling
+  Rutas error.jsx           Nivel de componente
+  (Interfaz de respaldo)    manejo de errores
 ```
 
 ---
@@ -47,8 +47,8 @@ Implementación completa de **manejo de errores en producción** con los siguien
 **Características**:
 
 - Componente de clase con `getDerivedStateFromError`
-- `componentDidCatch` para logging
-- Botón "Reintentar" para resetear el estado
+- `componentDidCatch` para registro
+- Botón "Reintentar" para reiniciar el estado
 - Detalles técnicos en modo desarrollo
 - Estilos responsivos con Bootstrap
 

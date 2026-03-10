@@ -1,0 +1,48 @@
+.overlay {
+  --loader-delay: 120ms;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background: rgba(var(--color-primary-rgb), 0.08);
+  -webkit-backdrop-filter: blur(1px);
+  backdrop-filter: blur(1px);
+  opacity: 0;
+  visibility: hidden;
+  animation: reveal 0s linear var(--loader-delay) forwards;
+}
+
+.spinner {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 0.18rem solid rgba(var(--color-primary-rgb), 0.22);
+  border-top-color: var(--color-primary);
+  animation: spin 0.65s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    --loader-delay: 180ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+}

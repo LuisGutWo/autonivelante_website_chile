@@ -1,11 +1,16 @@
-export default function Preloader(): React.ReactElement {
+import type { ReactElement } from "react";
+import styles from "./Preloader.module.css";
+
+export default function Preloader(): ReactElement {
   return (
-    <div>
-      <div className="loader-wrap">
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Cargando...</span>
-        </div>
-      </div>
+    <div
+      className={styles.overlay}
+      role="status"
+      aria-live="polite"
+      aria-label="Cargando contenido"
+    >
+      <div className={styles.spinner} aria-hidden="true" />
+      <span className="visually-hidden">Cargando contenido</span>
     </div>
   );
 }

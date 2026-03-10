@@ -25,7 +25,10 @@ export default function Cart() {
             { name: "Carrito", href: "/cart" },
           ]}
         />
-        <h2 className="py-2 mt-5">Tu Carrito</h2>
+        <h2 className="py-2 mt-5">Tu carrito</h2>
+        <p className="mb-3 text-muted">
+          Revisa tu selección, ajusta cantidades y continúa a un pago seguro.
+        </p>
         <div className="mainfeat__bar"></div>
         <section className="cart-section p_relative">
           <div className="auto-container">
@@ -35,11 +38,11 @@ export default function Cart() {
                   <Table className="cart-table">
                     <thead className="cart-header">
                       <tr>
-                        <th>&nbsp;</th>
-                        <th className="prod-column">Producto</th>
-                        <th>&nbsp;</th>
-                        <th>&nbsp;</th>
-                        <th className="price">Precio</th>
+                        <th aria-label="Acciones">&nbsp;</th>
+                        <th className="prod-column" colSpan={4}>
+                          Producto
+                        </th>
+                        <th className="price">Total</th>
                         <th className="quantity">Cantidad</th>
                       </tr>
                     </thead>
@@ -56,12 +59,19 @@ export default function Cart() {
                 </div>
               </div>
               <div className="othre-content">
-                <div className="ms-auto pe-4">
-                  <Link href="/cart">
+                <div className="d-flex flex-wrap gap-3 ms-auto pe-4">
+                  <Link href="/products">
                     <Button type="button" className="theme-btn-two text-light">
-                      Actualizar Carrito
+                      Continuar comprando
                     </Button>
                   </Link>
+                  {cartHasItems ? (
+                    <Link href="/checkout">
+                      <Button type="button" className="theme-btn-one text-light">
+                        Proceder al pago
+                      </Button>
+                    </Link>
+                  ) : null}
                 </div>
               </div>
               <div className="cart-total">
@@ -72,24 +82,30 @@ export default function Cart() {
                         className="fs_20 b_radius_5 fw_medium lh_50 d-flex justify-content-start ps-4 align-items-center text-dark"
                         style={{ backgroundColor: "#015c9320" }}
                       >
-                        Detalle del Carrito
+                        Resumen de compra
                       </h3>
                       <ul className="list clearfix mb_30">
                         <li>
-                          Total items:
+                          Cantidad de productos:
                           <span>
                             <CartCount />
                           </span>
                         </li>
                         <li>
-                          Subtotal:<span>{formatPrice(subTotal)}</span>
+                          Subtotal de productos:<span>{formatPrice(subTotal)}</span>
                         </li>
                         <li>
-                          Total:<span>{formatPrice(subTotal)}</span>
+                          Total estimado:<span>{formatPrice(subTotal)}</span>
                         </li>
                       </ul>
-                      <Link href="/checkout" className="theme-btn-one">
-                        Ir al Checkout
+                      <p className="px-4 pb-3 mb-0 text-muted">
+                        El costo de despacho se calcula en el checkout.
+                      </p>
+                      <Link
+                        href={cartHasItems ? "/checkout" : "/products"}
+                        className="theme-btn-one"
+                      >
+                        {cartHasItems ? "Continuar al checkout" : "Explorar productos"}
                       </Link>
                     </div>
                   </div>

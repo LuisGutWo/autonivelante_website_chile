@@ -59,6 +59,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@eslint/js": "^9.39.4",
+    "@fullhuman/postcss-purgecss": "^8.0.0",
     "@storybook/addon-links": "^10.2.15",
     "@storybook/nextjs": "^10.2.15",
     "@testing-library/jest-dom": "^6.9.1",
@@ -73,7 +74,9 @@
     "eslint-config-next": "16.1.6",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-promise": "^7.2.1",
+    "fast-glob": "^3.3.3",
     "happy-dom": "^20.8.3",
+    "purgecss": "^8.0.0",
     "storybook": "^10.2.15",
     "typescript": "^5.9.3",
     "vitest": "^4.0.18",

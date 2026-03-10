@@ -91,8 +91,8 @@
 }
 
 .checkout-section .billing-form .form-group .nice-select:after {
-  border-bottom: 2px solid #c4c4c4;
-  border-right: 2px solid #c4c4c4;
+  border-bottom: 2px solid var(--color-border-medium);
+  border-right: 2px solid var(--color-border-medium);
   margin-top: -4px;
   width: 8px;
   height: 8px;
@@ -116,7 +116,7 @@
   .select-box
   .ui-selectmenu-button
   span.ui-icon:before {
-  color: #848484;
+  color: var(--color-text-secondary);
 }
 
 .checkout-section .billing-form .create-acc {
@@ -131,7 +131,7 @@
   .custom-controls-stacked
   .description {
   font-size: var(--font-size-base);
-  color: #222;
+  color: var(--color-text-primary);
   cursor: pointer;
 }
 
@@ -203,7 +203,7 @@
   top: 0px;
   width: 90px;
   height: 90px;
-  background: #f1f1f1;
+  background: var(--color-bg-light-primary);
   border-radius: 10px;
 }
 
@@ -216,7 +216,7 @@
   position: relative;
   font-size: 18px;
   line-height: 28px;
-  color: #222;
+  color: var(--color-text-primary);
   float: left;
   font-weight: 500;
 }
@@ -227,7 +227,7 @@
   float: right;
   font-size: 18px;
   line-height: 28px;
-  color: #222;
+  color: var(--color-text-primary);
   font-weight: 500;
 }
 
@@ -248,7 +248,7 @@
   font-size: 18px;
   line-height: 28px;
   font-weight: 500;
-  color: #222;
+  color: var(--color-text-primary);
   float: right;
 }
 
@@ -279,7 +279,7 @@
 .checkout-section .payment-info .payment-inner {
   position: relative;
   display: block;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--color-border-lighter);
   padding: 28px 30px 40px 30px;
   border-radius: 20px;
 }
@@ -300,7 +300,7 @@
   line-height: 24px;
   font-family: var(--jost);
   font-weight: 500;
-  color: #222;
+  color: var(--color-text-primary);
   cursor: pointer;
 }
 
@@ -312,7 +312,7 @@
   a {
   position: relative;
   display: inline-block;
-  color: #222;
+  color: var(--color-text-primary);
   z-index: 1;
   margin-left: 25px;
 }
@@ -344,8 +344,8 @@
   left: 0px;
   width: 16px;
   height: 16px;
-  border: 1px solid #e5e5e5;
-  background: #fff;
+  border: 1px solid var(--color-border-lighter);
+  background: var(--color-bg-primary);
   cursor: pointer;
   border-radius: 3px;
 }
@@ -354,8 +354,8 @@
   .custom-control.material-checkbox
   .material-control-input:checked
   ~ .material-control-indicator {
-  border-color: #de2c2c;
-  background: #de2c2c;
+  border-color: var(--color-danger);
+  background: var(--color-danger);
 }
 
 .checkout-section
@@ -365,7 +365,7 @@
   content: "\e92a";
   font-family: "icomoon";
   font-size: 8px;
-  color: #fff;
+  color: var(--color-text-white);
   width: 16px;
   height: 16px;
   line-height: 16px;
@@ -392,7 +392,7 @@
 }
 
 .checkout-section .custom-control.material-checkbox {
-  --color: #ebebeb;
+  --color: var(--color-gray-200);
   padding: 0px;
   margin: 0px;
   margin-bottom: 0px !important;

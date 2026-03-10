@@ -35,13 +35,19 @@ export default function ProductsList(): React.ReactElement {
   if (error) {
     return (
       <Container fluid>
-        <div className="alert alert-danger text-center" role="alert">
-          <h4 className="alert-heading">Error al cargar productos</h4>
-          <p>{error.message}</p>
+        <div className="alert alert-danger text-center" role="alert" style={{ maxWidth: '600px', margin: '0 auto' }}>
+          <h4 className="alert-heading mb-3">No pudimos cargar los productos</h4>
+          <p className="mb-3">{error.message}</p>
           <hr />
-          <p className="mb-0">
-            Por favor, intenta recargar la página o contacta con soporte.
+          <p className="mb-3">
+            Verifica tu conexión a internet e intenta recargar la página.
           </p>
+          <button 
+            className="btn theme-btn-one" 
+            onClick={() => window.location.reload()}
+          >
+            Recargar página
+          </button>
         </div>
       </Container>
     );
@@ -67,9 +73,14 @@ export default function ProductsList(): React.ReactElement {
   if (products.length === 0) {
     return (
       <Container fluid>
-        <div className="text-center py-5">
-          <h3 className="text-muted">No se encontraron productos</h3>
-          <p>Por favor, verifica tu base de datos o vuelve más tarde.</p>
+        <div className="text-center py-5" style={{ maxWidth: '600px', margin: '0 auto' }}>
+          <h3 className="mb-3" style={{ color: '#6c757d' }}>No hay productos disponibles</h3>
+          <p className="mb-4" style={{ fontSize: '1rem', color: '#6c757d' }}>
+            Estamos actualizando nuestro catálogo. Vuelve pronto para ver nuestras soluciones.
+          </p>
+          <a href="/contact-page" className="btn theme-btn-one">
+            Contactar con ventas
+          </a>
         </div>
       </Container>
     );
@@ -78,9 +89,16 @@ export default function ProductsList(): React.ReactElement {
   // Success - Render products
   return (
     <Container fluid>
+      {/* Product count indicator */}
+      {/* <div className="text-center mb-4">
+        <p className="mb-0" style={{ fontSize: '0.95rem', color: '#6c757d', fontWeight: 500 }}>
+          {products.length} {products.length === 1 ? 'producto disponible' : 'productos disponibles'}
+        </p>
+      </div> */}
+
       <div className="products__card-container productcard__text">
         <div className="outer-container d-flex flex-row flex-wrap justify-content-center gap-4 align-items-center">
-          {products.map((product) => {
+          {products.map((product, index) => {
             if (!product) {
               logger.warn(
                 "ProductsList: A product is null or undefined",
@@ -90,7 +108,7 @@ export default function ProductsList(): React.ReactElement {
               return null;
             }
 
-            return <MainCard key={product.id} product={product} />;
+            return <MainCard key={product.id} product={product} index={index} />;
           })}
         </div>
       </div>

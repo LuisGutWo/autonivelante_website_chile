@@ -17,11 +17,11 @@
   border-radius: var(--border-radius-lg);
 
   &.light {
-    background-color: #e1e5ea;
+    background-color: var(--color-gray-200);
   }
 
   .t-dark {
-    color: #18151f;
+    color: var(--color-bg-dark-accent);
   }
 
   a {
@@ -58,7 +58,7 @@
   }
 
   .postcard__img {
-    background-color: #110f16;
+    background-color: var(--color-bg-dark-accent);
     height: 30rem;
     width: 100%;
     object-fit: cover;
@@ -75,7 +75,7 @@
     height: 1.25rem;
     margin: 0.6rem 0 var(--spacing-4) var(--spacing-4);
     border-radius: var(--border-radius-md);
-    background-color: #f3f3f3;
+    background-color: var(--color-bg-tertiary);
     transition: width var(--transition-fast) ease;
   }
 
@@ -154,7 +154,11 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: linear-gradient(-70deg, #4242429a, transparent 50%);
+    background-image: linear-gradient(
+      -70deg,
+      rgba(66, 66, 66, 0.6),
+      transparent 50%
+    );
     opacity: 1;
     border-radius: 10px;
   }
@@ -220,7 +224,7 @@
       content: "";
       position: absolute;
       display: block;
-      background: #18151f;
+      background: var(--color-bg-dark-accent);
       top: -20%;
       height: 130%;
       width: 55px;
@@ -262,12 +266,12 @@
 
   .postcard.dark {
     .postcard__text:before {
-      background: #18151f;
+      background: var(--color-bg-dark-accent);
     }
   }
   .postcard.light {
     .postcard__text:before {
-      background: #e1e5ea;
+      background: var(--color-gray-200);
     }
   }
 }

@@ -14,10 +14,10 @@ Se ha implementado un sistema de logging centralizado y profesional que reemplaz
 
 - ✅ **Control por Entorno**: Logs verbosos en desarrollo, mínimos en producción
 - ✅ **Categorización**: Logs organizados por módulo (API, Redux, UI, etc.)
-- ✅ **Type Safety**: IntelliSense completo con TypeScript
-- ✅ **Integración Futura**: Preparado para Sentry/LogRocket
-- ✅ **Performance Tracking**: Helpers para medir duración de operaciones
-- ✅ **Mejor Debugging**: Logs estructurados con metadata
+- ✅ **Seguridad de tipos**: IntelliSense completo con TypeScript
+- ✅ **Integración futura**: Preparado para Sentry/LogRocket
+- ✅ **Seguimiento de rendimiento**: Helpers para medir duración de operaciones
+- ✅ **Mejor depuración**: Logs estructurados con metadata
 
 ---
 
@@ -27,10 +27,10 @@ Se ha implementado un sistema de logging centralizado y profesional que reemplaz
 
 Sistema completo de logging con:
 
-- **LogLevel Enum**: DEBUG, INFO, WARN, ERROR, NONE
-- **LogCategory Enum**: API, Redux, UI, Firebase, Cart, etc.
-- **Logger Class**: Gestión centralizada de logs
-- **Helper Functions**: `measurePerformance()` para profiling
+- **Enum LogLevel**: DEBUG, INFO, WARN, ERROR, NONE
+- **Enum LogCategory**: API, Redux, UI, Firebase, Cart, etc.
+- **Clase Logger**: Gestión centralizada de logs
+- **Funciones auxiliares**: `measurePerformance()` para perfilado
 
 **Funcionalidades principales:**
 
@@ -67,7 +67,7 @@ logger.table(data, label);
 1. ✅ **firebase.tsx** - Validación de variables de entorno
 2. ✅ **helpers.ts** - Logging en formatPrice
 
-### Hooks y API (3 archivos)
+### Hooks y APIs (3 archivos)
 
 1. ✅ **useProducts.ts** - Errores de queries y mutaciones
 2. ✅ **api.ts** - Operaciones de Firebase/API
@@ -92,7 +92,7 @@ logger.table(data, label);
 
 ---
 
-## 🚀 Guía de Uso
+## 🚀 Guía de uso
 
 ### Uso Básico
 
@@ -122,7 +122,7 @@ logger.debug('Estado del carrito', { items: cart }, LogCategory.CART);
 ```typescript
 import { measurePerformance } from '@/src/lib/logger';
 
-// Medir performance de una operación
+// Medir rendimiento de una operación
 const products = await measurePerformance(
   'fetchProducts',
   () => fetchProducts(),
@@ -133,17 +133,17 @@ const products = await measurePerformance(
 // 🏗️ Autonivelante [DEBUG] [Performance] ⏱️ fetchProducts completado en 234.56ms
 ```
 
-### Logging de API Requests
+### Registro de solicitudes API
 
 ```typescript
-// Antes de hacer request
+// Antes de hacer la solicitud
 logger.apiRequest('GET', '/api/products');
 
-// Después de recibir respuesta
+// Después de recibir la respuesta
 logger.apiResponse(200, '/api/products', 250); // 250ms de duración
 ```
 
-### Grupos de Logs
+### Grupos de logs
 
 ```typescript
 logger.group('Validación de Checkout', () => {
@@ -278,7 +278,7 @@ private sendToExternalService(
 
 ---
 
-## 🔍 Debugging Tips
+## 🔍 Consejos de depuración
 
 ### Ver todos los logs (incluso en producción)
 
@@ -318,7 +318,7 @@ logger.disable();
 
 ## ✅ Pruebas recomendadas
 
-### Tests a Crear
+### Pruebas a crear
 
 ```typescript
 // tests/logger.test.ts
@@ -353,22 +353,22 @@ El sistema de logging profesional está **completamente implementado y funcionan
 
 - ✅ 12 archivos migrados sin errores
 - ✅ 0 errores de TypeScript
-- ✅ Type safety completo
+- ✅ Seguridad de tipos completa
 - ✅ Preparado para producción
 - ✅ Listo para Sentry cuando se necesite
 
 **Impacto**:
 
 - 🛠️ **Mantenibilidad**: Logs estructurados y categorizados
-- 🐛 **Debugging**: Más fácil identificar problemas
+- 🐛 **Depuración**: Más fácil identificar problemas
 - 📊 **Monitoreo**: Preparado para integración con herramientas profesionales
 - 🚀 **Performance**: No impacta negativamente (logs se desactivan en prod)
 
 ---
 
-**Estado**: ✅ **LOGGING SYSTEM IMPLEMENTADO Y FUNCIONANDO**
+**Estado**: ✅ **SISTEMA DE LOGGING IMPLEMENTADO Y FUNCIONANDO**
 
-**Siguiente paso sugerido**: Implementar testing con Jest/Vitest para el logger
+**Siguiente paso sugerido**: Implementar pruebas con Jest/Vitest para el logger
 
 ---
 

@@ -58,8 +58,7 @@
 
 .page-title .bread-crumb li:after {
   position: absolute;
-  font-family: "Font Awesome 5 Pro";
-  content: "\f105";
+  content: "›";
   font-size: 16px;
   font-weight: 500;
   right: -22px;

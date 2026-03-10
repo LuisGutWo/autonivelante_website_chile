@@ -46,6 +46,7 @@
   /* Semánticos */
   --color-success: #10b981;
   --color-error: #ef4444;
+  --color-danger: #de2c2c; /* Rojo intenso para acciones peligrosas */
   --color-warning: #f59e0b;
   --color-info: #3b82f6;
 
@@ -61,11 +62,13 @@
   --color-bg-secondary: #f9fafb;
   --color-bg-tertiary: #f3f4f6;
   --color-bg-dark: #1f2937;
+  --color-bg-dark-accent: #18151f; /* Fondo oscuro para secciones destacadas */
   --color-bg-overlay: rgba(0, 0, 0, 0.5);
   --color-bg-light-primary: #f1f1f1;
   --color-bg-hero-dark: #241e2f;
 
   /* Borders */
+  --color-border-lighter: #e5e5e5; /* Border gris muy claro */
   --color-border-light: #e5e7eb;
   --color-border-medium: #d1d5db;
   --color-border-dark: #9ca3af;

@@ -177,7 +177,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  background-color: #d7d9d9;
+  background-color: var(--color-gray-300);
 
   &:hover .mainfeat__bar {
     width: 100px;
@@ -260,7 +260,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    background-color: #d7d9d9;
+    background-color: var(--color-gray-300);
 
     &:hover .mainfeat__bar {
       width: 100px;
@@ -270,7 +270,7 @@
     content: "";
     position: absolute;
     display: block;
-    background: #18151f;
+    background: var(--color-bg-dark-accent);
     top: -20%;
     height: 130%;
     width: 55px;

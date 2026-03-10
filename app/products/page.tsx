@@ -44,6 +44,18 @@ export default async function MainProductsPage() {
       <StructuredData data={createBreadcrumbSchema(structuredBreadcrumbItems)} />
       <Container className="mt_150 px-4">
         <Breadcrumb items={breadcrumbItems} />
+        
+        {/* Header Section */}
+        <div className="text-center mb-5 mt-4">
+          <h1 className="mb-3" style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', fontWeight: 600, color: 'var(--theme-color-one, #1a1a2e)' }}>
+            Nuestro Catálogo de Productos
+          </h1>
+          <p className="mb-0" style={{ fontSize: 'clamp(0.95rem, 2vw, 1.125rem)', color: '#6c757d', maxWidth: '800px', margin: '0 auto', lineHeight: 1.6 }}>
+            Soluciones profesionales en autonivelantes, promotores de adherencia y acabados innovadores. 
+            Calidad certificada para tus proyectos de construcción.
+          </p>
+        </div>
+
         <div className="d-flex justify-content-center align-items-center">
           <section
             id="products"

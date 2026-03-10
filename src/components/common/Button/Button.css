@@ -148,8 +148,8 @@
 }
 
 .btn-danger:hover:not(:disabled) {
-  background-color: #dc2626;
-  border-color: #dc2626;
+  background-color: var(--color-danger);
+  border-color: var(--color-danger);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -162,8 +162,8 @@
 }
 
 .btn-success:hover:not(:disabled) {
-  background-color: #059669;
-  border-color: #059669;
+  background-color: var(--color-contact-whatsapp);
+  border-color: var(--color-contact-whatsapp);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }

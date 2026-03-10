@@ -7,7 +7,7 @@
 }
 
 .card-skeleton {
-  background: #fff;
+  background: var(--color-bg-primary);
   border-radius: 0.5rem;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -20,7 +20,12 @@
 .card-skeleton-image {
   width: 100%;
   height: 200px;
-  background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-tertiary) 0%,
+    var(--color-border-light) 50%,
+    var(--color-bg-tertiary) 100%
+  );
   background-size: 200% 100%;
   border-radius: 0.25rem;
   margin-bottom: 1rem;
@@ -57,7 +62,12 @@
 
 .card-skeleton-line {
   height: 0.75rem;
-  background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-tertiary) 0%,
+    var(--color-border-light) 50%,
+    var(--color-bg-tertiary) 100%
+  );
   background-size: 200% 100%;
   border-radius: 0.25rem;
   position: relative;
@@ -94,7 +104,12 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-tertiary) 0%,
+    var(--color-border-light) 50%,
+    var(--color-bg-tertiary) 100%
+  );
   background-size: 200% 100%;
   margin-bottom: 1rem;
   position: relative;
@@ -127,7 +142,12 @@
 .card-skeleton-button {
   flex: 1;
   height: 2.5rem;
-  background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-tertiary) 0%,
+    var(--color-border-light) 50%,
+    var(--color-bg-tertiary) 100%
+  );
   background-size: 200% 100%;
   border-radius: 0.25rem;
   position: relative;

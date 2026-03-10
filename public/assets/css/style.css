@@ -7,8 +7,6 @@
  ***/
 
 @import url("bootstrap.css");
-@import url("font-awesome-all.css");
-@import url("flaticon.css");
 @import url("owl.css");
 @import url("jquery.fancybox.min.css");
 @import url("animate.css");
@@ -887,7 +885,7 @@ img {
   font-weight: 400;
   border-radius: 0px;
   padding-right: 50px;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid var(--color-border-lighter);
 }
 
 .search-popup .search-form fieldset button[type="submit"] {
@@ -1182,8 +1180,7 @@ img {
 
 .main-menu .navigation > li.dropdown > a:before {
   position: absolute;
-  content: "\f107";
-  font-family: "Font Awesome 5 Pro";
+  content: "▾";
   top: 40px;
   right: 0px;
   font-weight: 500;
@@ -1270,8 +1267,7 @@ img {
 }
 
 .main-menu .navigation > li > ul > li.dropdown > a:after {
-  font-family: "Font Awesome 5 Pro";
-  content: "\f105";
+  content: "›";
   position: absolute;
   right: 20px;
   top: 10px;
@@ -1339,8 +1335,7 @@ img {
 }
 
 .main-menu .navigation > li > ul > li > ul > li.dropdown > a:after {
-  font-family: "Font Awesome 5 Pro";
-  content: "\f105";
+  content: "›";
   position: absolute;
   right: 20px;
   top: 12px;
@@ -1461,8 +1456,7 @@ img {
 
 .main-menu2 .navigation > li.dropdown > a:before {
   position: absolute;
-  content: "\f107";
-  font-family: "Font Awesome 5 Pro";
+  content: "▾";
   top: 40px;
   right: 0px;
   font-weight: 500;
@@ -1549,8 +1543,7 @@ img {
 }
 
 .main-menu2 .navigation > li > ul > li.dropdown > a:after {
-  font-family: "Font Awesome 5 Pro";
-  content: "\f105";
+  content: "›";
   position: absolute;
   right: 20px;
   top: 10px;
@@ -1618,8 +1611,7 @@ img {
 }
 
 .main-menu2 .navigation > li > ul > li > ul > li.dropdown > a:after {
-  font-family: "Font Awesome 5 Pro";
-  content: "\f105";
+  content: "›";
   position: absolute;
   right: 20px;
   top: 12px;
@@ -2237,7 +2229,7 @@ div#mCSB_1_container {
   display: block;
   width: 100%;
   height: 50px;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--color-border-lighter);
   border-radius: 5px;
   font-size: 16px;
   color: #6e6e6e;

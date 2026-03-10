@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useCallback, useState, useEffect, useRef } from "react";
 import { Image } from "react-bootstrap";
-import { ShoppingBag } from "lucide-react";
+import { ShoppingBag, X, Facebook, Instagram } from "lucide-react";
 import { useAppSelector } from "../../hooks/useRedux";
 import CartCount from "../common/CartCount";
 import Menu from "./Menu";
@@ -96,7 +96,7 @@ export default function MobileMenu({
           type="button"
           ref={closeButtonRef}
         >
-          <span className="far fa-times" aria-hidden="true" />
+          <X aria-hidden="true" size={20} />
         </button>
 
         <nav
@@ -162,7 +162,7 @@ export default function MobileMenu({
                   rel="noopener noreferrer"
                   aria-label="Visitar página de Facebook"
                 >
-                  <span className="fab fa-facebook-square" aria-hidden="true" />
+                  <Facebook aria-hidden="true" size={20} />
                 </Link>
               </li>
               <li>
@@ -172,7 +172,7 @@ export default function MobileMenu({
                   rel="noopener noreferrer"
                   aria-label="Visitar perfil de Instagram"
                 >
-                  <span className="fab fa-instagram" aria-hidden="true" />
+                  <Instagram aria-hidden="true" size={20} />
                 </Link>
               </li>
             </ul>

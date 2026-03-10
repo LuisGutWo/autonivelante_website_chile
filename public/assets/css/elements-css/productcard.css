@@ -1,13 +1,4 @@
-.maincard__section {
-  position: relative;
-  margin-top: 9rem;
-  height: 100%;
-}
-
-.Breadcrumb_breadcrumb__2WlKU {
-  font-size: 0.7rem;
-}
-
+/* Página de detalle de producto individual */
 .detailproducts__card-box {
   margin-top: var(--spacing-16);
   height: 100%;
@@ -32,7 +23,7 @@
   height: 100%;
   width: 100%;
   border: none;
-  padding: 1.5rem;
+  padding: var(--spacing-6);
 }
 .detailmain__img-box {
   display: flex;
@@ -60,23 +51,10 @@
   height: 100%;
 }
 
-.detailproductcard__title {
-  font-size: var(--font-size-2xl);
-}
-.detailproductcard-subtitle {
-  font-size: var(--font-size-base);
-}
-
-.list__item {
-  height: 20px;
-}
-.list__item p {
-  font-size: 0.5rem;
-}
 .detailcard-price {
   margin-top: var(--spacing-8);
-  font-size: 20px;
-  margin-bottom: 30px;
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-8);
 }
 
 .products__card-section {
@@ -110,7 +88,7 @@
   margin: var(--spacing-3) 0;
   border-radius: var(--border-radius-md);
   background-color: var(--color-primary);
-  transition: width var(--transition-base) ease;
+  transition: width var(--transition-base) var(--transition-timing-ease);
 }
 
 /* Carousel Styles */
@@ -137,10 +115,6 @@
       object-fit: contain;
     }
   }
-  .Breadcrumb_breadcrumb__2WlKU {
-    font-size: 100%;
-  }
-
   .detailproducts__card-maincontent {
     display: grid;
     gap: 0;
@@ -159,9 +133,6 @@
     }
   }
 
-  .list__item {
-    height: 18px;
-  }
   .detailcard-price {
     margin-top: 2rem;
     font-size: 25px;

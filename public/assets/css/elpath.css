@@ -5,7 +5,7 @@ el_01
 color
 */
 .color_blue {
-    color: #015c93;
+    color: var(--color-primary);
 }
 .color_purple {
     color: #6f42c1;
@@ -26,7 +26,7 @@ color
     color: #198754;
 }
 .color_gray {
-    color: #6c757d;
+    color: var(--color-gray-500);
 }
 .color_gray_dark {
     color: #343a40;
@@ -46,7 +46,7 @@ el_02
 background
 */
 .bg_blue {
-    background-color: #015c93;
+    background-color: var(--color-primary);
 }
 .bg_purple {
     background-color: #6f42c1;
@@ -67,7 +67,7 @@ background
     background-color: #198754;;
 }
 .bg_gray {
-    background-color: #6c757d;
+    background-color: var(--color-gray-500);
 }
 .bg_gray-dark {
     background-color: #343a40;
@@ -3988,7 +3988,7 @@ Btn
     padding: 14.5px 31px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    background-color: #015c93;
+    background-color: var(--color-primary);
     z-index: 1;
     vertical-align: middle;
 }
@@ -4034,7 +4034,7 @@ Btn
     content: "";
     top: 110%;
     left: 50%;
-    background: #015c93;
+    background: var(--color-primary);
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
     border-radius: 50%;
@@ -4077,7 +4077,7 @@ Image Hover
 .img_hover_2 {
     position: relative;
     overflow: hidden;
-    background-color: #015c93;
+    background-color: var(--color-primary);
 }
 .img_hover_2 img{
     width: 100%;
@@ -4186,7 +4186,7 @@ Image Hover
     top: 0px;
     opacity: 0.8;
     transition: all 500ms ease;
-    background-color: #015c93;
+    background-color: var(--color-primary);
 }
 .img_hover_4:hover:before{
     height: 100%;
@@ -4207,7 +4207,7 @@ Image Hover
     opacity: 0.9;
     z-index: 1;
     transition: all 500ms ease;
-    background-color: #015c93;
+    background-color: var(--color-primary);
 }  
 .img_hover_5:hover:before{
     transform: scale(1,1);
@@ -4223,7 +4223,7 @@ Image Hover
     position: relative;
     display: block;
     overflow: hidden;
-    background-color: #015c93;
+    background-color: var(--color-primary);
 }
 .img_hover_6 img{
     width: 100%;
@@ -4333,7 +4333,7 @@ Image Hover
     transform-style: preserve-3d;
     transform: scaleY(0);
     z-index: 1;
-    background-color: #015c93;
+    background-color: var(--color-primary);
 }
 .img_hover_9:hover:before{
     opacity: 0.80;
@@ -4356,7 +4356,7 @@ Image Hover
     transform-style: preserve-3d;
     transform: scaleY(0);
     z-index: 1;
-    background-color: #015c93;
+    background-color: var(--color-primary);
 }
 .img_hover_9:hover:after{
     opacity: 0.80;
@@ -4375,7 +4375,7 @@ Image Hover
     right: 0;
     bottom: 0;
     opacity: 0;
-    background: #015c93;
+    background: var(--color-primary);
     opacity: 1.0;
     transition: .5s;
     transform: perspective(400px) scaleY(0);

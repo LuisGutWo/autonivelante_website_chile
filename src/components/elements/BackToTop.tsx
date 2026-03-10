@@ -1,4 +1,5 @@
 import styles from "./BackToTop.module.css";
+import { ChevronUp } from "lucide-react";
 
 export const BackToTop: React.FC = () => {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -14,7 +15,7 @@ export const BackToTop: React.FC = () => {
       aria-label="Volver arriba"
       onClick={handleClick}
     >
-      <i className="fas fa-angle-up" aria-hidden="true"></i>
+      <ChevronUp aria-hidden="true" size={18} />
     </a>
   );
 };
