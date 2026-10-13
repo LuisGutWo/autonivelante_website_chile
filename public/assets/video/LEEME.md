@@ -4,8 +4,8 @@ El video de fondo del banner de portada. `Banner.tsx` busca estos dos nombres
 exactos:
 
 ```
-public/assets/video/banner-autonivelante.webm   445 KB
-public/assets/video/banner-autonivelante.mp4    519 KB
+public/assets/video/banner-autonivelante.webm   458 KB
+public/assets/video/banner-autonivelante.mp4    567 KB
 ```
 
 Si falta alguno, el banner muestra el póster
@@ -74,10 +74,34 @@ entero en cada visita sin caché.
 Si no baja de ahí, **recorta la duración antes que la calidad**: un bucle de
 6 segundos se ve igual de bien que uno de 20 y pesa un tercio.
 
-Ten presente que el corte a 10 s produce un salto al volver al principio del
-bucle, porque la toma es un paneo lento. No se nota mucho detrás del texto,
-pero si llega a molestar, la salida es elegir un tramo donde el encuadre
-inicial y el final se parezcan, con `-ss` para mover el punto de partida.
+### El bucle no tiene salto, y cómo se consiguió
+
+El corte a 10 s dejaba un salto al volver al principio: la toma es un paneo
+lento, así que el último cuadro y el primero mostraban encuadres distintos.
+Medido con PSNR entre ambos: **15,3 dB**, es decir dos imágenes muy
+diferentes.
+
+Se arregló con un solape: el final se funde con el principio, y el resultado
+dura 8,5 s en vez de 10.
+
+```bash
+ffmpeg -i entrada.mp4 -filter_complex   "[0:v]trim=start=1.5,setpts=PTS-STARTPTS[a];    [0:v]trim=end=1.5,setpts=PTS-STARTPTS[b];    [a][b]xfade=transition=fade:duration=1.5:offset=7[v]"   -map "[v]" -c:v libx264 -crf 28 -preset slow -an   -movflags +faststart -pix_fmt yuv420p salida.mp4
+```
+
+La idea: `a` es el clip desde el segundo 1,5 (dura 8,5 s) y `b` son sus
+primeros 1,5 s. `xfade` los funde empezando en el segundo 7 de `a`, así que
+el último cuadro de la salida es el primero de `b`, que a su vez es el primer
+cuadro de la salida. El bucle cierra sobre sí mismo.
+
+Con el solape el PSNR entre el primer y el último cuadro sube a **37,8 dB**:
+prácticamente la misma imagen. El salto desaparece.
+
+Para el WebM es el mismo `-filter_complex`, cambiando el códec por
+`libvpx-vp9 -crf 36 -b:v 0 -row-mt 1 -cpu-used 2`.
+
+La regla general: **la duración del solape sale de la velocidad del
+movimiento**. 1,5 s funciona con este paneo; con una toma más rápida habría
+que alargarlo, y con una cámara fija casi no haría falta.
 
 `Banner.tsx` ya evita el gasto donde no aporta: en teléfono y con
 `prefers-reduced-motion` no monta los `<source>`, así que el archivo ni se
