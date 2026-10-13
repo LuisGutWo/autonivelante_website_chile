@@ -117,7 +117,7 @@ export default function MobileMenu({
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.onerror = null;
-                  target.src = "/assets/images/logo_horizontal.png";
+                  target.src = "/assets/images/logo_horizontal.webp";
                 }}
               />
             </Link>

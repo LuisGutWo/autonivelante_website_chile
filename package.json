@@ -20,7 +20,8 @@
     "clean": "rm -rf .next out node_modules/.cache",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "analyze": "npm run build:analyze"
+    "analyze": "npm run build:analyze",
+    "imagenes": "node scripts/optimizar-imagenes.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

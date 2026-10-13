@@ -106,9 +106,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
-        {/* DNS prefetch for Firebase domains */}
-        <link rel="dns-prefetch" href="https://firebasestorage.googleapis.com" />
-        <link rel="dns-prefetch" href="https://autonivelante-new-products.firebasestorage.app" />
         
         {/* Structured Data */}
         <StructuredData data={createOrganizationSchema()} />

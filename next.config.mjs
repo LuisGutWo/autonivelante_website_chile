@@ -27,18 +27,30 @@ const nextConfig = {
 
   // Optimización de imágenes
   images: {
-    unoptimized: false, // Habilitado para optimización
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "firebasestorage.googleapis.com",
-      },
-    ],
-    formats: ["image/avif", "image/webp"], // Formatos modernos
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    qualities: [75, 85, 90], // Calidades de compresión permitidas
-    minimumCacheTTL: 60 * 60 * 24 * 365, // 1 año
+    /*
+     * Todas las imágenes de este sitio son estáticas y viven en public/:
+     * ninguna entra en ejecución. En ese escenario el optimizador de Vercel
+     * no hace nada que no se pueda hacer una vez, antes de desplegar, y cobra
+     * por cada combinación de imagen, ancho, calidad y formato que alguien
+     * llegue a pedir.
+     *
+     * La configuración anterior era la más cara de la cuenta: 16 anchos
+     * (hasta 3840 px, cuando la fuente más grande del proyecto mide 1728),
+     * por dos formatos —AVIF y WebP se cobran por separado— por tres
+     * calidades. Las 117 imágenes ya están en WebP y pesan 6,2 MB en total,
+     * así que no había nada que el optimizador pudiera mejorar de verdad.
+     *
+     * Con unoptimized, next/image sirve el archivo tal cual. Cero
+     * transformaciones.
+     *
+     * El trato: la responsabilidad pasa al repositorio. `npm run imagenes`
+     * se encarga de que una imagen nueva entre en WebP y al ancho en que se
+     * muestra. Córrelo antes de desplegar cuando agregues alguna.
+     *
+     * remotePatterns se va con el resto: apuntaba a Firebase Storage, que ya
+     * no se usa y hoy responde 402.
+     */
+    unoptimized: true,
   },
 
   // Headers para caché y seguridad
