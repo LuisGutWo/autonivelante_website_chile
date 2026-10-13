@@ -85,7 +85,12 @@ Se arregló con un solape: el final se funde con el principio, y el resultado
 dura 8,5 s en vez de 10.
 
 ```bash
-ffmpeg -i entrada.mp4 -filter_complex   "[0:v]trim=start=1.5,setpts=PTS-STARTPTS[a];    [0:v]trim=end=1.5,setpts=PTS-STARTPTS[b];    [a][b]xfade=transition=fade:duration=1.5:offset=7[v]"   -map "[v]" -c:v libx264 -crf 28 -preset slow -an   -movflags +faststart -pix_fmt yuv420p salida.mp4
+ffmpeg -i entrada.mp4 -filter_complex \
+  "[0:v]trim=start=1.5,setpts=PTS-STARTPTS[a]; \
+   [0:v]trim=end=1.5,setpts=PTS-STARTPTS[b]; \
+   [a][b]xfade=transition=fade:duration=1.5:offset=7[v]" \
+  -map "[v]" -c:v libx264 -crf 28 -preset slow -an \
+  -movflags +faststart -pix_fmt yuv420p salida.mp4
 ```
 
 La idea: `a` es el clip desde el segundo 1,5 (dura 8,5 s) y `b` son sus
