@@ -25,7 +25,7 @@ export default function Cart() {
             { name: "Carrito", href: "/cart" },
           ]}
         />
-        <h2 className="py-2 mt-5">Tu carrito</h2>
+        <h1 className="py-2 mt-5">Tu carrito</h1>
         <p className="mb-3 text-muted">
           Revisa tu selección, ajusta cantidades y continúa a un pago seguro.
         </p>

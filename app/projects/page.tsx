@@ -111,6 +111,13 @@ export default function MainProjectsPage() {
       <Container className="mt_150">
         <Breadcrumb items={[{ name: "Proyectos", href: "projects" }]} />
 
+        {/* La pagina no tenia titulo principal: solo migas y las fichas, que
+            son h2. Sin h1 un lector de pantalla no sabe donde esta parado, y
+            los buscadores pierden la señal mas fuerte del tema de la pagina. */}
+        <h1 className="postcard__title blue text-dark text-start fs-2 fw-bold mb-0">
+          Proyectos
+        </h1>
+
         <section className="py-5">
           {isLoading ? (
             <CardSkeleton variant="project" count={3} />

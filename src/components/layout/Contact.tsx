@@ -18,7 +18,19 @@ import {
   instagramSvg,
 } from "../../lib/icons";
 
-export default function Contact(): React.ReactElement {
+/*
+ * `titulo` existe porque este componente vive en dos sitios con jerarquías
+ * distintas: en la portada es una sección más —y ahí el h1 ya lo tiene el
+ * banner— mientras que en /contact-page es el título de la página. Una página
+ * con dos h1 confunde a un lector de pantalla tanto como una sin ninguno.
+ */
+interface ContactProps {
+  titulo?: "h1" | "h2";
+}
+
+export default function Contact({
+  titulo: Titulo = "h2",
+}: ContactProps = {}): React.ReactElement {
   const form = useRef<HTMLFormElement | null>(null);
   const cart = useAppSelector((state) => state.cart);
 
@@ -154,9 +166,9 @@ export default function Contact(): React.ReactElement {
                         <div className="col-lg-6 col-md-12 col-sm-12 content-column">
                           <div className="form__contact content-box mr_70">
                             <div className="sec-title mb_35 ms-1">
-                              <h2 className="postcard__title blue text-dark text-start fw-bold fs-2">
+                              <Titulo className="postcard__title blue text-dark text-start fw-bold fs-2">
                                 Contáctanos
-                              </h2>
+                              </Titulo>
                               <div className="contactcard__bar"></div>
                             </div>
                           </div>

@@ -1,4 +1,16 @@
+/* Los tokens de diseño van primero y a nivel global. Antes solo se cargaban
+   de refuerzo, cuando renderizaba alguno de los cuatro componentes de
+   src/components/common que importan variables.css por su cuenta — así que
+   en las páginas que no usan ninguno, --color-primary quedaba sin definir.
+   Eso invalidaba las 174 declaraciones de color.css que la usan, y el
+   navegador las resolvía al valor inicial: transparente. De ahí el botón de
+   enviar del formulario de contacto, que se veía blanco sobre blanco. */
+import "../src/styles/variables.css";
 import "../public/assets/css/style.css";
+/* Despues de style.css a proposito: esa hoja anula el outline en cuatro
+   sitios, empezando por `* { outline: none }`. A igual especificidad gana
+   la ultima, asi que el anillo de foco tiene que llegar detras. */
+import "../src/styles/foco.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";

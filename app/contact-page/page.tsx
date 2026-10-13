@@ -27,7 +27,7 @@ export default function ContactPage() {
       <StructuredData data={createLocalBusinessSchema()} />
       <StructuredData data={createBreadcrumbSchema(breadcrumbItems)} />
       <div>
-        <Contact />
+        <Contact titulo="h1" />
         <ContactGoogleMap />
       </div>
     </Layout>
