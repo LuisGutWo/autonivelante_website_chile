@@ -1,64 +1,84 @@
 # Video del hero
 
-Acá va el video de fondo del banner de portada. `Banner.tsx` lo busca con
-estos dos nombres exactos:
+El video de fondo del banner de portada. `Banner.tsx` busca estos dos nombres
+exactos:
 
 ```
-public/assets/video/banner-autonivelante.webm
-public/assets/video/banner-autonivelante.mp4
+public/assets/video/banner-autonivelante.webm   445 KB
+public/assets/video/banner-autonivelante.mp4    519 KB
 ```
 
-Mientras no estén, el banner muestra el póster
+Si falta alguno, el banner muestra el póster
 (`/assets/images/banner/autonivelante_banner_img.webp`) y se ve correcto: el
 póster es el degradado previsto, no un error.
 
 ## De dónde salía antes
 
 De Firebase Storage, en el bucket `login-huellitas.appspot.com`, con el
-nombre `Untitled (700 x 840 px) (520 x 642 px).webm`. Esa URL hoy responde
-**402 Payment Required**: la facturación de ese proyecto está cerrada. Era la
-causa de que el banner se quedara congelado en la imagen fija.
+nombre `Untitled (700 x 840 px) (520 x 642 px).webm`. Esa URL responde **402
+Payment Required**: la facturación de ese proyecto está cerrada. Era la causa
+de que el banner se quedara congelado en la imagen fija.
 
-## Los dos formatos
+## Qué se le hizo al original
 
-WebM lo reproducen Chrome, Firefox y Safari 16 en adelante. El MP4 está para
-los Safari anteriores, que si no se quedarían con el póster. El navegador usa
-el primer `<source>` que sabe leer, así que basta con poner los dos.
+El archivo que vino del respaldo medía **12,57 MB**: 17,9 s a 2174×952, con
+pista de audio y el índice al final. Medido en una visita de escritorio,
+costaba **9,51 MB en tres peticiones** y era el **91% del peso de la
+portada**.
 
-Si solo tienes el `.webm`, déjalo: el sitio funciona igual y Safari viejo ve
-el póster.
-
-## Cómo prepararlo
-
-El original estaba pensado para un recuadro de 520 × 642. Como fondo a sangre
-conviene algo más ancho, pero sin exagerar: es decoración detrás de un texto,
-nadie lo mira de cerca.
+Los comandos que lo dejaron como está hoy, con `ffmpeg`:
 
 ```bash
-# WebM (VP9) — el principal
-ffmpeg -i original.mov -c:v libvpx-vp9 -crf 38 -b:v 0 -vf "scale=1280:-2" \
-  -an -pix_fmt yuv420p banner-autonivelante.webm
+# WebM (VP9) — el que usan Chrome, Firefox y Safari 16+
+ffmpeg -t 10 -i original.mp4 \
+  -c:v libvpx-vp9 -crf 38 -b:v 0 -row-mt 1 -cpu-used 2 \
+  -vf "scale=1280:-2" -an -pix_fmt yuv420p \
+  banner-autonivelante.webm
 
-# MP4 (H.264) — respaldo para Safari viejo
-ffmpeg -i original.mov -c:v libx264 -crf 30 -preset slow -vf "scale=1280:-2" \
-  -an -movflags +faststart -pix_fmt yuv420p banner-autonivelante.mp4
+# MP4 (H.264) — respaldo para Safari anterior a la 16
+ffmpeg -t 10 -i original.mp4 \
+  -c:v libx264 -crf 30 -preset slow \
+  -vf "scale=1280:-2" -an -movflags +faststart -pix_fmt yuv420p \
+  banner-autonivelante.mp4
 ```
 
-`-an` quita el audio: el video va en bucle y silenciado, el audio sería peso
-puro. `-movflags +faststart` mueve el índice al principio del MP4 para que
-empiece a reproducirse sin descargarlo entero.
+Qué hace cada parte, porque no es obvio:
 
-## Vigila el peso
+- **`-t 10`** recorta a 10 segundos. Es lo que más pesa en el resultado: a
+  igual calidad, la mitad de la duración es la mitad del archivo.
+- **`scale=1280:-2`** baja de 2174 px a 1280. El banner se renderiza en una
+  caja de 1425×663, así que el original traía casi el doble de píxeles de los
+  que se ven. El `-2` deja el alto par, que es lo que exige H.264.
+- **`-an`** quita el audio. El video va `muted` y en bucle: el audio eran 253
+  kb/s que nadie iba a escuchar nunca.
+- **`-movflags +faststart`** mueve el índice (`moov`) al principio del MP4.
+  Sin eso el navegador no puede empezar a reproducir hasta encontrarlo al
+  final, y se veía en la red: pedía el archivo, saltaba al último byte, y
+  recién entonces descargaba. Tres peticiones en vez de una.
 
-Esto no pasa por el optimizador de imágenes, así que no gasta
-transformaciones — pero sí **ancho de banda**, y se descarga en cada visita
-sin caché. Un video de hero de 3 MB pesa más que todas las imágenes del sitio
-juntas (6,2 MB entre 106 archivos).
+Resultado medido en el navegador, visita de escritorio en frío:
 
-Apunta a **menos de 1,5 MB**. Si no baja de ahí, recorta la duración antes
-que la calidad: un bucle de 6 segundos se ve igual de bien que uno de 20 y
-pesa un tercio.
+| | antes | después |
+|---|---|---|
+| transferido | 9,51 MB | **0,43 MB** |
+| peticiones | 3 | **1** |
+| peso de la portada | 10,47 MB | **1,39 MB** |
+| el video era | 91% de la página | 31% |
+
+## Si lo vuelves a cambiar
+
+Apunta a **menos de 1 MB por archivo**. Esto no gasta transformaciones del
+optimizador de imágenes, pero sí ancho de banda de Vercel, y se descarga
+entero en cada visita sin caché.
+
+Si no baja de ahí, **recorta la duración antes que la calidad**: un bucle de
+6 segundos se ve igual de bien que uno de 20 y pesa un tercio.
+
+Ten presente que el corte a 10 s produce un salto al volver al principio del
+bucle, porque la toma es un paneo lento. No se nota mucho detrás del texto,
+pero si llega a molestar, la salida es elegir un tramo donde el encuadre
+inicial y el final se parezcan, con `-ss` para mover el punto de partida.
 
 `Banner.tsx` ya evita el gasto donde no aporta: en teléfono y con
-`prefers-reduced-motion` no pone los `<source>`, así que el archivo ni se
-pide y esas visitas se quedan con el póster.
+`prefers-reduced-motion` no monta los `<source>`, así que el archivo ni se
+pide. Verificado: a 390 px hay cero descargas de video.
